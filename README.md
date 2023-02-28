@@ -1,2 +1,6 @@
-# frontend-survival
-메가테라 프론트엔드 생존코스 Git Book
+---
+description: Git book을 적극 활용해보자
+---
+
+# Git book Guide
+
