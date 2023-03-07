@@ -4,5 +4,5 @@
 
 ## Megaptera Course
 
-- [GitHub과 연동하기](./integration/integration-with-github.md)
-  - [PR 날리기](./integration/pull-request.md)
+- [프론트엔드 개발 환경](./frontend-dev-env/README.md)
+  - [개발 환경](./integration/pull-request.md)
