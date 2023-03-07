@@ -74,21 +74,102 @@ node -v
 
 3. `.gitignore` 파일 생성
 
--
+   - .gitignore 파일은 필수
+   - 실행되는 모든 패키지가 저장되어있는 node_modules 폴더는 매우매우 무겁고 올릴 필요가 없다.
+   - .gitignore는 Git에게 '여기 써져있는 폴더나 파일은 신경쓰지 말아줘'라는 전달해주는 역할을 한다.
+   - .gitignore 파일을 쉽게 만들 수 있는 사이트(https://www.toptal.com/developers/gitignore/)
+
+4. 타입스크립트 설치
+
+   ```jsx
+   npm i -D typescript
+   ```
+
+   - -D가 붙는 이유는? 👉🏻 타입스크립트는 개발자가 사용하기 위한 도구이지, 배포할 때는 필요가 없기 때문이다.
+   - `--save-dev`를 줄여서 `-D`라고 쓸 수 있다. 이 옵션으로 설치된 패키지는 devDependecies에 들어간다.
+     ![](./images/2023-03-07-15-09-43.png)
+
+   ```jsx
+   npx tsc --init
+   ```
+
+   - tsc는 타입스크립트 컴파일러
+   - npm으로 설치를 하고나면 node_modules에 .bin 폴더에 실행 파일이 생겨있는걸 볼 수 있다.
+   - 실행시키려면? 👉🏻 `./node_modules/.bin/tsc` 로 실행 시킬 수 있다.
+     - 그럼 npx 명령어를 쓰는 이유는 뭘까?
+     - 첫 번째로 써야하는 코드의 길이가 줄어든다. `./node_modules/.bin/`를 모두 지우고 `npx tsc`만 입력했을 때 동일하게 동작한다.
+     - 두 번째 이유로는 로컬에 설치하지 않고도 프로그램을 실행시킬 수 있는 장점이 있다.
+   - 명령어를 실행시키고 나면 tsconfig.json 파일이 만들어진다.
+   - `tsconfig.json` 파일에서 한 가지 수정하기
+     - `"jsx": "react-jsx"`
+
+5. ESLint 설치
+
+   ```jsx
+   npm i -D eslint
+
+   // typescript와 마찬가지로 설정파일을 만들어줘야함
+   npx eslint --init
+   ```
+
+   - 설정을 모두 끝내면 .eslintrc.js 파일이 생성됨
+   - `.eslintrc.js` 설정 수정하기
+     - jest를 쓸거니까 `jest: true`미리 설정해놓기
+   - **.eslintignore 파일 잊지말고 만들기**
+
+6. 리액트 설치
+
+   ```jsx
+   npm i react react-dom
+
+   // 타입스크립트를 사용하기 위한 패키지 설치
+   // 타입스크립트와 동일하게 타입에 대한 부분은 배포될 때 필요한 것들이 아니기 때문 -D 옵션을 사용해 설치한다.
+   npm i -D @types/react @types/react-dom
+   ```
+
+7. 테스팅도구 설치
+
+   ```jsx
+   npm i -D jest @types/jest @swc/core @swc/jest \
+    jest-environment-jsdom \
+    @testing-library/react @testing-library/jest-dom
+   ```
+
+   - jest는 들어본 적이 있는데, SWC가 뭐지? 👉🏻 [SWC](#swc)
+   - jest가 기본적으로 타입스크립트와 SWC를 사용하지 않기 때문에 추가적으로 설정이 필요하다.
+     - jest.config.js 파일 생성
+     - 참고(https://github.com/ahastudio/CodingLife/blob/main/20220726/react/jest.config.js)
+
+8. Parcel 설치
+   - parcel을 사용해서 데브 서버를 띄울 수 있다.
+   - index.html을 하나 만들어서 텍스트를 입력한 후 `npm run start`를 하면? 👉🏻 `Could not find entry:`라는 오류 메세지를 보여준다.
+     - Node 같은 경우 실행할 때 package.json 이라는 파일에 main에 있는 파일을 entry point로 잡는다.
+     - 하지만 우리는 웹 서버를 띄울 것이기 때문에 `"source": "./index.html"`를 적어주어야 한다.
+
+<div style="margin: 10px 0; width:100%; border-top:1px solid rgb(0, 0, 0.2);"></div>
 
 ## ✅ Keyword
 
 ### Node.js
 
-- Node.js
-- NPM(Node Package Manager)
-  - package.json / package-lock.json
-  - node_modules
-  - npx
-- ES Modules vs CommonJS
+### NPM(Node Package Manager)
+
+#### package.json / pacakge-lock.json
+
+#### node_modules
+
+#### npx
+
+### ES Modules Vs. Common JS
 
 ## 🐋 Supplement
+
+### Deno
 
 ### fnm(Fast Node Manager) Vs. nvm(Node Version Manager)
 
 둘 다 노드 버전을 관리하는데 사용한다.
+
+### dependencies Vs. devDependecies
+
+### SWC
