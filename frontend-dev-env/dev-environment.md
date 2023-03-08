@@ -146,7 +146,7 @@ node -v
      - Node 같은 경우 실행할 때 package.json 이라는 파일에 main에 있는 파일을 entry point로 잡는다.
      - 하지만 우리는 웹 서버를 띄울 것이기 때문에 `"source": "./index.html"`를 적어주어야 한다.
 
-<div style="margin: 10px 0; width:100%; border-top:1px solid rgb(0, 0, 0.2);"></div>
+---
 
 ## ✅ Keyword
 
@@ -161,6 +161,8 @@ node -v
 #### npx
 
 ### ES Modules Vs. Common JS
+
+---
 
 ## 🐋 Supplement
 

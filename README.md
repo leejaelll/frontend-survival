@@ -18,7 +18,8 @@
 - Jest, MSW
 - CSS-in-JS
 - Design System
-<div style="margin: 10px 0; width:100%; border-top:1px solid rgb(0, 0, 0.2);"></div>
+
+---
 
 ### 🏃🏻 What Features Do We Implement
 
