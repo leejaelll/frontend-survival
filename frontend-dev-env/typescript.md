@@ -1,4 +1,4 @@
-## 📚 강의 정리
+# 📚 강의 정리
 
 ### TypeScript
 
@@ -52,8 +52,6 @@ human = {}; //  error TS2739: Type '{}' is missing the following properties from
 - `let human` 은 human이라는 식별자에만 타입을 지정해놓은 상태
 - 객체 안에 있는 프로퍼티의 타입을 지정하고 싶다면? 👉🏻 재사용해서 사용할 수 있도록 타입 자체를 정의할 수 있다.
 
-<br>
-
 **타입(type) 사용하는 방법**
 
 ```jsx
@@ -71,8 +69,6 @@ boy = {}; // error TS2739: Type '{}' is missing the following properties from ty
 
 boy = { name: '길동', age: 12 };
 ```
-
-<br>
 
 **interface 사용하는 방법**
 
@@ -113,6 +109,8 @@ category = 'food';
 
 - 이런 타입은 Unions에서 유용하게 쓰인다.
 
+<br>
+
 배열로 타입을 지정하고 싶다면?
 
 ```jsx
@@ -120,6 +118,8 @@ let numbers: number[];
 
 numbers = [1, 2, 3];
 ```
+
+<br>
 
 배열에 들어오는 요소의 타입이 [string, number] 형식이 되도록 만들고 싶다면 Tuple을 사용한다.
 
@@ -135,6 +135,8 @@ pair = ['hp', 256];
 pair = ['hp', '256']; //error TS2322: Type 'string' is not assignable to type 'number'.
 ```
 
+<br>
+
 ### 타입 추론 (Types by Inference)
 
 TypeScript는 JavaScript의 문법을 알고 있음 👉🏻 변수를 생성하면서 값을 할당하면 변수 타입을 그 값의 타입으로 지정한다.
@@ -147,6 +149,8 @@ let age = 10;
 // age에 string 타입의 값을 할당하면? 에러를 발생시킨다!
 age = 'Lee'; // error TS2322: Type 'string' is not assignable to type 'number'.
 ```
+
+<br>
 
 ### Union Type
 
