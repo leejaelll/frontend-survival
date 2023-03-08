@@ -4,7 +4,7 @@ Node.js를 기반으로 자바스크립트 환경 세팅하는 방법에 대해�
 Deno를 사용한다면 개발 환경 세팅이 간단하겠지만, 대부분 Node.js를 기반으로 하고 있기 때문에 기본적으로 Node.js를 알아야 한다.
 '본질의 중요성'이라는 관점에서 보면 리액트도 비슷한 것 같다. 리액트를 쉽고 편하게 사용하려면 자바스크립트를 깊게 이해하고 있어야 한다는 것.
 
-### JavaScript 개발 환경 (Node.js) 세팅
+## JavaScript 개발 환경 (Node.js) 세팅
 
 첫 번째로 해야할 일은 Node.js를 설치하고, 프로젝트를 진행할 수 있도록 Node.js 패키지를 만들어야 한다.
 프로젝트를 진행할 때마다 항상 같은 버전을 쓸 수 없는 상황이 생긴다.
@@ -20,6 +20,8 @@ eval "$(fnm env)"
 ```
 
 > iterm에서 작업을 진행했는데, `~/.zshrc`에 코드를 입력하고 난 후 프로그램을 종료했다가 다시 실행해야 해당 변수를 인식한다. **_(fnm env를 찾을 수 없다는 오류때문에 해결하기 위해서 공식문서에 있는 해결책도 써봣지만 아주 간단히 해결할 수 있는 문제였다..🥲)_**
+
+<br>
 
 LTS(Long Term Support) 버전을 설치하자.
 
@@ -37,7 +39,9 @@ fnm default $(fnm current)
 node -v
 ```
 
-### TypeScript + React + Jest + ESLint + Parcel 개발 환경 세팅
+<br>
+
+## TypeScript + React + Jest + ESLint + Parcel 개발 환경 세팅
 
 프로젝트에 필요한 환경들을 세팅해야할 때 어떤 순서로 진행하면 좋을까?
 
@@ -52,6 +56,8 @@ node -v
 7. 테스팅 도구(Jest) 설치
 8. Parcel 설치
 
+<br>
+
 하나씩 자세히 살펴보면 다음과 같다.
 
 1. 프로젝트 폴더 생성
@@ -65,6 +71,8 @@ node -v
    code .
    ```
 
+   <br>
+
 2. npm init -y
 
    - npm init 명령어는 Node.js 프로젝트를 시작할 때 사용하는 명령어
@@ -72,12 +80,16 @@ node -v
    - 이 정보를 입력하면 `package.json` 파일을 생성하고 내가 입력한 정보들이 이 곳에 저장된다.
    - `npm init -y` 명령어를 실행하면 정보를 입력하지 않아도 package.json이 생성된다. 이후 package.json에 정보를 수정할 수 있다.
 
+<br>
+
 3. `.gitignore` 파일 생성
 
    - .gitignore 파일은 필수
    - 실행되는 모든 패키지가 저장되어있는 node_modules 폴더는 매우매우 무겁고 올릴 필요가 없다.
    - .gitignore는 Git에게 '여기 써져있는 폴더나 파일은 신경쓰지 말아줘'라는 전달해주는 역할을 한다.
    - .gitignore 파일을 쉽게 만들 수 있는 사이트(https://www.toptal.com/developers/gitignore/)
+
+<br>
 
 4. 타입스크립트 설치
 
@@ -103,6 +115,8 @@ node -v
    - `tsconfig.json` 파일에서 한 가지 수정하기
      - `"jsx": "react-jsx"`
 
+<br>
+
 5. ESLint 설치
 
    ```jsx
@@ -117,6 +131,8 @@ node -v
      - jest를 쓸거니까 `jest: true`미리 설정해놓기
    - **.eslintignore 파일 잊지말고 만들기**
 
+<br>
+
 6. 리액트 설치
 
    ```jsx
@@ -126,6 +142,8 @@ node -v
    // 타입스크립트와 동일하게 타입에 대한 부분은 배포될 때 필요한 것들이 아니기 때문 -D 옵션을 사용해 설치한다.
    npm i -D @types/react @types/react-dom
    ```
+
+<br>
 
 7. 테스팅도구 설치
 
@@ -139,6 +157,8 @@ node -v
    - jest가 기본적으로 타입스크립트와 SWC를 사용하지 않기 때문에 추가적으로 설정이 필요하다.
      - jest.config.js 파일 생성
      - 참고(https://github.com/ahastudio/CodingLife/blob/main/20220726/react/jest.config.js)
+
+<br>
 
 8. Parcel 설치
    - parcel을 사용해서 데브 서버를 띄울 수 있다.

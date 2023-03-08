@@ -1,7 +1,5 @@
 ## 📚 강의 정리
 
-### TypeScript
-
 - JavaScript 타입이 정확한지 확인하는 도구
 - 간단히 [REPL](#REPL)을 쓰고 싶다면 ts-node를 실행하면 된다.
 
@@ -10,14 +8,13 @@
 - 자바스크립트를 브라우저가 아닌 환경에서 실행시키고 싶을 때 node를 설치한 것처럼 타입스크립트를 node에서 실행시킬 수 있다.
 - 하지만 타입스크립트로 작성된 .ts 파일은 단순히 node로만은 실행시킬 수 없다. node는 타입스크립트를 해석하지 못하기 때문이다. 👉🏻 이때 필요한게 `ts-node`
 - ./node_modules/.bin에는 ts-node가 없다. 그럼 npm install로 설치를 해야하나? 👉🏻 npx를 사용하면 된다!
-
   ```jsx
   npx ts-node
   ```
 
-  <br>
+<br>
 
-### 타입 지정
+## 타입 지정
 
 타입스크립트의 가장 기본 👉🏻 타입을 잡아주는 것!
 
@@ -52,6 +49,8 @@ human = {}; //  error TS2739: Type '{}' is missing the following properties from
 - `let human` 은 human이라는 식별자에만 타입을 지정해놓은 상태
 - 객체 안에 있는 프로퍼티의 타입을 지정하고 싶다면? 👉🏻 재사용해서 사용할 수 있도록 타입 자체를 정의할 수 있다.
 
+<br>
+
 **타입(type) 사용하는 방법**
 
 ```jsx
@@ -69,6 +68,8 @@ boy = {}; // error TS2739: Type '{}' is missing the following properties from ty
 
 boy = { name: '길동', age: 12 };
 ```
+
+<br>
 
 **interface 사용하는 방법**
 
@@ -99,6 +100,8 @@ function sub(x: number, y: number): string {
 }
 ```
 
+<br>
+
 타입을 정해진 값으로 지정할 수도 있다.
 
 ```jsx
@@ -109,8 +112,6 @@ category = 'food';
 
 - 이런 타입은 Unions에서 유용하게 쓰인다.
 
-<br>
-
 배열로 타입을 지정하고 싶다면?
 
 ```jsx
@@ -118,8 +119,6 @@ let numbers: number[];
 
 numbers = [1, 2, 3];
 ```
-
-<br>
 
 배열에 들어오는 요소의 타입이 [string, number] 형식이 되도록 만들고 싶다면 Tuple을 사용한다.
 
@@ -137,7 +136,7 @@ pair = ['hp', '256']; //error TS2322: Type 'string' is not assignable to type 'n
 
 <br>
 
-### 타입 추론 (Types by Inference)
+## 타입 추론 (Types by Inference)
 
 TypeScript는 JavaScript의 문법을 알고 있음 👉🏻 변수를 생성하면서 값을 할당하면 변수 타입을 그 값의 타입으로 지정한다.
 
@@ -152,7 +151,7 @@ age = 'Lee'; // error TS2322: Type 'string' is not assignable to type 'number'.
 
 <br>
 
-### Union Type
+## Union Type
 
 union은 결합을 의미하며 수학에서는 합집합을 의미한다.
 
@@ -174,18 +173,18 @@ flag = 3; // error TS2322: Type 'number' is not assignable to type 'bool'.
 
 1. 허용되는 `string` 또는 `number`의 리터럴집합을 설명할 때
 
-```jsx
-type WindowStates = 'open' | 'closed' | 'minimized';
-type LockStates = 'locked' | 'unlocked';
-type OddNumbersUnderTen = 1 | 3 | 5 | 7 | 9;
+   ```jsx
+   type WindowStates = 'open' | 'closed' | 'minimized';
+   type LockStates = 'locked' | 'unlocked';
+   type OddNumbersUnderTen = 1 | 3 | 5 | 7 | 9;
 
-// 매개변수를 제한할 때 자주 사용된다.
-type Category = 'food' | 'toy' | 'bag';
+   // 매개변수를 제한할 때 자주 사용된다.
+   type Category = 'food' | 'toy' | 'bag';
 
-function fetchProducts({ category }: { category: Category }) {
-  console.log(`Fetch ${category}`);
-}
-```
+   function fetchProducts({ category }: { category: Category }) {
+     console.log(`Fetch ${category}`);
+   }
+   ```
 
 타입을 두 개 중 하나 가질 수 있도록 만들어보자.
 
@@ -229,17 +228,17 @@ taget = undefined; // error TS2322: Type 'undefined' is not assignable to type '
 
 2. 매개변수가 오브젝트일 때도 활용할 수 있다.
 
-```jsx
-function greeting({ name, age }: { name: string, age?: number }): string {
-  return age ? `${name} (${age})` : name;
-}
-```
+   ```jsx
+   function greeting({ name, age }: { name: string, age?: number }): string {
+     return age ? `${name} (${age})` : name;
+   }
+   ```
 
-_⚠️ ts-node에서는 여러 줄로 썼을 때 해석할 수 없어서 에러가 발생한다._
+   _⚠️ ts-node에서는 여러 줄로 썼을 때 해석할 수 없어서 에러가 발생한다._
 
 <br>
 
-### Intersection Type
+## Intersection Type
 
 유니언과 더불어 TypeScript은 교집합까지 가지고 있음
 
@@ -265,13 +264,13 @@ person = { name: '홍길동', age: 13 }; // error TS2322: Type '{ name: string; 
 
 <br>
 
-### Generics, Utility Types, and Tips
+## Generics, Utility Types, and Tips
 
-**Generics**
+### Generics
 
 타입에 변수를 제공하는 방법
 
-**Utilty Types**
+### Utilty Types
 
 [Utility Types](https://www.typescriptlang.org/docs/handbook/utility-types.html) 👉🏻 Generics를 이용해서 만든 타입
 
@@ -288,15 +287,11 @@ _(Generic이 익숙해지면 공부하기 좋음)_
 
 ### REPL
 
-<br>
+### Interface vs Type
 
-### TypeScript
+### Union Type vs Intersection Type
 
-**Interface vs Type**
-
-**Union Type vs Intersection Type**
-
-**Optional Parameter**
+### Optional Parameter
 
 ---
 
