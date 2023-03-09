@@ -234,9 +234,11 @@ flag = 3; // error TS2322: Type 'number' is not assignable to type 'bool'.
    }
    ```
 
-   _⚠️ ts-node에서는 여러 줄로 썼을 때 해석할 수 없어서 에러가 발생한다._
+   {% hint style="danger" %}
+   ts-node에서는 여러 줄로 썼을 때 해석할 수 없어서 에러가 발생한다.
+   {% endhint %}
 
-<br>
+   <br>
 
 ## Intersection Type
 
@@ -289,16 +291,253 @@ _(Generic이 익숙해지면 공부하기 좋음)_
 
 ### REPL
 
+🙋🏻 REPL이란?
+
+- Read - Eval - Print Loop
+- 대화형 프로그래밍 환경을 의미
+- REPL은 사용자가 입력한 코드를 읽어들이고, 실행하여 결과를 출력하며, 이 과정을 반복적으로 수행한다.
+
+<br>
+
 ### Interface vs Type
 
-### Union Type vs Intersection Type
+{% hint style="info" %}
+
+### 객체를 정의하는 두 가지 방법
+
+👉🏻 `interfaces` and `type aliases`
+{% endhint %}
+
+🙋🏻‍♀️ Type과 Interface 방식의 차이점이 있을까?
+
+- 일반적인 경우 동일하게 동작한다.
+
+```jsx
+type BirdType = {
+  wings: 2,
+};
+
+interface BirdInterface {
+  wings: 2;
+}
+
+const bird1: BirdType = { wings: 2 };
+const bird2: BirdInterface = { wings: 2 };
+
+const bird3: BirdInterface = bird1;
+```
+
+- 유형 확장에 있어서 차이가 있다.
+  - Type aliases는 intersection types을 통해 수행
+  - interface는 키워드를 통해 수행
+
+```jsx
+type Owl = { nocturnal: true } & BirdType;
+type Robin = { nocturnal: false } & BirdInterface;
+```
+
+```jsx
+interface Peacock extends BirdType {
+  colourful: true;
+  flies: false;
+}
+interface Chicken extends BirdInterface {
+  colourful: false;
+  flies: false;
+}
+```
+
+<br>
+
+### Union Type Vs. Intersection Type
+
+🙋🏻 Union Type
+
+- | 기호를 사용하여 여러 타입 중 하나일 수 있는 타입을 만드는 방법
+- `string | number`는 string 타입 또는 number 타입 중 하나
+
+🙋🏻 Intersection Type
+
+- & 기호를 사용하여 여러 타입이 모두 만족하는 타입을 만드는 방법
+- `Person & Serializable`은 `Person` 타입과 `Serializable` 타입의 모든 속성이 포함되어 있는 타입
+
+<br>
 
 ### Optional Parameter
+
+- 함수의 매개변수 중 일부를 선택적으로 지정할 수 있는 방법
+- 매개변수 이름 뒤에 ? 기호를 사용하여 지정
+
+```jsx
+function myFunction(a: string, b?: number) {
+  console.log(a, b);
+}
+```
+
+- myFunction 함수는 a 매개변수는 반드시 전달되어야 하지만, b 매개변수는 선택적으로 전달할 수 있다.
+- 함수 내부에서는 b 매개변수가 전달되지 않았을 경우, undefined 값을 갖는다.
+- Optional Parameter 더 좋은 방법은? 👉🏻 매개변수에 기본 값을 넣어주는 것!
 
 ---
 
 ## 🐋 Supplement
 
-- 리터럴타입
-- Generics
-- [더 좋은 타입스크립트 프로그래머로 만드는 11가지 팁](https://velog.io/@lky5697/11-tips-that-help-you-become-a-better-typescript-programmer)
+### 리터럴 타입(Literal Type)
+
+💬 자바스크립트에서 리터럴이라는 개념을 배웠었는데, 자바스크립트에서 말하는 리터럴과 동일한건가?
+
+- 자바스크립트에서의 리터럴의 의미  
+  : 문자 또는 약속된 기호를 사용해 값을 생성하는 표기법
+
+- 타입스크립트에서의 리터럴 타입이 의미하는건?  
+  : 특정 값이 가질 수 있는 정확한 값의 집합을 정의하는 타입
+
+- 리터럴 타입은 **값의 유형을 선언하면서 동시의 값의 범위**를 갖게 한다.
+
+- 리터럴 타입 정의 방법
+
+  ```jsx
+  type MyString = 'Hello' | 'World';
+  type MyNumber = 1 | 2 | 3;
+  ```
+
+<br>
+
+## Generics
+
+- 제네릭은 **타입에 변수를 제공**하는 방법
+
+> _배열이 일반적인 예시이며, 제네릭이 없는 배열은 어떤 것이든 포함할 수 있습니다. 제네릭이 있는 배열은 배열 안의 값을 설명할 수 있습니다._
+
+💬 타입스크립트 공식문서에서 말해주는 내용이 정확하게 이해가 가지 않는다. 제네릭이 정확하게 무엇이고 어떻게 사용해야 하는걸까?
+
+- Java나 C# 같은 정적 타입 언어의 경우, 함수 또는 클래스를 정의하는 시점에 매개변수나 반환값의 타입을 선언하여야 한다.
+- 타입스크립트 또한 정적 타입 언어이기 때문에 함수 또는 클래스를 정의하는 시점에 매개변수나 반환값의 타입을 선언해야 한다.
+
+**그런데 함수 또는 클래스를 정의하는 시점에 매개변수나 반환값의 타입을 선언하기 어려운 경우가 있다.**
+
+```jsx
+class Queue {
+  protected data: any[] = [];
+
+  push(item: any) {
+    this.data.push(item);
+  }
+
+  pop() {
+    return this.data.shift();
+  }
+}
+
+const queue = new Queue();
+
+queue.push(0);
+queue.push('1'); // 의도하지 않은 실수!
+
+console.log(queue.pop().toFixed()); // 0
+console.log(queue.pop().toFixed()); // Runtime error
+```
+
+- Queue 클래스의 data 프로퍼티는 any[] 타입
+- 위 예제의 경우 data 프로퍼티는 number 타입만을 포함하는 배열이라는 기대 하에 각 요소에 대해 Number.prototype.toFixed를 사용함
+- 따라서 number 타입이 아닌 요소의 경우 런타임 에러가 발생
+
+위와 같은 문제를 해결하기 위해 Queue 클래스를 상속하여 number 타입 전용 NumberQueue 클래스를 정의
+
+```jsx
+class Queue {
+  protected data: any[] = [];
+
+  push(item: any) {
+    this.data.push(item);
+  }
+
+  pop() {
+    return this.data.shift();
+  }
+}
+
+// Queue 클래스를 상속하여 number 타입 전용 NumberQueue 클래스를 정의
+class NumberQueue extends Queue {
+  // number 타입의 요소만을 push한다.
+  push(item: number) {
+    super.push(item);
+  }
+
+  pop(): number {
+    return super.pop();
+  }
+}
+
+const queue = new NumberQueue();
+
+queue.push(0);
+// 의도하지 않은 실수를 사전 검출 가능
+// error TS2345: Argument of type 'string' is not assignable to parameter of type 'number'.
+// queue.push('1');
+queue.push(+'1'); // 실수를 사전 인지하고 수정할 수 있다
+
+console.log(queue.pop().toFixed()); // 0
+console.log(queue.pop().toFixed()); // 1
+```
+
+- 하지만 다양한 타입을 지원해야 한다면 타입 별로 클래스를 상속받아 추가해야 하므로 이 또한 좋은 방법은 아니다.
+
+이때 제네릭을 사용하면 이러한 문제를 해결할 수 있다.
+
+```jsx
+class Queue<T> {
+  protected data: Array<T> = [];
+  push(item: T) {
+    this.data.push(item);
+  }
+  pop(): T | undefined {
+    return this.data.shift();
+  }
+}
+
+// number 전용 Queue
+const numberQueue = new Queue<number>();
+
+numberQueue.push(0);
+// numberQueue.push('1'); // 의도하지 않은 실수를 사전 검출 가능
+numberQueue.push(+'1');   // 실수를 사전 인지하고 수정할 수 있다
+
+// ?. => optional chaining
+// https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html#optional-chaining
+console.log(numberQueue.pop()?.toFixed()); // 0
+console.log(numberQueue.pop()?.toFixed()); // 1
+console.log(numberQueue.pop()?.toFixed()); // undefined
+
+// string 전용 Queue
+const stringQueue = new Queue<string>();
+
+stringQueue.push('Hello');
+stringQueue.push('World');
+
+console.log(stringQueue.pop()?.toUpperCase()); // HELLO
+console.log(stringQueue.pop()?.toUpperCase()); // WORLD
+console.log(stringQueue.pop()?.toUpperCase()); // undefined
+
+// 커스텀 객체 전용 Queue
+const myQueue = new Queue<{name: string, age: number}>();
+myQueue.push({name: 'Lee', age: 10});
+myQueue.push({name: 'Kim', age: 20});
+
+console.log(myQueue.pop()); // { name: 'Lee', age: 10 }
+console.log(myQueue.pop()); // { name: 'Kim', age: 20 }
+console.log(myQueue.pop()); // undefined
+```
+
+{% hint style="success" %}
+제네릭은 선언 시점이 아니라 생성 시점에 타입을 명시하여 하나의 타입만이 아닌 다양한 타입을 사용할 수 있도록 하는 기법이다. 한번의 선언으로 다양한 타입에 재사용이 가능하다는 장점이 있다.
+{% endhint %}
+
+💬 여기서 T는 무엇을 의미할까?
+
+- 제네릭을 선언할 때 관용적으로 사용되는 식별자
+- 타입 파라미터(Type parameter) 라고도 한다.
+
+<br>
+
++) [더 좋은 타입스크립트 프로그래머로 만드는 11가지 팁](https://velog.io/@lky5697/11-tips-that-help-you-become-a-better-typescript-programmer)
