@@ -186,45 +186,45 @@ flag = 3; // error TS2322: Type 'number' is not assignable to type 'bool'.
    }
    ```
 
-타입을 두 개 중 하나 가질 수 있도록 만들어보자.
+   타입을 두 개 중 하나 가질 수 있도록 만들어보자.
 
-```jsx
-let target: number | string;
+   ```jsx
+   let target: number | string;
 
-target = 12;
-target = 'mike';
-taget = undefined; // error TS2322: Type 'undefined' is not assignable to type 'string | number'.
-```
+   target = 12;
+   target = 'mike';
+   taget = undefined; // error TS2322: Type 'undefined' is not assignable to type 'string | number'.
+   ```
 
-- parameter에 타입을 지정하게 되면 반드시 지정한 parameter를 넣어야 한다.
+   - parameter에 타입을 지정하게 되면 반드시 지정한 parameter를 넣어야 한다.
 
-  ```jsx
-  function add(x: number, y: number): number {
-    return x + y;
-  }
+     ```jsx
+     function add(x: number, y: number): number {
+       return x + y;
+     }
 
-  add(1); // error TS2554: Expected 2 arguments, but got 1.
-  ```
+     add(1); // error TS2554: Expected 2 arguments, but got 1.
+     ```
 
-- 하지만 arguments를 지정한 parameter보다 적게 넣어도 값을 리턴시켜주고 싶다면? 👉🏻 이럴 땐 Optional Parameter를 사용한다!
+   - 하지만 arguments를 지정한 parameter보다 적게 넣어도 값을 리턴시켜주고 싶다면? 👉🏻 이럴 땐 Optional Parameter를 사용한다!
 
-  ```jsx
-  function add(x: number, y?: number | undefined) {
-    return x + (y || 0);
-  }
+     ```jsx
+     function add(x: number, y?: number | undefined) {
+       return x + (y || 0);
+     }
 
-  // Optional Parameter를 사용할 땐 undefined를 생략해도 된다.
-  function add(x: number, y?: number) {
-    return x + (y || 0);
-  }
-  ```
+     // Optional Parameter를 사용할 땐 undefined를 생략해도 된다.
+     function add(x: number, y?: number) {
+       return x + (y || 0);
+     }
+     ```
 
-- 가장 추천하는 것은 기본 값을 넣어주는 것을 추천한다.
-  ```jsx
-  function add(x: number, y = 0) {
-    return x + y;
-  }
-  ```
+   - 가장 추천하는 것은 기본 값을 넣어주는 것을 추천한다.
+     ```jsx
+     function add(x: number, y = 0) {
+       return x + y;
+     }
+     ```
 
 2. 매개변수가 오브젝트일 때도 활용할 수 있다.
 
@@ -275,6 +275,8 @@ person = { name: '홍길동', age: 13 }; // error TS2322: Type '{ name: string; 
 [Utility Types](https://www.typescriptlang.org/docs/handbook/utility-types.html) 👉🏻 Generics를 이용해서 만든 타입
 
 _(Generic이 익숙해지면 공부하기 좋음)_
+
+<br>
 
 ## Visual Studio Code 자동 완성 + 실시간 오류 검사
 
