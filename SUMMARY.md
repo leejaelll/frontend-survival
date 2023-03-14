@@ -14,4 +14,4 @@
 
 - [JSX](./jsx/README.md)
 
-  -[JSX](./jsx/jsx.md)
+  - [JSX](./jsx/jsx.md)
