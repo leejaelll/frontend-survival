@@ -10,7 +10,7 @@
 
 상태를 골라내는 게 핵심이다.
 
-[Thinking in React](https://beta.reactjs.org/learn/thinking-in-react) 를 참고해서 리액트에서 말하는 상태에 관한 개념에 대해서 공부하자.
+[Thinking in React](https://beta.reactjs.org/learn/thinking-in-react) 를 참고해서 리액트에서 말하는 상태에 관한 개념에 대해서 공부하자. 👉🏻 [Thinking in React 정리 🦖](https://jazzy-sneezeweed-14f.notion.site/Thinking-in-React-3dc21d2691dd4302957bed94a7e7b582)
 
 상태가 변경되면 자동으로 렌더링이 된다.
 
