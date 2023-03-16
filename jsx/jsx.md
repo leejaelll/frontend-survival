@@ -285,7 +285,8 @@ React.createElement(
 );
 ```
 
-- jsx는 태그안에서 text와 JavaScript 값으로만 구분을 한다, 임의로 공간을 주려면 {' '}을 이용하면 createElement에 추가된다.
+- jsx는 태그안에서 text와 JavaScript 값으로만 구분을 한다.
+- {' '}을 이용하면 createElement에 추가된다.
 
 <br />
 
@@ -324,7 +325,7 @@ React.createElement를 직접 쓰면 복잡하기 때문에 jsx-runtime에서는
 ## Virtaul DOM
 
 - [Virtaul DOM](https://ko.reactjs.org/docs/faq-internals.html)
-- [재조정 (Reconciliation)](https://ko.reactjs.org/docs/reconciliation.html) 👉🏻 [Reconciliation(재조정) 과정은 무엇인가? 내용 정리 🦖](#reconciliation재조정-과정은-무엇인가)
+- [재조정 (Reconciliation)](https://ko.reactjs.org/docs/reconciliation.html) 👉🏻 [Reconciliation(재조정) 내용 정리 🦖](#reconciliation재조정-과정은-무엇인가)
 
 화면을 갱신하려면 DOM을 바꿔줘야한다.
 
@@ -372,15 +373,445 @@ Virtual DOM를 사용하는 이유는 빠르기 때문이다.
 - 트리 구조를 정의하기 위한 간결하고 친숙한 구문을 정의하는 것
 - 자바스크립트 코드로도 작성할 수 있지만, 트리구조를 직관적으로 볼 수 있기 때문에 사용한다고 생각하면 된다.
 
+React.createElement자바스크립트로도 작성할 수 있다. 하지만 JSX를 사용하는 이유는 트리 구조를 더 직관적으로 확인할 수 있기 때문이다. 이로 인해 코드 가독성이 향상되며 개발자가 코드를 이해하고 유지보수하기 쉬워진다.
+
 <br />
 
-- Syntactic sugar
-- React.createElement
-- React Element
-- React StrictMode
-- VDOM(Virtual DOM)이란?
-  - DOM이란?
-  - DOM과 Virtual DOM의 차이
+### Syntactic sugar
+
+[Syntactic_sugar](https://en.wikipedia.org/wiki/Syntactic_sugar)
+
+컴퓨터 과학 용어로, Syntactic sugar는 프로그래밍 언어 내에서 더 쉽게 읽거나 표현할 수 있도록 설계된 구문
+
+문법적 설탕은 프로그래밍 언어의 기능이나 동작을 변경하지 않지만, 코드를 작성하거나 읽을 때 더 쉽게 이해하도록 하는 역할을 한다.
+
+- Peter J. Landin이 1964년에 발표한 논문 "The Next 700 Programming Languages"에서 처음 사용
+- 이 논문에서 Landin은 "프로그래밍 언어는 문법적 설탕을 지원하여 구문 구조를 더 직관적이고 읽기 쉽게 만들 수 있다"는 주장을 함
+
+> **Syntatic salt**  
+> : 문법적으로 불필요한 요소를 추가하지만, 코드를 작성하거나 읽을 때 더 편리하고 가독성이 높은 방식으로 표현하는 것을 의미
+
+<br />
+
+### React.createElement
+
+[createElement](https://beta.reactjs.org/reference/react/createElement#reference)
+
+createElement를 사용하면 React element를 생성할 수 있다.  
+_(React.createElement는 JSX코드와 1대1로 매칭된다.)_
+
+```jsx
+React.createElement(type, [props], [...children]);
+```
+
+React.createElement() 메소드를 호출할 때마다 React를 앞에 붙이는 것은 번거롭다면 React 모듈에서 createElement() 함수를 가져와서 사용
+
+```jsx
+import { createElement } from 'react';
+
+const element = createElement(type, props, ...children);
+const element = createElement('h1', { className: 'greeting' }, 'Hello, world!');
+// <h1 className="greeting">Hello, world!</h1>
+```
+
+- type: 태그 문자, React 컴포넌트(함수, 클래스 또는 Fragment와 같은 특수 컴포넌트)
+- props: 객체이거나 null, null을 전달하면 빈 객체와 동일하게 처리된다.
+- optional: 0개 이상의 자식 노드,
+  - React 엘리먼트, 문자열, 숫자, 포털, 빈 노드(null, 정의되지 않음, true, false), React 노드의 배열을 포함한 모든 React 노드가 될 수 있다.
+
+<br />
+
+### React Element
+
+: DOM 요소 또는 컴포넌트 인스턴스를 나타내는 일반적인 JavaScript 객체
+
+예를 들어, `<Greeting name="Taylor" />` 와`createElement(Greeting, { name: 'Taylor' })`는 모두 객체를 만들어낸다.
+
+```jsx
+// Slightly simplified
+{
+  type: Greeting,
+  props: {
+    name: 'Taylor'
+  },
+  key: null,
+  ref: null,
+}
+```
+
+{% hint style="warning" %}
+
+### 이 객체를 생성해도 Greeting 컴포넌트가 렌더링되거나 DOM element가 생성되는 것은 아니다.
+
+App 컴포넌트에서 이 객체를 반환함으로써 React에게 다음에 할 일을 지시할 수 있다.
+
+element를 생성하는 것은 매우 저렴하므로 최적화하거나 피하려고 노력할 필요가 없다.
+
+{% endhint %}
+
+<br />
+
+### React StrictMode
+
+[StrictMode](https://beta.reactjs.org/reference/react/StrictMode)  
+: `<StrictMode>`를 사용하면 개발 중에 컴포넌트에서 흔히 발생하는 버그를 조기에 발견할 수 있다.
+
+```jsx
+<StrictMode>
+  <App />
+</StrictMode>
+```
+
+**Reference**
+
+내부의 전체 컴포넌트 트리에 대한 추가 개발 동작 및 경고를 활성화할 수 있음
+
+```jsx
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+
+const root = createRoot(document.getElementById('root'));
+root.render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
+```
+
+Strict Mode에선 아래와 같은 개발 전용 동작이 활성화된다.
+
+- 컴포넌트가 불완전한 렌더링으로 인한 버그를 찾기 위해 추가 시간을 들여 리렌더링 한다.
+- 컴포넌트가 이펙트 정리가 누락되어 발생한 버그를 찾기 위해 한 번 더 다시 이펙트를 실행한다.
+- 컴포넌트에서 더 이상 사용되지 않는 API의 사용 여부를 확인한다.
+
+<br>
+
+**Usage**
+
+### [Enabling Strict Mode for entire app](https://beta.reactjs.org/reference/react/StrictMode#enabling-strict-mode-for-entire-app)
+
+: 전체 app에 Strict Mode 활성화
+
+Strict Mode를 사용하면 `<StrictMode>` 컴포넌트 내부의 전체 컴포넌트 트리에 대해 개발 전용 검사를 추가로 수행할 수 있다. 👉🏻 이러한 검사를 통해 컴포넌트의 일반적인 버그를 발견할 수 있음
+
+전체 앱에 Strict 모드를 사용하려면 렌더링할 때 루트 컴포넌트를 <StrictMode>로 래핑:
+
+```jsx
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+
+const root = createRoot(document.getElementById('root'));
+root.render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
+```
+
+### [Enabling strict mode for a part of the app](https://beta.reactjs.org/reference/react/StrictMode#enabling-strict-mode-for-a-part-of-the-app)
+
+: 앱의 일부분에 Strict Mode 활성화
+
+애플리케이션의 일부분에 Strict Mode를 활성화 시킬 수 있다.
+
+```jsx
+import { StrictMode } from 'react';
+
+function App() {
+  return (
+    <>
+      <Header />
+      <StrictMode>
+        <main>
+          <Sidebar />
+          <Content />
+        </main>
+      </StrictMode>
+      <Footer />
+    </>
+  );
+}
+```
+
+- 위 예제에서는 Header와 Footer 컴포넌트에는 Strict Mode가 적용되지 않음
+
+### [Fixing bugs found by double rendering in development](https://beta.reactjs.org/reference/react/StrictMode#fixing-bugs-found-by-double-rendering-in-development)
+
+: 개발 단계에서 이중 렌더링으로 인한 버그 수정
+
+리액트는 작성한 모든 컴포넌트가 순수함수라고 가정한다. 즉, 작성한 React 컴포넌트는 동일한 입력(state, 프로퍼티, 컨텍스트)가 주어지면 항상 동일한 JSX를 반환해야 한다.
+
+👉🏻 이 규칙을 위반하는 컴포넌트는 예측할 수 없는 동작을 하며, 버그를 유발
+
+불순한 코드를 찾을 수 있수 있도록 Strict Mode는 개발 과정에서 일부 함수를 두 번 호출한다.
+
+- 컴포넌트 함수 본문(이벤트 핸들러 내부의 코드는 포함되지 않음)
+- useState, useMemo 또는 useReducer에 전달한 함수
+- 생성자, 렌더링, shouldComponentUpdate와 같은 일부 클래스 컴포넌트 메서드
+
+순수한 함수는 매번 동일한 결과를 생성하므로 두 번 실행해도 동작이 변경되지 않는다. 그러나 함수가 순수하지 못한 경우 두 번 실행하면 눈에 띄는 경향이 있으므로 버그를 조기에 발견하고 수정하는데 도움이 된다.
+
+예를 들어, 이 `StoryTray` 컴포넌트는 stories 배열을 가져와 마지막에 'Create Story' 항목을 하나 더 추가합니다:
+
+**index.js**
+
+```jsx
+import { createRoot } from 'react-dom/client';
+import './styles.css';
+
+import App from './App';
+
+const root = createRoot(document.getElementById('root'));
+root.render(<App />);
+```
+
+**App.js**
+
+```jsx
+import { useState } from 'react';
+import StoryTray from './StoryTray.js';
+
+let initialStories = [
+  { id: 0, label: "Ankit's Story" },
+  { id: 1, label: "Taylor's Story" },
+];
+
+export default function App() {
+  let [stories, setStories] = useState(initialStories);
+  return (
+    <div
+      style={{
+        width: '100%',
+        height: '100%',
+        textAlign: 'center',
+      }}
+    >
+      <StoryTray stories={stories} />
+    </div>
+  );
+}
+```
+
+**StoryTray.js**
+
+```jsx
+export default function StroyTray({ stories }) {
+  const items = stories;
+  items.push({ id: 'create', label: 'Create Story' });
+  return (
+    <ul>
+      {items.map((story) => (
+        <li key={items.id}> {story.label} </li>
+      ))}
+    </ul>
+  );
+}
+```
+
+![.](./images/2023-03-16-15-59-05.png)
+
+위 코드는 실수가 있지만, 초기 출력은 올바르게 나타나기 때문에 놓치기 쉽다. 어떤 실수를 했을까?
+
+예를 들어, `StoryTray` 컴포넌트에 hover할 때마다 다른 배경색으로 리렌더링하도록 해보자.
+
+```jsx
+import { useState } from 'react';
+
+export default function StroyTray({ stories }) {
+  const [isHover, setIsHover] = useState(false);
+  const items = stories;
+  items.push({ id: 'create', label: 'Create Story' });
+
+  return (
+    <ul
+      onPointerEnter={() => setIsHover(true)}
+      onPointerLeave={() => setIsHover(false)}
+      style={{
+        backgroundColor: isHover ? '#ddd' : '#fff',
+      }}
+    >
+      {items.map((story) => (
+        <li key={story.id}>{story.label}</li>
+      ))}
+    </ul>
+  );
+}
+```
+
+- `StroyTray` 컴포넌트 위로 마우스를 가져갈 때마다 'Create Story'가 목록에 추가되는 것을 볼 수있음
+- 위 코드의 의도는? 👉🏻 마지막에 한 번 추가하는 것
+
+하지만 코드는 `StroyTray` 는 props로부터 stories 배열을 직접 수정한다. `StroyTray` 를 매번 렌더링할 때마다 동일한 배열 끝에 'Create Story'를 추가하고 있다. 즉, `StroyTray` 는 순수한 함수가 아니므로 여러 번 실행하면 다른 결과가 생성된다.
+
+> 이 문제를 해결하려면 배열의 복사본을 만든 다음 원본 대신 해당 복사본을 수정하면 된다.
+
+```jsx
+export default function StoryTray({ stories }) {
+  const items = stories.slice(); // Clone the array
+  // ✅ Good: Pushing into a new array
+  items.push({ id: 'create', label: 'Create Story' });
+```
+
+이렇게 되면 `StroyTray` 함수는 순수함수가 된다. 이 함수는 호출될 때마다 배열의 새 복사본만 수정하고, 외부 객체나 변수에 영향을 주지 않는다. 이렇게 하면 버그는 해결할 수 있지만, 컴포넌트의 동작에 문제가 생기기 전에 컴포넌트를 더 자주 렌더링해야 한다는 점에 주의하자.
+
+원래 코드를 <StrictMode>로 래핑:
+
+```jsx
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import './styles.css';
+
+import App from './App';
+
+const root = createRoot(document.getElementById('root'));
+root.render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
+```
+
+**Strict Mode에서는 함수를 항상 두 번 호출하므로 실수를 바로 확인할 수 있다.** 프로세스 초기에 이러한 실수를 발견할 수 있다. 컴포넌트를 Strict Mode에서 렌더링하도록 수정하면 이전의 hover 기능과 같이 향후 프로덕션에서 발생할 수 있는 많은 버그도 수정할 수 있다.
+
+### [Fixing bugs found by re-running Effects in development](https://beta.reactjs.org/reference/react/StrictMode#fixing-bugs-found-by-re-running-effects-in-development)
+
+: 개발 단계에서 Effects를 다시 실행함으로써 발결된 버그 수정하기
+
+Strict Mode는 Effects에서 버그를 찾는 데 도움이 된다.
+
+모든 Effect에는 몇 가지 setup 코드가 있고 cleanup 코드가 있다. 일반적으로 React는 컴포넌트가 마운트될때(화면에 추가될 때) 설정을 호출하고 컴포넌트가 마운트 해제될 때(화면에 제거될 때) cleanup을 호출한다. 또한 React는 마지막 렌더링 이후 의존성이 변경된 경우 cleanup과 setup을 호출한다.
+
+Strict Mode가 동작하면 React는 모든 이펙트에 대해 개발 과정에서 **extra setup+cleanup cycle**을 한 번 더 실행한다. 👉🏻 수동으로 잡기 어려운 미묘한 버그를 발견하는데 도움
+
+Effects를 다시 실행하면 버그를 조기에 발견하는 데 어떻게 도움이 되는지 보여주는 예시:
+
+컴포넌트를 채팅에 연결하는 예시
+
+**index.js**
+
+```jsx
+import { createRoot } from 'react-dom/client';
+import './styles.css';
+
+import App from './App';
+
+const root = createRoot(document.getElementById('root'));
+root.render(<App />);
+```
+
+**App.js**
+
+```jsx
+import { useState, useEffect } from 'react';
+import { createConnection } from './chat.js';
+
+const serverUrl = 'https://localhost:1234';
+const roomId = 'general';
+
+export default function ChatRoom() {
+  useEffect(() => {
+    const connection = createConnection(serverUrl, roomId);
+    connection.connect();
+  }, []);
+  return <h1>Welcome to the {roomId} room!</h1>;
+}
+```
+
+**chat.js**
+
+```jsx
+let connections = 0;
+
+export function createConnection(serverUrl, roomId) {
+  // A real implementation would actually connect to the server
+  return {
+    connect() {
+      console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
+      connections++;
+      console.log('Active connections: ' + connections);
+    },
+    disconnect() {
+      console.log('❌ Disconnected from "' + roomId + '" room at ' + serverUrl);
+      connections--;
+      console.log('Active connections: ' + connections);
+    },
+  };
+}
+```
+
+문제가 명확하게 보이지 않기 때문에, 더 명확하게 파악하기 위해 기능을 구현해보자.
+
+아래 예제에서는 roomId가 하드코딩되어 있지 않다. 대신 사용자가 드롭다운에서 연결하려는 룸아이디를 선택할 수 있다. "채팅 열기"를 클릭한 다음 다른 채팅방을 하나씩 선택하고 콘솔에서 활성 연결 수를 추적.
+
+```jsx
+import { useState, useEffect } from 'react';
+import { createConnection } from './chat.js';
+
+const serverUrl = 'https://localhost:1234';
+
+function ChatRoom({ roomId }) {
+  useEffect(() => {
+    const connection = createConnection(serverUrl, roomId);
+    connection.connect();
+  }, [roomId]);
+
+  return <h1>Welcome to the {roomId} room!</h1>;
+}
+
+export default function App() {
+  const [roomId, setRoomId] = useState('general');
+  const [show, setShow] = useState(false);
+  return (
+    <>
+      <label>
+        Choose the chat room:{' '}
+        <select value={roomId} onChange={(e) => setRoomId(e.target.value)}>
+          <option value="general">general</option>
+          <option value="travel">travel</option>
+          <option value="music">music</option>
+        </select>
+      </label>
+      <button onClick={() => setShow(!show)}>{show ? 'Close chat' : 'Open chat'}</button>
+      {show && <hr />}
+      {show && <ChatRoom roomId={roomId} />}
+    </>
+  );
+}
+```
+
+콘솔을 확인해보면 open connections가 항상 증가하는 것을 알 수 있다. 실제 앱에서는 성능 및 네트워크 문제가 발생할 수 있다. 문제는 **‘이펙트가 cleanup 기능이 없다는 것’**
+
+```jsx
+useEffect(() => {
+  const connection = createConnection(serverUrl, roomId);
+  connection.connect();
+  return () => connection.disconnect();
+}, [roomId]);
+```
+
+원래 문제가 있는 코드를 <Strict Mode>로 래핑하면?
+
+- 사용하면 문제가 있음을 즉시 알 수 있다. (Active connection가 2로 점프)
+- Strict Mode는 모든 Effect에 대해 setup + cleanup 사이클을 실행하기 때문
+- 이 Effect는 cleanup 로직이 없으므로 추가 연결을 생성하지만 파괴하지는 않음 👉🏻 cleanup 함수가 누락되었다는 힌트
+
+### [Fixing deprecation warnings enabled by Strict Mode](https://beta.reactjs.org/reference/react/StrictMode#fixing-deprecation-warnings-enabled-by-strict-mode)
+
+: Strict Mode에서 활성화된 사용 중단 경고 수정
+
+React는 <StrictMode> 트리 내의 컴포넌트가 이러한 더 이상 사용되지 않는 API 중 하나를 사용하는 경우 경고를 표시한다:
+
+- findDOMNode
+- Legacy context
+- Legacy string refs
+
+<br>
+
+```jsx
+ VDOM(Virtual DOM)이란?
+ DOM이란?
+ DOM과 Virtual DOM의 차이
+```
 
 ### Reconciliation(재조정) 과정은 무엇인가?
 
