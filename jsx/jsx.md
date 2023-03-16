@@ -325,7 +325,7 @@ React.createElement를 직접 쓰면 복잡하기 때문에 jsx-runtime에서는
 ## Virtaul DOM
 
 - [Virtaul DOM](https://ko.reactjs.org/docs/faq-internals.html)
-- [재조정 (Reconciliation)](https://ko.reactjs.org/docs/reconciliation.html) 👉🏻 [Reconciliation(재조정) 내용 정리 🦖](#reconciliation재조정)
+- [재조정 (Reconciliation)](https://ko.reactjs.org/docs/reconciliation.html) 👉🏻 [Reconciliation(재조정) 내용 정리 🦖](#)
 
 화면을 갱신하려면 DOM을 바꿔줘야한다.
 
@@ -859,7 +859,12 @@ DOM은 브라우저에서 실제로 렌더링 되는 페이지의 요소를 나�
 - Reconciliation은 이전 상태와 현재 상태를 비교하여 변경된 부분만 실제 DOM에 적용하여 성능을 향상시키는 기술
 - UI의 변화가 발생하면 이전 Virtual DOM과 현재 Virtual DOM을 비교하여 변경된 부분을 찾는다.
 - React의 핵심 알고리즘 중 하나이며, React의 성능을 향상시키는 중요한 요소
-- 대규모 데이터를 다루는 경우에는 Reconciliation이 성능 저하의 원인이 될 수 있다. 👉🏻 이런 경우에는 다른 기술을 사용하여 성능을 향상시켜야 함
+
+React는 휴리스틱에 의존하고 있기 때문에, 휴리스틱이 기반하고 있는 가정에 부합하지 않는 경우 성능이 나빠질 수 있다.
+
+- 알고리즘은 다른 컴포넌트 타입을 갖는 종속 트리들의 일치 여부를 확인하지 않는다.
+- key는 반드시 변하지 않고, 예상 가능하며, 유일해야 한다.  
+  변하는 key(Math.random()으로 생성된 값 등)를 사용하면 많은 컴포넌트 인스턴스와 DOM 노드를 불필요하게 재생성하여 성능이 나빠지거나 자식 컴포넌트의 state가 유실될 수 있다.
 
 ---
 
@@ -884,3 +889,13 @@ DOM은 브라우저에서 실제로 렌더링 되는 페이지의 요소를 나�
 - 복잡한 데이터를 처리하고 저장하는 방식으로 사용
 
 이를 통해 복잡한 코드를 더 쉽게 작성하고 유지보수 할 수 있음
+
+<br />
+
+### 휴리스틱(Heuristic)
+
+: 충분한 시간이나 정보로 인하여 합리적인 판단을 할 수 없거나, 합리적인 판단이 굳이 필요하지 않은 상황에서 사람들이 빠르게 사용할 수 있게 보다 용이하게 구성된 간편추론의 방법
+
+- 주로 직관이나 경험적 지식을 기반으로 한다.
+- 휴리스틱은 일반적으로 최적의 해결책을 찾지 못할 수 있지만, 많은 경우에 유용하게 사용된다.  
+  👉🏻 이는 문제 해결에 대한 빠른 솔루션을 제공하고, 불필요한 시간과 비용을 절약하는 데 도움이 됨
