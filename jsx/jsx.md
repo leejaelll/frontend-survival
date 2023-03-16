@@ -325,7 +325,7 @@ React.createElement를 직접 쓰면 복잡하기 때문에 jsx-runtime에서는
 ## Virtaul DOM
 
 - [Virtaul DOM](https://ko.reactjs.org/docs/faq-internals.html)
-- [재조정 (Reconciliation)](https://ko.reactjs.org/docs/reconciliation.html) 👉🏻 [Reconciliation(재조정) 내용 정리 🦖](#reconciliation재조정-과정은-무엇인가)
+- [재조정 (Reconciliation)](https://ko.reactjs.org/docs/reconciliation.html) 👉🏻 [Reconciliation(재조정) 내용 정리 🦖](#reconciliation재조정)
 
 화면을 갱신하려면 DOM을 바꿔줘야한다.
 
@@ -789,7 +789,7 @@ useEffect(() => {
 }, [roomId]);
 ```
 
-원래 문제가 있는 코드를 <Strict Mode>로 래핑하면?
+원래 문제가 있는 코드를 `<Strict Mode>`로 래핑하면?
 
 - 사용하면 문제가 있음을 즉시 알 수 있다. (Active connection가 2로 점프)
 - Strict Mode는 모든 Effect에 대해 setup + cleanup 사이클을 실행하기 때문
@@ -805,24 +805,82 @@ React는 <StrictMode> 트리 내의 컴포넌트가 이러한 더 이상 사용�
 - Legacy context
 - Legacy string refs
 
+<br />
+
+### Virtual DOM과 Internals
+
+: ‘가상’적인 표현을 메모리에 저장하고 ReactDOM과 같은 라이브러리에 의해 ‘실제’ DOM과 동기화하는 프로그래밍 개념 👉🏻 이 과정을 **재조정**이라고 한다.
+
+이 접근방식이 React의 선언적 API를 가능하게 한다.
+
+React에게 원하는 UI 상태를 알려주면 DOM이 그 상태와 일치하도록 한다. 👉🏻 이러한 방식은 앱 구축에 사용해야 하는 어트리뷰트 조작, 이벤트 처리, 수동 DOM 업데이트를 추상화한다.
+
+{% hint style="info" %}
+
+### 🔥 “virtual DOM”은 특정 기술이라기보다는 패턴에 가깝에 가깝다.
+
+React에서 virtual DOM 👉🏻 보통 사용자 인터페이스를 나타내는 객체이기 때문에 React elements와 연관된다.
+
+그러나 React는 컴포넌트 트리에 대한 추가 정보를 포함하기 위해 ‘fiber’라는 내부 객체를 사용한다.
+
+- React Fiber: React 16의 새로운 재조정 엔진
+- 이 프로그램의 주요 목표는 virtual DOM의 렌더링을 활성화하는 것
+
+{% endhint %}
+
+<br />
+
+### DOM
+
+: 문서 객체 모델(Document Object Model)은 HTML 문서의 프로그래밍 interface
+
+- 문서의 구조화된 표현을 제공
+- 프로그래밍 언어가 DOM 구조에 접근할 수 있는 방법을 제공 👉🏻 문서 구조, 스타일, 내용을 변경할 수 있음
+
+DOM은 nodes와 object로 문서를 표현한다.
+
+<br />
+
+### DOM과 Virtual DOM의 차이
+
+DOM은 브라우저에서 실제로 렌더링 되는 페이지의 요소를 나타낸다.
+
+반면, Virtual DOM은 브라우저에서 동작하는 **DOM을 추상화한 개념**
+
+- 실제 DOM을 복제한 가상의 객체
+- 실제 DOM을 조작하지 않고 이전의 가상 객체와 현재 객체를 비교하여 변경된 부분만 최적화하여 실제 DOM에 반영한다.
+
 <br>
 
-```jsx
- VDOM(Virtual DOM)이란?
- DOM이란?
- DOM과 Virtual DOM의 차이
-```
+### Reconciliation(재조정)
 
-### Reconciliation(재조정) 과정은 무엇인가?
+: Virtual DOM을 사용하여 UI의 변경사항을 처리하는 과정을 의미
+
+- Reconciliation은 이전 상태와 현재 상태를 비교하여 변경된 부분만 실제 DOM에 적용하여 성능을 향상시키는 기술
+- UI의 변화가 발생하면 이전 Virtual DOM과 현재 Virtual DOM을 비교하여 변경된 부분을 찾는다.
+- React의 핵심 알고리즘 중 하나이며, React의 성능을 향상시키는 중요한 요소
+- 대규모 데이터를 다루는 경우에는 Reconciliation이 성능 저하의 원인이 될 수 있다. 👉🏻 이런 경우에는 다른 기술을 사용하여 성능을 향상시켜야 함
 
 ---
 
 ## 🐋 Supplement
 
-### XML Vs. XHTML
+### 추상화
 
-### DOM Element Vs. React Element
+: 복잡한 현실 세계에서 핵심적인 개념이나 기능을 간추려 내어 간략화하고 단순화 하는 것
 
-### JSX로 마크업하는 방법
+복잡한 문제를 이해하고 해결하기 위해 필요한 개념과 구성 요소를 강조하는 것
 
-### Virtual DOM과 Internals
+추상화를 통해 문제를 더 쉽게 이해하고 해결할 수 있음
+
+예를 들어, 자동차를 추상화하면?
+
+- 운송 수단, 엔진 바퀴, 핸들 등의 구성 요소로 단순화 할 수 있음
+- 추상화를 통해 자동차의 복잡한 구조를 이해하지 않고도, 자동차를 이해하는데 필요한 정보를 얻을 수 있다.
+
+프로그래밍에서의 추상화
+
+- 객체 지향 프로그래밍 구현
+- 복잡한 데이터를 처리하고 저장하는 방식으로 사용
+
+이를 통해 복잡한 코드를 더 쉽게 작성하고 유지보수 할 수 있음
