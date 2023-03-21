@@ -15,3 +15,8 @@
 - [JSX](./jsx/README.md)
 
   - [JSX](./jsx/jsx.md)
+
+- [React로 사고하기](./thinking-in-react/README.md)
+
+  - [React Component](./thinking-in-react/react-component.md)
+  - [React State](./thinking-in-react/react-state.md)
