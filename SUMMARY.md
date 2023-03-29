@@ -26,5 +26,5 @@
   - [Express](./react-hooks/express.md)
   - [Fetch API & CORS](./react-hooks/fetchAPI-CORS.md)
   - [React의 Hook](./react-hooks/reack-hook.md)
-  - [useRef & Custom Hook](./react-hooks/useRef-cutomHook.md)
+  - [useRef & Custom Hook](./react-hooks/useRef-customHook.md)
   - [usehooks-ts](./react-hooks/usehooks-ts.md)
