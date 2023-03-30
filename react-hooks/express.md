@@ -1,8 +1,8 @@
 ## 학습 키워드
 
-- Express 란
-- URL 구조
-- REST API
+- Express 란 👉🏻 [Express 실습해보기](https://leejaelll.github.io/2022/221112-archive/?highlight=express)
+- URL 구조 👉🏻 [URL vs URI](https://leejaelll.github.io/2023/230330-2-archive/)
+- REST API 👉🏻 [REST API란 무엇인가](https://leejaelll.github.io/2023/230329-archive/)
 - HTTP Method(CRUD)
 
 ---
