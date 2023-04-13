@@ -35,3 +35,9 @@
   - [React Testing Library](./test/react-testing-library.md)
   - [MSW](./test/msw.md)
   - [Playwright](./test/playwright.md)
+
+- [External Store](./external-store/README.md)
+  - [External Store](./external-store/external-store.md)
+  - [TSyringe](./external-store/tsyringe.md)
+  - [Redux 따라하기](./external-store/redux.md)
+  - [usestore-ts](./external-store/usestore-ts.md)
