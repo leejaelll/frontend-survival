@@ -1,3 +1,16 @@
+# 개발 환경 세팅
+
+## 학습 키워드
+
+- Node.js
+- NPM(Node Package Manager)
+  - package.json / package-lock.json
+  - node_modules
+  - npx
+- ES Modules vs CommonJS
+
+---
+
 ## 📚 강의 정리
 
 Node.js를 기반으로 자바스크립트 환경 세팅하는 방법에 대해서 학습해보자.
@@ -80,7 +93,7 @@ node -v
    - 이 정보를 입력하면 `package.json` 파일을 생성하고 내가 입력한 정보들이 이 곳에 저장된다.
    - `npm init -y` 명령어를 실행하면 정보를 입력하지 않아도 package.json이 생성된다. 이후 package.json에 정보를 수정할 수 있다.
 
-<br>
+  <br>
 
 3. `.gitignore` 파일 생성
 
@@ -89,7 +102,7 @@ node -v
    - .gitignore는 Git에게 '여기 써져있는 폴더나 파일은 신경쓰지 말아줘'라는 전달해주는 역할을 한다.
    - .gitignore 파일을 쉽게 만들 수 있는 사이트(https://www.toptal.com/developers/gitignore/)
 
-<br>
+  <br>
 
 4. 타입스크립트 설치
 
@@ -115,7 +128,7 @@ node -v
    - `tsconfig.json` 파일에서 한 가지 수정하기
      - `"jsx": "react-jsx"`
 
-<br>
+  <br>
 
 5. ESLint 설치
 
@@ -131,6 +144,13 @@ node -v
      - jest를 쓸거니까 `jest: true`미리 설정해놓기
    - **.eslintignore 파일 잊지말고 만들기**
 
+{% hint style="info"%}
+
+### `.eslintgitignore` 파일을 만드는 이유 🛵
+
+eslint 검사를 할 때에도 node_modules나 dist 폴더 내에 있는 것들은 검사하지 않도록 하기 위해서 eslintignore 파일을 만들어야 한다.
+
+{% endhint %}
 <br>
 
 6. 리액트 설치
