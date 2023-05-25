@@ -1,8 +1,46 @@
-## 📚 강의 정리
+# Testing Library
+
+## 학습 키워드
+
+- Jest
+- Describe-Context-It 패턴
+- React Testing Library
+
+<br />
 
 ## Jest
 
 🚀 [Jest 공식문서](https://jestjs.io/)
+
+- 페이스북에서 개발한 테스트 프레임워크
+- Jest 이전에 가장 인기가 많았던 테스트 도구는 Mocha, Jasmine
+
+{% hint="danger"%}
+
+### 🙋🏻‍♂️ Jest가 테스트 프레임워크 중 가장 인기가 많은 이유가 뭘까?
+
+- 사용이 쉽고 간편하다.
+- Jest는 자동화된 모킹을 제공하여, 별도의 모킹 라이브러리를 사용하지 않아도 된다.
+- Jest는 병렬 처리를 지원하므로, 빠른 속도로 테스트를 실행할 수 있다.
+
+{% endhint %}
+
+<br />
+
+{% hint="success"%}
+
+### 🫥 프론트엔드에서 테스트를 해야할까?
+
+프론트엔드에서 다루는 UI는 금방금방 변화하는데 테스트를 하는 게 맞을까? 혹은 테스트를 해야한다면 어떤 것들을 테스트해야할까?
+
+✅ 프론트엔드 테스팅 대상
+
+- 사용자 이벤트 처리
+- API 서버 통신
+
+👉🏻 자주 바뀌는 것들은 테스트의 대상이 아니다. UI에 대한 컨트롤러가 테스트의 대상일뿐!
+
+{% endhint %}
 
 테스팅 도구
 
@@ -32,13 +70,13 @@ BDD 스타일의 코드
 
 ```jsx
 describe('add', () => {
-	it('returns sum of two numbers', () => {
-		expect(add(1, 2).toBe(3);
-	});
+  it('returns sum of two numbers', () => {
+    expect(add(1, 2).toBe(3));
+  });
 
-	it('returns number', () => {
-		expect(typeof add(1, 2)).toBe('number');
-	});
+  it('returns number', () => {
+    expect(typeof add(1, 2)).toBe('number');
+  });
 });
 ```
 
@@ -52,7 +90,11 @@ BDD 스타일의 코드를 작성함으로써 표현력이 좋아지고 생각�
 
 🚀 [jest-dom](https://testing-library.com/docs/ecosystem-jest-dom/)
 
-UI 테스트에 특화된 라이브러리
+UI 테스트에 특화된 라이브러리 👉🏻 컴포넌트를 테스트한다고 생각하면 된다.
+
+- Greeting 컴포넌트에 props로 전달한 name이 화면에 잘 보이는가?
+
+<br />
 
 간단한 테스트 코드
 
@@ -107,21 +149,6 @@ test('Greeting', () => {
 
 ---
 
-## ✅ Keyword
-
-### Jest
-
-- 페이스북에서 개발한 테스트 프레임워크
-- Jest 이전에 가장 인기가 많았던 테스트 도구는 Mocha, Jasmine
-
-🙋🏻‍♂️ Jest가 테스트 프레임워크 중 가장 인기가 많은 이유가 뭘까?
-
-- 사용이 쉽고 간편하다.
-- Jest는 자동화된 모킹을 제공하여, 별도의 모킹 라이브러리를 사용하지 않아도 된다.
-- Jest는 병렬 처리를 지원하므로, 빠른 속도로 테스트를 실행할 수 있다.
-
-<br>
-
 ### Describe-Context-It 패턴
 
 - Describe  
@@ -145,8 +172,6 @@ Describe 단계에서 대상을 정의하고, Context 단계에서 대상에 대
 - 사용자의 시점에서 컴포넌트를 테스트하고, 컴포넌트의 동작을 검증하는 데에 초점을 두고 있음
 
 ---
-
-## 🐋 Supplement
 
 ### BDD
 

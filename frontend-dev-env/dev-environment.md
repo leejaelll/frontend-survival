@@ -186,6 +186,19 @@ eslint 검사를 할 때에도 node_modules나 dist 폴더 내에 있는 것들�
      - Node 같은 경우 실행할 때 package.json 이라는 파일에 main에 있는 파일을 entry point로 잡는다.
      - 하지만 우리는 웹 서버를 띄울 것이기 때문에 `"source": "./index.html"`를 적어주어야 한다.
 
+> `index.html`엔 script 태그가 없지만 parcel이 자동으로 넣어준다.
+
+<br />
+
+### ✅ 기본 코드 작성
+
+- `index.html`
+- `src/main.tsx`
+- `src/App.tsx`
+- `src/App.test.tsx`
+- `src/components/Greeting.test.tsx`
+- `src/components/Greeting.tsx`
+
 ---
 
 ## ✅ Keyword
@@ -311,8 +324,6 @@ eslint 검사를 할 때에도 node_modules나 dist 폴더 내에 있는 것들�
 
 ---
 
-## 🐋 Supplement
-
 ### Deno
 
 💬 Deno를 사용하면 Node.js로 작업환경을 세팅할 때보다 훨씬 편하다고 했는데, Node.js와 어떤 차이점이 있는걸까?
@@ -351,15 +362,17 @@ eslint 검사를 할 때에도 node_modules나 dist 폴더 내에 있는 것들�
 
 ### SWC
 
-💬 SWC란?
-
 - stands for Speedy Web Compiler
 - Rust로 작성된 JavaScript/TypeScript 컴파일러
 - 속도와 성능 개선에 초점을 맞추고 있으며, 기존의 Babel 등의 트랜스파일러를 압도적으로 뛰어넘는 성능을 보여줌
 
-💬 SWC가 빠른 이유가 뭘까?
+{% hint="info"%}
+
+### SWC가 빠른 이유가 뭘까?
 
 - Rust 언어로 작성되어있다.
   - Rust는 메모리 안정성과 고성능을 동시에 제공하는 저수준 언어로, 매우 빠른 속도와 낮은 메모리 사용량을 가지고 있음
 - SWC는 필요한 최소한의 변환만 수행한다.
   - Babel과는 다르게 플러그인을 적용할 때 필요한 최소한의 변환만 수행한다. 이로 인해 SWC는 불필요한 변환 작업을 하지 않아 빠른 속도를 보장할 수 있다.
+
+{% endhint %}

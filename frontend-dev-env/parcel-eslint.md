@@ -1,4 +1,4 @@
-## 📚 강의 정리
+# Parcel & ESLint
 
 ## Parcel
 
@@ -38,7 +38,7 @@
    ```
 
    - 실행시켜보면 `no such file or directory, stat ‘/Users/leejaelll/wor/my-app/static` 이라는 에러 메세지가 뜸 👉🏻 static 폴더가 없다는 이야기!
-   - image와 같은 파일들은 모두 static 폴더 안에 있어야 함
+   - image와 같은 파일들은 모두 static 폴더 안에 있어야 함 (주의할 것은 경로에 '/static/'을 쓰지 않아야한다는 것!)
 
 빌드 + 정적 서버 실행
 
@@ -72,9 +72,13 @@ ESLint를 사용해야하는 이유가 있을까?
 
 ```jsx
 {
+    "editor.rulers": [
+        80
+    ],
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
-    }
+    },
+    "trailing-spaces.trimOnSave": true
 }
 ```
 
@@ -124,8 +128,6 @@ ESLint는 옳바른 코딩 습관을 갖도록 돕는 유용한 툴이다. 가�
 {% endhint %}
 
 ---
-
-## 🐋 Supplement
 
 ### 정적 프로그램 분석 Vs. 동적 프로그램 분석
 

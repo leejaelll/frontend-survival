@@ -1,3 +1,5 @@
+# Express
+
 ## 학습 키워드
 
 - Express 란 👉🏻 [Express 실습해보기](https://leejaelll.github.io/2022/221112-archive/?highlight=express)
@@ -9,11 +11,56 @@
 
 ## Express
 
-- [Express](https://expressjs.com/ko/)
+- [Express 공식문서](https://expressjs.com/ko/)
 
-Node.js 초창기때부터 존재했던 서버 웹 프레임워크
+{% hint="info"%}
 
-백엔드 이해 없이 프론트만 작업하는 것은 불가능. 백엔드를 어느정도는 이해하고 있어야 함
+### 🐻 Express를 사용하는 이유
+
+Express를 사용하지 않고도 http 모듈을 이용해 서버를 만들 수 있다.
+
+```jsx
+import http from 'http';
+
+const PORT = 3000;
+
+const server = http.createServer((req, res) => {
+  res.setHeader('Content-Type', 'text/plain');
+
+  if (req.url === '/' && req.method === 'GET') {
+    res.statusCode = 200;
+    res.end('Hello, World!');
+  } else {
+    res.statusCode = 404;
+    res.end('Not Found');
+  }
+});
+
+server.listen(PORT, 'localhost', () => {
+  console.log(`http server listen on localhost:${PORT}`);
+});
+```
+
+Express는 저수준 HTTP 모듈에 비해 더 높은 수준의 표현력이 풍부한 API를 제공한다.
+
+```jsx
+import express from 'express';
+
+const port = 3000;
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Hello, world!');
+});
+
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
+```
+
+{% endhint %}
+
+<br />
 
 ### 간단한 서버 앱 npm 패키지 세팅
 
@@ -74,9 +121,13 @@ npx eslint --init
 
 <br />
 
-🦖 6:40 - 왜 타입스크립트를 쓰면 JavaScript module을 사용할 수 있을까?
+{% hint="success"%}
 
-- TypeScript는 ESModule, CommonJS를 모두 지원하기 때문에 Node.js 환경에서 JavaScript Module을 사용할 수 있다.
+### 🦖 왜 타입스크립트를 쓰면 JavaScript module을 사용할 수 있을까?
+
+TypeScript는 ESModule, CommonJS를 모두 지원하기 때문에 Node.js 환경에서 JavaScript Module을 사용할 수 있다.
+
+{% endhint %}
 
 <br />
 
@@ -115,12 +166,17 @@ app.listen(port, () => {
 
 <br />
 
-🦖 10:44 - listen은 정확히 무슨 역할을 하는 메서드일까?
+{% hint="info"%}
 
-- 지정된 포트에서 연결을 바인드하고 수신을 대기하는 메서드
-- 지정된 포트와 호스트에서 들어오는 요청하는 새 HTTP 서버를 생성하고 요청을 수신되면 적절한 미들웨어 기능을 호출하여 요청을 처리하고 응답을 생성한다.
-- listen 메서드는 두 가지 인수를 받는데 첫 번째 인수는 서버가 들어오는 요청을 수신해야하는 포트 번호
-- 두 번째 인수는 서버가 성공적으로 시작되면 동작시킬 콜백 함수
+### 🦖 listen은 정확히 무슨 역할을 하는 메서드일까?
+
+- 지정된 포트와 연결하고 수신을 대기하는 메서드
+- 지정된 포트와 호스트에서 들어오는 새 HTTP 서버를 생성하고 요청이 수신되면 적절한 미들웨어 기능을 호출하여 요청을 처리하고 응답을 생성한다.
+- listen 메서드는 두 가지 인수를 받음.
+  - 1. 서버가 들어오는 요청을 수신해야하는 포트 번호
+  - 2. 서버가 성공적으로 시작되면 동작시킬 콜백 함수
+
+{% endhint %}
 
 ts-node로 실행
 
@@ -135,15 +191,17 @@ npx ts-node app.ts
 
 ```jsx
 app.get('/', (req, res) => {
-  res.send('Hello, world!!!!');
+  res.send('Hello, world!!');
 });
 ```
 
-👉🏻 새로고침해도 바뀌지 않음.
+<span style="background-color: rgba(153, 219, 218, 0.3); font-style: italic; font-weight: bold">👉🏻 현재는 새로고침해도 바뀌지 않는다.</span>
 
 <br />
 
-🦖 12:34 - 브라우저를 새로고침해도 수정된 내용이 반영되지 않는 이유가 뭘까?
+{% hint="danger"%}
+
+### 🦖 브라우저를 새로고침해도 수정된 내용이 반영되지 않는 이유가 뭘까?
 
 - 응답이 한 번 클라이언트에 전달되면 res.send() 메서드 내부 내용에 대한 변경사항은 페이지 새로고침 후에도 클라이언트 측에 반영되지 않는다.
 
@@ -155,16 +213,18 @@ app.get('/', (req, res) => {
 
 - 클라이언트 측에 표시되는 콘텐츠를 업데이트하려면 서버 측에서 응답을 생성하는 코드를 수정하고 변경 사항을 저장한 다음 서버를 다시 시작해야 한다.
 
+{% endhint %}
+
 <br />
 
-코드를 수정할 때마다 서버를 재실행해야 하는 문제를 피하기 위해 [nodemon](https://github.com/remy/nodemon) 사용.
+코드를 수정할 때마다 서버를 재실행해야 하는 문제를 피하기 위해 nodemon 사용
 
 ```jsx
 npm i -D nodemon
 
-npx nodemon app.ts
+nodemon app.ts
 
-// script 변경
+// package.json scripts 변경
 "start": "npx nodemon app.ts"
 ```
 
@@ -184,7 +244,9 @@ npx nodemon app.ts
 
 <br />
 
-🦖 17:24 - REST API에서 말하는 필딩 제약 조건이란?
+{% hint="info"%}
+
+### 🦖 REST API에서 말하는 필딩 제약 조건이란?
 
 - 클라이언트-서버 아키텍쳐: 시스템은 클라이언트와 서버가 분리되어 독립적으로 발전할 수 있게 설계되어야 한다.
 
@@ -193,6 +255,8 @@ npx nodemon app.ts
 - 캐시 가능성: 서버의 응답은 캐시 가능 또는 캐시 불가능으로 명시적으로 표시되어야 한다. 이를 통해 클라이언트는 응답을 캐시하여 성능을 향상 시킬 수 있다.
 
 - 계층화된 시스템: 아키텍쳐는 계층으로 설계되어야 하며, 각 계층은 부하 분산 또는 보안과 같은 특정 기능을 포함하여 균일한 인터페이스를 구성해야 한다.
+
+{% endhint %}
 
 <br />
 
@@ -209,6 +273,8 @@ CRUD에 대해 HTTP Method를 대입. Read는 Collection(복수)과 Item(Element
 4. Update (Item) → PUT 또는 PATCH /products/{id} ➡️ 특정 상품 정보 변경 (JSON 정보 함께 전달)
 
 5. Delete (Item) → DELETE /products/{id} ➡️ 특정 상품 삭제
+
+<br />
 
 Thinking in React 예제에 적용하기
 

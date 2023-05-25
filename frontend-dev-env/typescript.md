@@ -8,9 +8,10 @@
 - 자바스크립트를 브라우저가 아닌 환경에서 실행시키고 싶을 때 node를 설치한 것처럼 타입스크립트를 node에서 실행시킬 수 있다.
 - 하지만 타입스크립트로 작성된 .ts 파일은 단순히 node로만은 실행시킬 수 없다. node는 타입스크립트를 해석하지 못하기 때문이다. 👉🏻 이때 필요한게 `ts-node`
 - ./node_modules/.bin에는 ts-node가 없다. 그럼 npm install로 설치를 해야하나? 👉🏻 npx를 사용하면 된다!
-  ```jsx
-  npx ts-node
-  ```
+
+```jsx
+ npx ts-node
+```
 
 <br>
 
