@@ -1,3 +1,5 @@
+# React의 Hook
+
 ## 학습 키워드
 
 - React Hook 이란
@@ -25,7 +27,7 @@ React 16.8에서 Hooks가 도입됨. 기존 방식에 있던 몇 가지 문제�
 
 <br />
 
-기존 방식의 문제점
+### 기존 방식의 문제점
 
 - Wrapper Hell (HoC)
 
@@ -35,7 +37,17 @@ React 16.8에서 Hooks가 도입됨. 기존 방식에 있던 몇 가지 문제�
 
 <br />
 
-🦖 1:54 - 고차 컴포넌트를 사용하는 방법
+[HoC (Higher-Order Components)](https://ko.reactjs.org/docs/higher-order-components.html)
+
+컴포넌트의 재사용성을 높이기 위해서 컴포넌트를 컴포넌트로 감싸서 porps로 내려주는 스킬
+
+복잡하고 컴포넌트가 계속 생기는 단점이 있다.
+
+컴포넌트가 그 안에 로직이 많아지기 때문에 컴포넌트 자체가 커지는 문제가 있다.
+
+{% hint="success"%}
+
+### 고차 컴포넌트를 사용하는 방법
 
 고차 구성 요소(HOC)는 여러 구성 요소에서 기능을 재사용할 수 있게 해주는 React의 유용한 패턴
 
@@ -97,15 +109,7 @@ function App() {
 }
 ```
 
-<br />
-
-[HoC (Higher-Order Components)](https://ko.reactjs.org/docs/higher-order-components.html)
-
-컴포넌트의 재사용성을 높이기 위해서 컴포넌트를 컴포넌트로 감싸서 porps로 내려주는 스킬
-
-복잡하고 컴포넌트가 계속 생기는 단점이 있다.
-
-컴포넌트가 그 안에 로직이 많아지기 때문에 컴포넌트 자체가 커지는 문제가 있다.
+{% endhint %}
 
 {% hint style="info" %}
 
@@ -114,6 +118,8 @@ React를 쓰는 방식을 완전히 바꾼 커다란 변화.
 → 이제는 예전으로 돌아가는 게 불가능하다!
 
 {% endhint %}
+
+<br />
 
 기존:
 
@@ -155,7 +161,9 @@ React를 쓰는 방식을 완전히 바꾼 커다란 변화.
 
 <br />
 
-🦖 10:00 - 렌더링이 어떤 렌더링을 의미하는가?
+{% hint="success"%}
+
+### 렌더링이 어떤 렌더링을 의미하는가?
 
 화면이 렌더링되는 것을 의미하나?
 
@@ -163,11 +171,13 @@ React를 쓰는 방식을 완전히 바꾼 커다란 변화.
 
 DOM 객체를 참조해야할 때 DOM 트리가 모두 완성되고 나서 참조를 해야한다. 그냥 사용하면 null로 나오는 경우가 있는데 이때 useEffect를 사용하면 순서를 보장할 수 있다.
 
+{% endhint %}
+
 <br />
 
 기본적으로 렌더링 때마다 실행되므로, 의존성 배열을 통해 언제 이펙트를 실행할지 지정할 수 있다(= 불필요한 경우에 건너뛸 수 있다).
 
-document.title을 변경하는 예제
+### document.title을 변경하는 예제
 
 ```jsx
 export default function App() {
@@ -218,14 +228,17 @@ export default function FilterableProductTable() {
 타이머를 on/off하는 기능 구현한다고 생각해보자.
 
 ```jsx
+import { useEffect, useState } from 'react';
+
 function Timer() {
   useEffect(() => {
+    console.log('Effect');
     setInterval(() => {
       document.title = `Now: ${new Date().getTime()}`;
-    }, 100);
+    }, 1000);
   });
 
-  return <p>Playing</p>;
+  return <p>playing</p>;
 }
 
 export default function TimerControl() {
@@ -246,14 +259,22 @@ export default function TimerControl() {
 }
 ```
 
-이 코드의 문제점
+✅ 이 코드의 문제점
 
-- toggle 버튼을 누르면 title 숫자가 변경되는 것까지는 정상작동
-- 다시 toggle 버튼을 누르면 off되지 않고 계속해서 title이 변경됨
+- 처음 toggle 버튼을 누르면 title이 'React App'에서 밀리초로 변경된다.
+- 다시 toggle 버튼을 누르면 기대한 동작은 밀리초가 멈추는 것인데, off되지 않고 계속해서 title이 변경된다.
 
-해결 방법
+{% hint="danger"%}
 
-- 함수를 리턴함으로써 종료 처리를 할 수 있다.
+### Stop 버튼을 눌러도 멈추지 않는 이유
+
+cleanup 함수가 없기 때문에 멈추지 않는다. useEffect 내의 로직은 버튼을 눌렀을 때 리렌더링 되는데, 종료하는 코드가 없어서 이전에 생성된 setInterval이 백그라운드에서 계속 실행되고 있는 것이다.
+
+{% endhint %}
+
+💡 해결 방법
+
+- 함수를 리턴함으로써 종료 처리를 할 수 있다. (cleanup 함수)
 
 ```jsx
 useEffect(() => {
@@ -282,14 +303,14 @@ useEffect(() => {
 const [products, setProducts] = useState<Product[]>([]);
 
 useEffect(() => {
-	const fetchProducts = async () => {
-		const url = 'http://localhost:3000/products';
-		const response = await fetch(url);
-		const data = await response.json();
-		setProducts(data.products);
-	};
+  const fetchProducts = async () => {
+    const url = 'http://localhost:3000/products';
+    const response = await fetch(url);
+    const data = await response.json();
+    setProducts(data.products);
+  };
 
-	fetchProducts();
+  fetchProducts();
 }, []);
 ```
 

@@ -43,9 +43,11 @@ const chunk = await reader.read();
 ```
 
 ![.](./images/2023-03-28-20-40-28.png)
+
 products는 434바이트짜리 데이터
 
 ![](./images/2023-05-25-17-51-51.png)
+
 처음 chunk 값은 {value: Uint8Array(434), done: false}, 두 번째 chunk 값은 {value: undefined, done: true}이다. done이 true가 될 때까지 반복한다. 왜 이런 작업을 반복할까?
 
 데이터를 요청했을때 모든 데이터 한 번에 가져오는 것이 아니라, 데이터를 잘게 조각내서 받아오기 때문에 처음 done은 false이고, 다 받아왔다면 done이 true로 변경된다. 그 동안 value값을 계속해서 push해 놓는다.
