@@ -15,9 +15,7 @@
 
 ## usehooks-ts
 
-> [usehooks-ts](https://usehooks-ts.com/)
-
-모든 Hook에 대한 코드가 웹 사이트에 직접 노출됨.
+- [usehooks-ts](https://usehooks-ts.com/)
 
 ```bash
 npm i usehooks-ts

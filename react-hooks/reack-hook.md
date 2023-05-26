@@ -291,6 +291,8 @@ useEffect(() => {
 });
 ```
 
+useInterval을 사용해서 hook을 따로 만들 수도 있다. 👉🏻 [useInterval](https://usehooks-ts.com/react-hook/use-interval)
+
 <br />
 
 ### 처음에 한번만 실행하기

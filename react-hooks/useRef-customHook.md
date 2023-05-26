@@ -118,20 +118,20 @@ Toggle 버튼을 클릭했을 때 숫자가 증가하는 코드
 
 ```jsx
 function useFetchProducts() {
-	const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
 
-	useEffect(() => {
-		const fetchProducts = async () => {
-			const url = 'http://localhost:3000/products';
-			const response = await fetch(url);
-			const data = await response.json();
-			setProducts(data.products);
-		};
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const url = 'http://localhost:3000/products';
+      const response = await fetch(url);
+      const data = await response.json();
+      setProducts(data.products);
+    };
 
-		fetchProducts();
-	}, []);
+    fetchProducts();
+  }, []);
 
-	return products;
+  return products;
 }
 ```
 
