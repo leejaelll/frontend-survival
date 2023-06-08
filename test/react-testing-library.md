@@ -18,16 +18,33 @@
 
 좋은 테스트 관행을 장려하는 간단하고 완벽한 React DOM 테스트 유틸리티
 
+### ✅ React Testing Library 역할
+
+테스트를 위한 가상 DOM을 생성하고, DOM과 상호 작용하기 위한 유틸리티도 제공한다.
+예를 들어, DOM에서 요소를 찾을 수 있거나, 클릭과 같은 요소와 상호작용할 수 있으며, 브라우저 없이도 테스트를 할 수 있도록 한다.
+
 Jest와 같은 테스트 프레임워크와 함께 사용될 수 있도록 설계되어있음
 
 - 브라우저 내 테스트, 서버사이드 렌더링 테스트 등 다양한 환경에서 테스트를 하는데 사용할 수 있다.
-- 개발자가 구현 세부 사항이 아닌 “**애플리케이션의 동작”**에 초점을 맞춘 테스트를 작성하도록 권장
+- 개발자가 구현 세부 사항이 아닌 “애플리케이션의 동작”에 초점을 맞춘 테스트를 작성하도록 권장
 
 {% endhint %}
 
+```jsx
+test('renders learn react link', () => {
+  render(<App />); // 🚧 가상DOM 생성, 이 가상 DOM에는 어떻게 접근할까? 👉🏻 screen이라는 글로벌 객체로 접근
+  const linkElement = screen.getByText(/learn react/i); // 🚧 getByText 메서드의 인수로는 정규표현식이 들어가야 함.
+  expect(linkElement).toBeInTheDocument(); // 🚧 Assertion, 테스트 성공과 실패의 원인
+});
+```
+
+만약 getByText 메서드에 전달한 문자열이 컴포넌트에 없다면 오류를 보여준다.
+
+> TestingLibraryElementError: Unable to find an element with the text: /learn testing library/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
 <br />
 
-{% hint style="info" %}
+{% hint style="success" %}
 
 ## jest-dom
 
@@ -40,11 +57,9 @@ Jest 테스트 프레임워크용 확장 라이브러리
 
 {% endhint %}
 
-### 🦖 jest-dom과 jest를 함께 사용했을 때의 장점은?
+### 🦖 jest-dom과 jest를 함께 사용했을 때의 장점
 
-웹 애플리케이션에 대한 포괄적인 테스트를 생성할 수 있으므로, 개발 프로세스 초기에 버그와 문제를 파악하는 데 도움이 될 수 있다.
-
-또한 jest-dom은 사용자 정의가 가능해서 특정 프로젝트의 요구사항에 맞게 기능을 쉽게 확장할 수 있다.
+웹 애플리케이션에 대한 포괄적인 테스트를 생성할 수 있으므로, 개발 프로세스 초기에 버그와 문제를 파악하는 데 도움이 될 수 있다. 또한 jest-dom은 사용자 정의가 가능해서 특정 프로젝트의 요구사항에 맞게 기능을 쉽게 확장할 수 있다.
 
 <br />
 
@@ -55,7 +70,7 @@ test 파일은 `filename.test.tsx` 로 컴포넌트와 동일한 위치에 두�
 import { render } from '@testing-library/react';
 
 test('TextField', () => {
-	// given
+  // given
   const setFilterText = () => {}
 
   // when
@@ -68,7 +83,8 @@ test('TextField', () => {
 
   // then
   screen.getByLabelText('Search'); // label text가 'Search'인 것을 찾는다.
-  ));
+  ))
+});
 ```
 
 <br />
@@ -194,11 +210,90 @@ describe('TextField', () => {
 
 반복되는 코드를 Extract Function하고, fireEvent 등을 통해 인터랙션만 검증한다. 만약 복잡한 로직이 컴포넌트로부터 분리된다면, 여기서는 이것만 검증하면 된다.
 
+{% hint="success"%}
+
+## 🦁 jest.fn()의 역할
+
+- jest.fn() 함수는 Jest 테스트 프레임워크에서 제공하는 유틸리티
+- 실제 함수를 대체하기 위해 테스트에서 사용할 수 있는 일종의 가상의 함수
+
+jest.fn()을 호출하면 새로운 빈 함수를 반환한다. 이 mock 함수는 테스트 실행 중에 동작을 관찰하고 제어할 수 있다.
+
+간단한 예를 들어보면, text state를 변경하는 setText 함수가 호출되는지 테스트해야하는 경우가 있다. 이 때, setText가 무엇을 하는지는 중요하지 않고, 불렸는지만 확인하고 싶을 때 jest.fn()을 사용한다.
+
+```jsx
+setText = jest.fn();
+
+expect(setText).toBeCalled();
+```
+
+### 🦁 jest.fn을 사용하는 이유
+
+jest.fn()을 사용하는 것은 테스트 중에 코드에서 특정 기능이나 종속성을 분리하려는 경우에 특히 유용하다. 이를 통해 이러한 함수의 동작을 제어하고 실제 구현을 실행하지 않고도 함수가 사용되는 방식을 확인할 수 있다.
+
+이렇게 하면 예측 가능한 시나리오를 만들고 코드가 mock 함수와 올바르게 상호 작용하는지 확인할 수 있으므로 테스트 안정성이 향상된다.
+
+### 🚧 테스트가 여러 개인 경우 jest.fn을 초기화해줘야 한다
+
+```jsx
+describe('TextField', () => {
+  const text = 'Tester';
+  const setText = jest.fn();
+
+  function renderTextField() {
+    render(
+      <TextField
+        label="Name"
+        placeholder="Input your name"
+        text={text}
+        setText={setText}
+      />
+    );
+  }
+
+  it('renders an input control', () => {
+    renderTextField();
+    screen.getByLabelText('Name');
+  });
+
+  context('when user types text', () => {
+    it('calls the change handler', () => {
+      renderTextField();
+      fireEvent.change(screen.getByLabelText('Name'), {
+        target: {
+          value: 'New Name',
+        },
+      });
+
+      expect(setText).toBeCalledWith('New Name');
+    });
+  });
+});
+```
+
+setText를 여러 군데에서 사용하는 경우에는 한번이라도 함수가 호출된 경우 불렸다는 정보를 저장하고 있기 때문에 매번 초기화를 시켜줘야한다.
+
+```jsx
+beforeEach(() => {
+  setText.mockClear();
+});
+
+// 또는
+
+beforeEach(() => {
+  jest.clearAllMocks();
+});
+```
+
+{% endhint %}
+
 <br />
 
 ### 🦖 `fireEvent`의 사용 방법
 
 : 버튼 클릭, input field 또는 submitting a form과 같은 DOM 요소와의 사용자 상호 작용을 시뮬레이션할 수 있는 유틸리티 기능
+
+: 가상 DOM에서 요소와 상호 작용할 수 있도록 돕는 객체
 
 fireEvent를 사용하면 사용자 동작에 대한 애플리케이션의 동작을 직접 수동으로 수행하지 않고도 테스트할 수 있다.
 
@@ -220,16 +315,30 @@ test('clicking the button triggers the expected behavior', () => {
 });
 ```
 
-만약 외부 의존성이 큰 코드를 작성한다면, 해당 부분만 가짜로 구현할 수 있다.
+만약 외부 의존성이 큰 코드를 작성한다면, 해당 부분만 가짜로 구현할 수 있다.  
+_(예를 들어, 받아오는 데이터엔 'Apple'이라는 상품이 없을 수도 있지만, 있는 것처럼 구현해놓는 것)_
+
+```jsx
+jest.mock('모듈 경로', () => () => [
+  {
+    // 데이터
+    id: 1,
+  },
+]);
+// 중첩함수를 사용해야한다.
+```
 
 ```jsx
 import { render, screen } from '@testing-library/react';
 
 import App from './App';
 
-**jest.mock**('./hooks/useFetchProducts', () => () => [
+jest.mock('./hooks/useFetchProducts', () => () => [
   {
-    category: 'Fruits', price: '$1', stocked: true, name: 'Apple',
+    category: 'Fruits',
+    price: '$1',
+    stocked: true,
+    name: 'Apple',
   },
 ]);
 
@@ -240,7 +349,7 @@ test('App', () => {
 });
 ```
 
-일반적으론 백엔드와 소통하는 부분이 차지하는 비중이 큰데, 이 부분을 하나씩 가짜 구현으로 바꾸다 보면 어려울 때가 있다. 이럴 땐 MSW 등 다른 대안을 고려해 보자.
+👉🏻 일반적으론 백엔드와 소통하는 부분이 차지하는 비중이 큰데, 이 부분을 하나씩 가짜 구현으로 바꾸다 보면 어려울 때가 있다. 이럴 땐 MSW 등 다른 대안을 고려해 보자.
 
 <br />
 
@@ -268,7 +377,7 @@ test('App', () => {
 
 {% hint style="info" %}
 
-### Test Fixture
+## ✅ Test Fixture
 
 : '테스트를 위해 고정되어 있는 것’
 
@@ -277,5 +386,38 @@ test('App', () => {
 외부 DB나, API 등 대상 서버의 네트워크, 정기작업 이슈가 있다면, 우리는 테스트를 진행할 수 없다. 이를 개선하기 위해 변경되지 않는 상태나 데이터를 미리 만들어 두는 작업을 'Test Fixture'를 만든다고 한다.
 
 **_즉, 테스트를 위해 변경되지 않는 상태의 객체나 데이터를 만들어 둔 것을 'Fixture'라고 한다._**
+
+### ✅ Fixture 사용방법
+
+- fixtures 폴더를 만들고 가상의 데이터를 가지고 있는 파일을 만든다.
+
+```jsx
+// fixtures/products.ts
+const products = [
+  { category: 'Fruits', price: '$1', stocked: true, name: 'Apple' },
+];
+
+export default products;
+
+// fixtures/index.ts
+import products from './products';
+
+export default {
+  products,
+}
+```
+
+```jsx
+// App.test.tsx
+import fixtures from '../fixtures';
+
+jest.mock('./hooks/useFetchProducts', () => () => fixtures.products);
+
+test('App', () => {
+  render(<App />);
+
+  screen.getByText('Apple');
+});
+```
 
 {% endhint %}
