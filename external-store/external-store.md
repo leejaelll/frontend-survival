@@ -116,3 +116,160 @@ MVC 패턴이 언제 생겨났는지 살펴보면 GUI 데스크탑 애플리케�
 | ------------------------------------------------------------------------------ | ----------------------------------------------------- |
 | 컨트롤러 → 모델과 뷰 사이의 중재자 역할 (입력을 처리하고 모델과 뷰를 업데이트) | 모든 데이터는 Dispatcher → Store → View 방향으로 흐름 |
 | 데이터 흐름이 엄격하게 단방향이 아니다.                                        | 단방향 데이터 흐름을 엄격하게 적용                    |
+
+<br />
+
+### 기존에 리액트에서 상태를 변경할 때는 useState를 사용했다.
+
+```jsx
+import { useState } from 'react';
+
+export default function Counter() {
+  const [count, setCount] = useState();
+  const handleClick = () => {
+    setCount((count) => count + 1);
+  };
+
+  return (
+    <div>
+      <p>{count}</p>
+      <button type="button" onClick={handleClick}>
+        Increase
+      </button>
+    </div>
+  );
+}
+```
+
+만약 외부의 변수로 값을 변경시키고 싶다면? 컴포넌트 이외의 곳에서 변수를 선언하고 값을 가져와야한다.
+
+```jsx
+let count = 0;
+
+export default function Counter() {
+  const handleClick = () => {
+    count += 1;
+  };
+
+  return (
+    <div>
+      <p>{count}</p>
+      <button type="button" onClick={handleClick}>
+        Increase
+      </button>
+    </div>
+  );
+}
+```
+
+<br />
+
+{% hint="danger"%}
+
+외부에 변수를 선언하고 사용하면 문제가 무엇일까?
+
+리액트는 상태가 변경되면 리렌더링을 한다. 하지만 컴포넌트 외부에서 선언된 변수는 변경되었는지 알 수 없기 때문에 콘솔창에 count를 출력해보면 count는 증가하고 있지만, 화면에는 변화가 없다.
+
+![](./images/23-06-20-1.png)
+
+{% endhint %}
+
+<br />
+
+### 강제로 리렌더링을 시키는 방법
+
+```jsx
+const handleClick = () => {
+  count += 1;
+  // 🚀 여기서 강제로 렌더링을 시키면 되지 않을까?
+};
+```
+
+useForceUpdate라는 커스텀 훅을 만들고, 강제로 렌더링을 시키기 위해서 setState를 사용한다.
+
+```jsx
+// useForceUpdate.tsx
+
+import { useState } from 'react';
+
+// 🚧 강제로 렌더링을 시키기 위해서 setState를 사용한다.
+export default function useForceUpdate() {
+  const [state, setState] = useState(0);
+
+  const forceUpdate = () => {
+    setState(state + 1);
+  };
+
+  return forceUpdate;
+}
+```
+
+리팩토링을 한다면 다음과 같이 코드를 작성할 수 있다.
+
+```jsx
+import { useCallback, useState } from 'react';
+
+export default function useForceUpdate() {
+  const [, setState] = useState({});
+
+  return useCallback(() => setState({}), []); // ✅ 항상 빈 객체로 setState한다.
+}
+```
+
+```jsx
+import useForceUpdate from './useForceUpdate';
+
+const state = {
+  count: 0,
+};
+
+export default function App() {
+  const forceUpdate = useForceUpdate();
+  const handleClick = () => {
+    count += 1;
+    forceUpdate();
+  };
+
+  return (
+    <div>
+      <p>{state.count}</p>
+      <button type="button" onClick={handleClick}>
+        Increase
+      </button>
+    </div>
+  );
+}
+```
+
+<br />
+
+직접 1을 증가시키는 것이 아니라 increase 함수를 실행시키면 state값을 올릴 수 있도록 Business Logic과 UI Logic으로 나눌 수 있다.
+
+```jsx
+import useForceUpdate from './useForceUpdate';
+
+let state = {
+  count: 0,
+};
+
+const increase = () => {
+  state.count += 1;
+};
+
+export default function App() {
+  const forceUpdate = useForceUpdate();
+  const handleClick = () => {
+    increase(); // ✅ 어떻게 증가하는지는 중요하지 않다.
+    forceUpdate();
+  };
+
+  return (
+    <div>
+      <p>{state.count}</p>
+      <button type="button" onClick={handleClick}>
+        Increase
+      </button>
+    </div>
+  );
+}
+```
