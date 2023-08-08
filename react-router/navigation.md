@@ -2,10 +2,10 @@
 
 ## 학습 키워드
 
-- Web APIs - History
-- React Router - NavLink, Link, Navigate, useNavigate
+* Web APIs - History
+* React Router - NavLink, Link, Navigate, useNavigate
 
----
+
 
 ### 🫥 페이지가 이동할때마다 계속 렌더링되는데... 변경되는 부분만 렌더링시킬 순 없나?
 
@@ -32,7 +32,8 @@ const handleClick = (event: SyntheticEvent) => {
 
 👉🏻 Link는 pushState와 동일하게 리렌더링을 하지 않는다.
 
-<br />
+\
+
 
 ## NavLink
 
@@ -42,18 +43,20 @@ Link와 동일하게 해당 URL로 이동한다.
 <NavLink to="/">Home</NavLink>
 ```
 
-Link와 차이점이 있다면?  
+Link와 차이점이 있다면?\
 : 현재 위치하는 URL의 a 태그에 active 클래스를 자동으로 붙여준다.
 
-![NavLink](./images/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%209.png)
+![NavLink](<images/스크린샷 9.png>)
 
-<br />
+\
+
 
 ## Navigate
 
 무조건 redirection 해주는 역할을 한다.
 
-<br />
+\
+
 
 **로그아웃 버튼을 누르면 메인페이지로 다시 돌아가야한다고 가정해보자.**
 

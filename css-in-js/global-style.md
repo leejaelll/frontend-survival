@@ -2,13 +2,14 @@
 
 ## 학습 키워드
 
-- Reset CSS
-- `box-sizing` 속성
-- `word-break` 속성
-- Theme
-- ThemeProvider
+* Reset CSS
+* `box-sizing` 속성
+* `word-break` 속성
+* Theme
+* ThemeProvider
 
-<br />
+\
+
 
 styled-reset을 설치하여 모든 속성값을 초기화시킬 수 있다.
 
@@ -16,7 +17,8 @@ styled-reset을 설치하여 모든 속성값을 초기화시킬 수 있다.
 npm i styled-reset
 ```
 
-<br />
+\
+
 
 ## 전역 스타일 설정하기
 
@@ -47,7 +49,7 @@ function App() {
 
 > [createGlobalStyle](https://styled-components.com/docs/api#createglobalstyle)
 
-> [대체 CSS box model](https://developer.mozilla.org/ko/docs/Learn/CSS/Building_blocks/The_box_model#대체_css_box_model)
+> [대체 CSS box model](https://developer.mozilla.org/ko/docs/Learn/CSS/Building\_blocks/The\_box\_model#%EB%8C%80%EC%B2%B4\_css\_box\_model)
 
 > [box-sizing](https://developer.mozilla.org/ko/docs/Web/CSS/box-sizing)
 
@@ -57,4 +59,4 @@ function App() {
 
 > [word-break](https://developer.mozilla.org/ko/docs/Web/CSS/word-break)
 
-<br />
+\

@@ -1,29 +1,31 @@
-## 학습 키워드
+# useRef & Custom Hook
 
-- useRef
-- Hook의 규칙
+### 학습 키워드
 
----
+* useRef
+* Hook의 규칙
 
-## useRef
 
-- [beta 문서의 useRef](https://beta.reactjs.org/reference/react/useRef)
 
-- [공식 문서의 useRef](https://ko.reactjs.org/docs/hooks-reference.html#useref)
+### useRef
+
+* [beta 문서의 useRef](https://beta.reactjs.org/reference/react/useRef)
+* [공식 문서의 useRef](https://ko.reactjs.org/docs/hooks-reference.html#useref)
 
 컴포넌트의 생애주기 전체에 걸쳐서 유지되는 객체. 즉, 컴포넌트가 없어질 때까지 동일한 객체가 유지된다.
 
-리액트 공식문서를 보고 useRef의 개념과 사용방법에 대해서 정리했다.👉🏻 [useRef의 개념과 사용방법 - LEE_PLAY](https://leejaelll.github.io/2023/230521-archive/)
+리액트 공식문서를 보고 useRef의 개념과 사용방법에 대해서 정리했다.👉🏻 [useRef의 개념과 사용방법 - LEE\_PLAY](https://leejaelll.github.io/2023/230521-archive/)
 
 어느 상황에서 useRef를 사용해야하는지에 대해서 공부할 수 있었다. 중요한 건 변경된 값을 화면에 보여줘야하는가? 보여주지 않아도 되는가?에 차이라고 생각한다.
 
-<br />
+\
+
 
 🦖 00:38 - 컴포넌트 생애주기란?
 
 컴포넌트가 만들어졌다가 사라지는 동안의 주기를 의미함.
 
-![](./images/2023-03-29-16-20-49.png)
+![](images/2023-03-29-16-20-49.png)
 
 컴포넌트가 사라졌다는 것은 DOM 요소에서 사라지는 것을 의미. 들어갈 땐 Mount 빠질 땐 Unmount라고 부름.
 
@@ -39,14 +41,13 @@
 
 컴포넌트가 화면에서 사라지기 바로 직전에 호출되는 메서드
 
-<br />
+\
+
 
 useRef는 컴포넌트가 생성되었다가 사라지는 그 동안에서 계속해서 유지되는 객체!
 
-{% hint="info"%}
-
+{% hint style="info" %}
 객체 자체가 값은 아니고, 값을 참조하기 위한 객체. 즉, 언제든지 값을 변경할 수 있다.
-
 {% endhint %}
 
 상태와는 관계없이 값을 계속해서 유지하고 싶다면?
@@ -71,7 +72,7 @@ ref는 current라는 프로퍼티를 가지고 있음
 ref.current += 1;
 ```
 
-이러면 useState와 무슨 차이가 있지?  
+이러면 useState와 무슨 차이가 있지?\
 : 상태(state)가 변경되면 해당 컴포넌트와 하위 컴포넌트를 다시 렌더링하지만, 레퍼런스 객체의 현재 값(current)이 바뀌더라도 렌더링에 영향을 주지 않는다.
 
 ```jsx
@@ -92,29 +93,26 @@ export default function App() {
 
 Toggle 버튼을 클릭했을 때 숫자가 증가하는 코드
 
-- 화면에서는 버튼을 눌러도 변화가 없다.
+* 화면에서는 버튼을 눌러도 변화가 없다.
+* 다른 상태가 변경되는 버튼을 눌렀을 때 렌더링을 다시하면 누른 수만큼 숫자가 증가되는 것을 볼 수 있다.
+* 즉, 화면 렌더링을 다시 할 때 반영한다.
 
-- 다른 상태가 변경되는 버튼을 눌렀을 때 렌더링을 다시하면 누른 수만큼 숫자가 증가되는 것을 볼 수 있다.
+\
 
-- 즉, 화면 렌더링을 다시 할 때 반영한다.
 
-<br />
-
-### 주요 용도
+#### 주요 용도
 
 1. 컴포넌트가 사라질 때까지 동일한 값을 써야 하는 경우. ⇒ input 등의 ID 관리.
-
 2. (특히 useEffect 등과 함께 쓰면서 만나게 되는) 비동기 상황에서 현재 값을 제대로 쓰고 싶은 경우.
+   * Closure → 변수를 capture, bind를 깜빡하는 문제가 종종 일어남.
 
-   - Closure → 변수를 capture, bind를 깜빡하는 문제가 종종 일어남.
+\
 
-<br />
 
-## Custom Hook
+### Custom Hook
 
-- [Reusing Logic with Custom Hooks](https://beta.reactjs.org/learn/reusing-logic-with-custom-hooks)
-
-- [자신만의 Hook 만들기](https://ko.reactjs.org/docs/hooks-custom.html)
+* [Reusing Logic with Custom Hooks](https://beta.reactjs.org/learn/reusing-logic-with-custom-hooks)
+* [자신만의 Hook 만들기](https://ko.reactjs.org/docs/hooks-custom.html)
 
 로직을 재사용하기 위한 제일 쉬운 방법.
 
@@ -151,11 +149,12 @@ export default function App() {
 
 컴포넌트 코드도 명확해지고, setProducts가 실수로 잘못 쓰일 문제도 해결할 수 있다.
 
-<br />
+\
 
-## Hook의 규칙
 
-- [Hook의 규칙](https://ko.reactjs.org/docs/hooks-rules.html)
+### Hook의 규칙
+
+* [Hook의 규칙](https://ko.reactjs.org/docs/hooks-rules.html)
 
 Hook 호출은 규칙이 있어서 단순하게 쓰도록 노력해야 한다.
 
