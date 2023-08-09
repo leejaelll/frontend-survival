@@ -62,4 +62,9 @@
 ## STUDY
 
 - [React Article Study](study/undefined.md)
-- [Effective TypeScript Study](study/effective-typescript-study.md)
+- [Effective TypeScript Study](study/effective-typescript-study/README.md)
+  - [1⃣ 타입스크립트 알아보기](study/effective-typescript-study/undefined.md)
+
+## Jest & React Testing Library&#x20;
+
+- [Page 1](jest-and-react-testing-library/page-1.md)
