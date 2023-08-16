@@ -7,15 +7,12 @@
 * Puppeteer
 * Playwright
 * CodeceptJS
-
-
-
 * [Playwright](https://playwright.dev/)
 * [Playwright Configuration](https://playwright.dev/docs/test-configuration)
 * [Ashal의 Playwright](https://github.com/ahastudio/til/blob/main/test/playwright.md)
 
 {% hint style="info" %}
-### Playwright
+#### Playwright
 
 웹 브라우저 기반 E2E 테스트 자동화 도구.
 
@@ -27,19 +24,17 @@ _👉🏻 즉, 사용자가 실제로 소프트웨어를 사용했을때 플로�
 * 또한 눈에 보이는 브라우저 창 없이 테스트를 실행할 수 있는 헤드리스 모드와 개발자가 테스트 실행 중에 발생하는 문제를 디버그하고 해결하는 데 도움이 되는 슬로우 모션 모드가 포함되어 있다.
 {% endhint %}
 
-\
-
+\\
 
 {% hint style="info" %}
-### Headless Chrome
+#### Headless Chrome
 
 * 개발자가 UI(사용자 인터페이스) 없이 프로그래밍 방식으로 Chrome 브라우저 기능을 사용할 수 있게 해주는 도구입니다.
 * 본질적으로 일반 Chrome과 동일하지만 그래픽 사용자 인터페이스가 없으므로 자동 테스트, 웹 스크래핑 및 기타 헤드리스 애플리케이션에 사용할 수 있다.
 * 일반 브라우저처럼 웹 페이지와 상호 작용하고 JavaScript 코드를 실행하는 방법을 제공하지만 모두 백그라운드에서 수행한다.
 {% endhint %}
 
-\
-
+\\
 
 Playwright 패키지 설치
 
