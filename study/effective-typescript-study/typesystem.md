@@ -120,7 +120,7 @@ keyof (A|B) = (keyof A) & (keyof B)
 
 ---
 
-### 타입이 값들의 집합이라고 생각하기
+### 타입 공간과 값 공간의 심벌 구분하기
 
 심벌(symbol)은 타입 공간이나 값 공간 중의 한 곳에 존재한다. (이 문장만으로는 정확하게 이해가 가지 않으니, 예시를 살펴보자.)
 
@@ -181,3 +181,45 @@ type T2 = typeof email; // type은 (p: Person, subject: string, body: string) =>
 const v1 = typeof p; // 값은 object
 const v2 = typeof email; // 값은 function
 ```
+
+#### 두 공간 사이에서 다른 의미를 가지는 코드패턴들
+
+- 값으로 쓰이는 this는 자바스크립트 키워드, 타입으로 쓰이는 this는 다형성 this라고 불리는 타입스크립트 타입 (서브클래스 메서드 체인을 구현할 때 유용)
+- 값에서 &와 |는 비트연산, 타입에서는 인터섹션과 유니온
+- const는 새 변수를 선언하지만 as const는 리터럴 또는 리터럴 표현식의 추론된 타입을 바꿈
+- extends는 서브클래스 또는 서브타입 또는 제너릭타입의 한정자를 정의
+- in은 루프 또는 매핑된 타입에 등장
+
+**타입스크립트가 정상적으로 동작하지 않는다면 타입 공간과 값 공간을 혼동해 잘못 작성했을 가능성이 크다.**
+
+이 코드의 문제점은 무엇일까?
+
+```typescript
+export default function eamil({
+  person: Person,
+  subject: string,
+  body: string,
+}) {}
+```
+
+- 값의 관점에서 Person과 string이 해석되었기 때문
+- Person이라는 변수명과 string이라는 이름을 가지는 두 개의 변수를 생성하려한 것
+
+문제를 해결하려면 어떻게 해야할까?
+타입과 값을 구분해야한다.
+
+```typescript
+function eamil({
+  person,
+  subject,
+  body,
+}: {
+  person: Person;
+  subject: string;
+  body: string;
+}) {}
+```
+
+---
+
+### 타입 단언보다는 타입 선언을 사용하기
