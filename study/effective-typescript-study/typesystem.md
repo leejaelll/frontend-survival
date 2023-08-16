@@ -2,10 +2,10 @@
 
 > _**타입스크립트의 가장 중요한 역할은 타입시스템에 있다.**_
 
-| 타입시스템이란 무엇인가?           |
-| ----------------------- |
-| 타입 시스템을 어떻게 사용해야할까?     |
-| 무엇을 결정해야하는가?            |
+| 타입시스템이란 무엇인가?                  |
+| ----------------------------------------- |
+| 타입 시스템을 어떻게 사용해야할까?        |
+| 무엇을 결정해야하는가?                    |
 | 가급적 사용하지 말아야할 기능은 무엇일까? |
 
 ### 타입이 값들의 집합이라고 생각하기
@@ -13,8 +13,8 @@
 {% hint style="info" %}
 **never 타입은 언제 사용하는 걸까?**
 
-* 아무 값도 포함하지 않는 **공집합**
-* never 타입으로 선언된 변수에는 아무런 값도 할당할 수 없다.
+- 아무 값도 포함하지 않는 **공집합**
+- never 타입으로 선언된 변수에는 아무런 값도 할당할 수 없다.
 
 ```typescript
 function hello(): never {
@@ -24,11 +24,9 @@ function hello(): never {
 
 _**never는 따로 return하지 않고, 오류를 발생시키는 함수에 타입을 지정할 때 사용한다.**_
 
-
-
 **unknown**
 
-* 변수의 타입을 모를때 unknown으로 지정할 수 있다.
+- 변수의 타입을 모를때 unknown으로 지정할 수 있다.
 
 ```typescript
 let a: unknown;
@@ -36,8 +34,6 @@ if (typeof a === number) {
   let b = a + 1;
 }
 ```
-
-
 
 <mark style="color:red;">**any와 unknown를 분리해놓은 이유가 무엇일까?**</mark>&#x20;
 
@@ -76,8 +72,8 @@ const ps: PersonSpan = {
 }; // ok
 ```
 
-* 세 개의 속성보다 더 많은 값을 가지더라도 PersonSpan 타입에 속한다.
-* 인터섹션 타입의 값은 각 타입 내의 속성을 모두 포함하는 것이 일반적인 규칙
+- 세 개의 속성보다 더 많은 값을 가지더라도 PersonSpan 타입에 속한다.
+- 인터섹션 타입의 값은 각 타입 내의 속성을 모두 포함하는 것이 일반적인 규칙
 
 {% hint style="info" %}
 **typeof / keyof의 차이점**
@@ -106,6 +102,7 @@ type Type = {
 type Union = keyof Type;
 // type Union = name | age | married
 ```
+
 {% endhint %}
 
 유니온 타입에서는 다르게 동작한다.
@@ -119,4 +116,68 @@ type K = keyof (Person | Lifespan); // never
 ```typescript
 keyof (A&B) = (keyof A) | (keyof B)
 keyof (A|B) = (keyof A) & (keyof B)
+```
+
+---
+
+### 타입이 값들의 집합이라고 생각하기
+
+심벌(symbol)은 타입 공간이나 값 공간 중의 한 곳에 존재한다. (이 문장만으로는 정확하게 이해가 가지 않으니, 예시를 살펴보자.)
+
+```typescript
+interface Cylinder {
+  radius: number;
+  height: number;
+}
+
+const Cylinder = (radius: number, height: number) => ({ radius, height });
+```
+
+- interface Cylinder에서 Cylinder는 타입
+- const Cylinder에서 Cylinder와 이름은 같지만 값으로 사용하고 있으며, 아무런 관련이 없다.
+- 이런 점이 가끔 오류를 야기함
+
+```typescript
+function CalculateVolume(shape: unknown) {
+  if (shape instanceof Cylinder) {
+    return shape.radius;
+  }
+}
+```
+
+- instanceof는 런타임 연산자로 값에 대해서 연산을 한다.
+- 그렇기 때문에 타입이 아닌 함수를 참조한다.
+
+> _class와 enum은 상황에 따라 타입과 값 두 가지 모두 가능한 예약어_
+
+```typescript
+class Cylinder {
+  radius: number;
+  height: number;
+}
+
+function calculateVolume(shape: unknown) {
+  if (shape instanceof Cylinder) {
+    shape; // ok, type은 Cylinder
+    shape.radius; // ok, type은 number
+  }
+}
+```
+
+- 클래스가 타입으로 쓰일 때는 속성과 메서드가 사용된다.
+- 반면에 값으로 쓰일 때는 생성자가 사용된다. (표로 만들기)
+
+#### 연산자 typeof도 다른 기능을 한다.
+
+- 타입으로 쓰일 때는 타입을 반환한다.
+- 값으로 쓰일 때는 런타임의 typeof 연산자가 된다.
+
+```typescript
+function email(p: Person, subject: string, body: string): Response {}
+
+type T1 = typeof p; // type은 Person
+type T2 = typeof email; // type은 (p: Person, subject: string, body: string) => Response
+
+const v1 = typeof p; // 값은 object
+const v2 = typeof email; // 값은 function
 ```
