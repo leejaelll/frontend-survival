@@ -194,6 +194,16 @@ const v2 = typeof email; // 값은 function
 | extends | `class A extends B`      | <p><code>interface A extends B </code> 또는<br><code>Generic&#x3C;T extends number></code></p> |
 | in      | for(key in object)       | 매핑된 타입                                                                                    |
 
+{% hint style="danger" %}
+**다형성(Polymorphism)이 무엇을 의미하는걸까?**
+
+<code>Polymorphism</code>
+: Poly + morphos의 합성어로 '여러가지 다른 형태들'을 의미한다.
+
+_즉, 여러 타입을 받아들임으로써 여러 형태를 가지는 것을 의미_
+
+{% endhint %}
+
 _<mark style="color:red;">**타입스크립트가 정상적으로 동작하지 않는다면 타입 공간과 값 공간을 혼동해 잘못 작성했을 가능성이 크다.**</mark>_
 
 이 코드의 문제점은 무엇일까?
