@@ -4,11 +4,11 @@ description: 스냅샷으로서의 state
 
 # State as a Snapshot
 
-| How setting state triggers re-renders (state 설정으로 리렌더링이 촉발되는 방식)                                      |
-| ----------------------------------------------------------------------------------------------------- |
-| When and how state updates (state 업데이트 시기 및 방법)                                                       |
+| How setting state triggers re-renders (state 설정으로 리렌더링이 촉발되는 방식)                                         |
+| ----------------------------------------------------------------------------------------------------------------------- |
+| When and how state updates (state 업데이트 시기 및 방법)                                                                |
 | <p>Why state does not update immediately after you set it<br>(state를 설정한 직후에 state가 업데이트되지 않는 이유)</p> |
-| <p>How event handlers access a “snapshot” of the state<br>(이벤트 핸들러가 state의 ‘스냅샷’에 액세스하는 방법)</p>       |
+| <p>How event handlers access a “snapshot” of the state<br>(이벤트 핸들러가 state의 ‘스냅샷’에 액세스하는 방법)</p>      |
 
 ### state를 설정하면 렌더링이 촉발된다. <a href="#setting-state-triggers-renders" id="setting-state-triggers-renders"></a>
 
@@ -46,9 +46,9 @@ function sendMessage(message) {
 
 Send 버튼을 클릭했을 때 어떤 일이 일어나는지 설명해보자.
 
-* onSubmit 이벤트가 발생한다.
-* `setIsSent(true)` 가 isSent의 값을 true로 설정하고새 렌더링을 큐에 대기시킨다.
-* React는 새로운 `isSent` 값에 따라 컴포넌트를 다시 렌더링한다.
+- onSubmit 이벤트가 발생한다.
+- `setIsSent(true)` 가 isSent의 값을 true로 설정하고새 렌더링을 큐에 대기시킨다.
+- React는 새로운 `isSent` 값에 따라 컴포넌트를 다시 렌더링한다.
 
 > _**state와 렌더링은 어떤 관계일까?**_
 
@@ -151,27 +151,22 @@ export default function Counter() {
 ```
 
 ```jsx
-
 // 변수 대신 값을 대입해보면,
 setNumber(0 + 5);
 setTimeout(() => {
   alert(0);
 }, 3000);
 ```
+
 {% endhint %}
 
 state 변수의 값은 렌더링 내에서 절대 변경되지 않는다. 해당 렌더링의 onClick 내에서 setNumber(number + 5)가 호출된 후에도 number의 값은 계속 0이다. React가 UI의 스냅샷을 찍을 때 고정된 값이기 때문이다.
 
+다시 렌더링하기 전에 최신 state를 읽고 싶다면 어떻게 해야 할까? 👉🏻 `batching`
 
-
-다시 렌더링하기 전에 최신 state를 읽고 싶다면 어떻게 해야 할까?
-
-
-
-***
+---
 
 #### 참고
 
-* [https://react-ko.dev/learn/state-as-a-snapshot](https://react-ko.dev/learn/state-as-a-snapshot)
-* [https://react.dev/learn/state-as-a-snapshot](https://react.dev/learn/state-as-a-snapshot)
-
+- [https://react-ko.dev/learn/state-as-a-snapshot](https://react-ko.dev/learn/state-as-a-snapshot)
+- [https://react.dev/learn/state-as-a-snapshot](https://react.dev/learn/state-as-a-snapshot)
