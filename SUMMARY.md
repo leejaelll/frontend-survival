@@ -65,5 +65,12 @@
   - [State as a Snapshot](study/react-article-study/state-as-a-snapshot.md)
   - [Queueing a Series of State Updates](study/react-article-study/queueing-a-series-of-state-updates.md)
 - [Effective TypeScript Study](study/effective-typescript-study/README.md)
+
   - [타입스크립트 알아보기](study/effective-typescript-study/understand-typescript.md)
   - [타입스크립트의 타입시스템](study/effective-typescript-study/typesystem.md)
+
+## ALGORITHM
+
+- [Algorithm Study](algorithm/README.md)
+  - [효율성(투포인터 알고리즘, 슬라이딩윈도우, 해쉬)](algorithm/efficiency/README.md)
+    - [베스트앨범](algorithm/efficiency/best-album.md)
