@@ -71,6 +71,5 @@
 
 ## ALGORITHM
 
-- [Algorithm Study](algorithm/README.md)
-  - [효율성(투포인터 알고리즘, 슬라이딩윈도우, 해쉬)](algorithm/efficiency/README.md)
-    - [베스트앨범](algorithm/efficiency/best-album.md)
+- [효율성(투포인터 알고리즘, 슬라이딩윈도우, 해쉬)](algorithm/efficiency/README.md)
+  - [베스트앨범 - Hash Table](algorithm/efficiency/best-album.md)
