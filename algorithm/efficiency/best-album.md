@@ -1,4 +1,4 @@
-# 베스트 앨범 - Hash Table
+# 베스트앨범 - Hash Table
 
 ### 문제설명
 
@@ -12,36 +12,35 @@
 
 ### 제한사항
 
-- genres[i]는 고유번호가 i인 노래의 장르입니다.
-- plays[i]는 고유번호가 i인 노래가 재생된 횟수입니다.
-- genres와 plays의 길이는 같으며, 이는 1 이상 10,000 이하입니다.
-- 장르 종류는 100개 미만입니다.
-- 장르에 속한 곡이 하나라면, 하나의 곡만 선택합니다.
-- 모든 장르는 재생된 횟수가 다릅니다.
+* genres\[i]는 고유번호가 i인 노래의 장르입니다.
+* plays\[i]는 고유번호가 i인 노래가 재생된 횟수입니다.
+* genres와 plays의 길이는 같으며, 이는 1 이상 10,000 이하입니다.
+* 장르 종류는 100개 미만입니다.
+* 장르에 속한 곡이 하나라면, 하나의 곡만 선택합니다.
+* 모든 장르는 재생된 횟수가 다릅니다.
 
 ### 입출력 예
 
-genres plays return
-["classic", "pop", "classic", "classic", "pop"] [500, 600, 150, 800, 2500] [4, 1, 3, 0]
+genres plays return \["classic", "pop", "classic", "classic", "pop"] \[500, 600, 150, 800, 2500] \[4, 1, 3, 0]
 
 ### 입출력 예 설명
 
 classic 장르는 1,450회 재생되었으며, classic 노래는 다음과 같습니다.
 
-- 고유 번호 3: 800회 재생
-- 고유 번호 0: 500회 재생
-- 고유 번호 2: 150회 재생
+* 고유 번호 3: 800회 재생
+* 고유 번호 0: 500회 재생
+* 고유 번호 2: 150회 재생
 
 pop 장르는 3,100회 재생되었으며, pop 노래는 다음과 같습니다.
 
-- 고유 번호 4: 2,500회 재생
-- 고유 번호 1: 600회 재생
+* 고유 번호 4: 2,500회 재생
+* 고유 번호 1: 600회 재생
 
-따라서 pop 장르의 [4, 1]번 노래를 먼저, classic 장르의 [3, 0]번 노래를 그다음에 수록합니다.
+따라서 pop 장르의 \[4, 1]번 노래를 먼저, classic 장르의 \[3, 0]번 노래를 그다음에 수록합니다.
 
 **장르 별로 가장 많이 재생된 노래를 최대 두 개까지 모아 베스트 앨범을 출시하므로 2번 노래는 수록되지 않습니다.**
 
----
+***
 
 ### 풀이
 
@@ -64,7 +63,6 @@ genres.map((genre, index) => [genre, plays[index]]);
 ```js
 {'classic', {total: 1450, songs: [{500, 0}, {150, 2}, {800, 3}]}},
 {'pop', {total: 3100, songs: [{600, 1}, {2500, 4}]}}
-
 ```
 
 ```js
@@ -82,14 +80,12 @@ gernes
   });
 ```
 
-{% hint="info"%}
+{% hint style="info" %}
+#### Map 객체, 언제 사용해야할까?
 
-### Map 객체, 언제 사용해야할까?
-
-Map 객체는 객체의 프로퍼티를 자주 변경해야할 때 사용하는 것이 좋다.
-기존 객체는 순회를 할 수 없지만 Map 객체는 for..of 문을 통해 순회가 가능하다.
-
-맵 객체를 다를 때는 점표기법이나 대괄호표기법을 사용하지 않고 메서드(set, get, delete, clear)를 사용해서 프로퍼티를 수정하거나 조회할 수 있기 때문에 동작과 의도를 보다 정확하게 보여준다는 장점이 있다.
+* Map 객체는 객체의 프로퍼티를 자주 변경해야할 때 사용하는 것이 좋다.&#x20;
+* 기존 객체는 순회를 할 수 없지만 Map 객체는 `for..of` 문을 통해 순회가 가능하다.
+* 맵 객체를 다를 때는 `.`이나 `[]`을 사용하지 않고 메서드(`set`, `get`, `delete`, `clear`)를 사용해서 프로퍼티를 수정하거나 조회할 수 있기 때문에 _**동작과 의도를 보다 정확하게 보여준다는 장점**_이 있다.
 
 ```js
 const contacts = new Map();
@@ -102,7 +98,6 @@ contacts.delete('Raymond'); // false
 contacts.delete('Jessie'); // true
 console.log(contacts.size); // 1
 ```
-
 {% endhint %}
 
 이제 묶인 노래들을 재생 횟수에 따라 정렬하는 작업이 필요하다.
@@ -111,14 +106,17 @@ console.log(contacts.size); // 1
 [...data.songs, { play, index }].sort((a, b) => b.play - a.play).slice(0, 2);
 ```
 
-genreMap 객체가 어떤 구조로 되어있는지 확인해보면 다음과 같다.
-![](../../.gitbook/assets/230822-2.png)
+
+
+`genreMap`가 어떤 구조로 되어있는지 확인해보면 다음과 같다.&#x20;
+
+<figure><img src="../../.gitbook/assets/230822-2.png" alt=""><figcaption></figcaption></figure>
 
 마지막으로
 
-1. genreMap 객체를 하나의 배열로 만들고 total의 값을 기준으로 정렬한다.
-2. songs만을 배열로 만들고 평탄화작업을 한다.
-3. song.index만을 배열로 반환한다.
+1. `genreMap` 객체를 하나의 배열로 만들고 total의 값을 기준으로 정렬한다.
+2. `songs`만을 배열로 만들고 평탄화작업을 한다.
+3. `song.index`만을 배열로 반환한다.
 
 ```js
 return [...genreMap.entries()]
@@ -155,7 +153,7 @@ function solution(genres, plays) {
 
 ### 참고
 
-- https://school.programmers.co.kr/learn/courses/30/lessons/42579
-- https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Map
-- https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap
-- https://maxkim-j.github.io/posts/js-map/
+* https://school.programmers.co.kr/learn/courses/30/lessons/42579
+* https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global\_Objects/Map
+* https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global\_Objects/Array/flatMap
+* https://maxkim-j.github.io/posts/js-map/
