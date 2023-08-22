@@ -1,8 +1,6 @@
-# React Article Study
-
 ---
-
-## description: 리액트 스터디
+description: 리액트 스터디
+---
 
 # React Article Study
 

@@ -63,6 +63,7 @@
 
 - [React Article Study](study/react-article-study/README.md)
   - [State as a Snapshot](study/react-article-study/state-as-a-snapshot.md)
+  - [Queueing a Series of State Updates](study/react-article-study/queueing-a-series-of-state-updates.md)
 - [Effective TypeScript Study](study/effective-typescript-study/README.md)
   - [타입스크립트 알아보기](study/effective-typescript-study/understand-typescript.md)
   - [타입스크립트의 타입시스템](study/effective-typescript-study/typesystem.md)
