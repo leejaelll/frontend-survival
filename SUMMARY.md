@@ -49,7 +49,9 @@
 
 ## NomadCoders
 
-- [CSS LAYOUT MASTER](nomadcoders/undefined.md)
+- [CSS LAYOUT MASTER](nomadcoders/css-layout-master-class/README.md)
+  - [Flexbox](nomadcoders/css-layout-master-class/flexbox.md)
+  - [Grid](nomadcoders/css-layout-master-class/grid.md)
 
 ## CODE SNIPPETS
 
