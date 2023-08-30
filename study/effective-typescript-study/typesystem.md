@@ -340,4 +340,252 @@ String 대신 string, Number 대신 number, Boolean 대신 boolean을 사용해�
 
 ---
 
-### 잉여 속성 체크의 한계 인지하기
+### 타입과 인터페이스 차이점 알기
+
+**타입과 인터페이스의 유사한점**
+
+```typescript
+type TState = {
+  name: string;
+  capital: string;
+};
+
+interface IState {
+  name: string;
+  capital: string;
+}
+```
+
+- 대부분의 경우에는 타입과 인터페이스 모두 사용해도 된다.
+- 추가 속성과 함께 할당한다면 동일한 오류가 발생한다.
+
+  ```typescript
+  const wyoming: TState = {
+    name: 'Wyoming',
+    capital: 'Cheyenne',
+    population: 500_000,
+    // Type '{ name: string; capital: string; population: number; }' is not assignable to type 'TState'
+  };
+  ```
+
+- 인덱스 시그니처는 인터페이스와 타입 모두 사용할 수 있다.
+
+  ```typescript
+  type TDict = { [key: string]: string };
+  interface IDict {
+    [key: string]: string;
+  }
+  ```
+
+- 함수 타입도 인터페이스와 타입 모두 사용가능하다.
+
+  ```typescript
+  type TFn = (x: number) => string;
+  interface IFn {
+    (x: number): string;
+  }
+  ```
+
+- 타입별칭과 인터페이스는 모두 제너릭이 가능하다.
+
+  ```typescript
+  type TPair<T> = {
+    first: T;
+    second: T;
+  };
+
+  interface IPair<T> {
+    first: T;
+    second: T;
+  }
+  ```
+
+{% hint="info"%}
+
+### 인덱스 시그니처 (Index Signature)
+
+`{ [Key: T]: U }` 형식으로 객체가 여러 Key를 가질 수 있으며, Key와 매핑되는 Value를 가지는 경우 사용한다.
+
+### Usage
+
+```typescript
+type userType = {
+  [key: string]: string;
+};
+
+let user: userType = {
+  홍길동: '사람',
+  둘리: '공룡',
+};
+
+// Key의 타입은 string이며 Value의 타입은 string, number, boolean인 경우
+type userType = {
+  [key: string]: string | number | boolean;
+};
+
+let user: userType = {
+  name: '홍길동',
+  age: 20,
+  man: true,
+};
+```
+
+{% endhint %}
+
+**타입과 인터페이스의 차이점**
+
+- 유니온 타입은 있지만 유니온 인터페이스라는 개념은 없다.
+
+  - 인터페이스는 타입을 확장할 수 있지만, 유니온은 할 수 없다.
+  - 유니온 타입을 확장하려면
+
+    1. 하나의 변수명으로 매핑하는 인터페이스를 만들어야 한다.
+
+       ```typescript
+       type Input = {
+         /*...*/
+       };
+       type Output = {
+         /*...*/
+       };
+       interface VariableMap {
+         [name: string]: Input | Output;
+       }
+       ```
+
+    2. 유니온 타입에 name 속성을 붙인 타입을 만들어야 한다.
+
+       ```typescript
+       type NamedVariable = (Input | Output) & { name: string };
+       ```
+
+- type 키워드를 통해 튜플과 배열 타입을 간결하게 표현할 수 있다.
+
+  ```typescript
+  type Pair = [number, number];
+  type StriingList = string[];
+  type NamedNums = [string, ...number[]];
+  ```
+
+- 인터페이스는 보강이 가능하다. (타입에는 없는 기능)
+
+  ```typescript
+  interface IState {
+    name: string;
+    capital: string;
+  }
+
+  interface IState {
+    population: number;
+  }
+
+  const wyoming: IState = {
+    name: 'Wyoming',
+    capital: 'Cheyenne',
+    population: 500_000,
+  }; // ok
+  ```
+
+  - 속성을 확장하는 것을 **_선언 병합_**이라고 한다.
+  - 주로 타입 선언 파일에서 사용된다.
+
+_<mark style="color:red;">**타입과 인터페이스 중 어느 것을 사용해야할까?**</mark>_
+
+- 타입이 복잡하다면 타입별칭을 사용하자.
+- 일관된 스타일을 사용하자.(타입을 사용하고 있다면 일관되게 타입을 사용할 것.)
+- 스타일이 확립되지 않은 프로젝트라면, 보강의 가능성이 있을 지 생각하자.
+
+---
+
+### 타입 연산과 제너릭 사용으로 반복 줄이기
+
+> 타입 중복은 코드 중복만큼 많은 문제를 발생시킨다.
+
+- 상수를 사용해서 반복을 줄이기
+
+  ```typescript
+  function distance(a: { x: number; y: number }, b: { x: number; y: number }) {
+    return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2));
+  }
+
+  // 중복 제거 코드
+  interface Point2D {
+    x: number;
+    y: number;
+  }
+
+  function distance(a: Point2D, b: Point2D) {
+    /*...*/
+  }
+  ```
+
+- 전체 애플리케이션의 상태를 표현하는 타입의 부분집합으로 타입 만들기
+
+  ```typescript
+  interface State {
+    userId: string;
+    pageTitle: string;
+    recentFiles: string[];
+    pageContens: string;
+  }
+
+  interface TopNavState {
+    userId: string;
+    pageTitle: string;
+    recentFiles: string[];
+  }
+  ```
+
+  - 이 경우 TopNavState를 확장하여 State를 구성하는 것보다 State의 부분 집합으로 TopNavState를 정의하는 것이 바람직하다.
+  - State를 인덱싱하여 속성의 타입에서 중복을 제거할 수 있다.
+
+  ```typescript
+  type TopNavState = {
+    userId: State['userId'];
+    pageTitle: State['pageTitle'];
+    recentFiles: State['recentFiles'];
+  };
+  ```
+
+- '매핑된 타입'을 사용하면 반복되는 코드를 제거할 수 있다.
+
+  ```typescript
+  type TopNavState = {
+    [k in 'userId' | 'pageTitle' | 'recentFiles']: State[k];
+  };
+
+  type TopNavState = Pick<State, 'userId' | 'pageTitle' | 'recentFiles'>;
+  ```
+
+  - '매핑된 타입'은 배열의 필드를 루프 도는 것과 같은 방식이다. 👉🏻 Pick
+
+{% hint="info"%}
+
+### Pick
+
+Pick은 T와 K 두 가지 타입을 받아서 결과 타입을 반환한다.
+
+```typescript
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  brand: string;
+  stock: number;
+}
+
+// 상품 목록을 받아오기 위한 api
+function fetchProduct(): Promise<Product[]> {
+  // ... id, name, price, brand, stock 모두를 써야함
+}
+
+type shoppingItem = Pick<Product, 'id' | 'name' | 'price'>;
+
+// 상품의 상세정보 (Product의 일부 속성만 가져온다)
+function displayProductDetail(shoppingItem: shoppingItem) {
+  // id, name, price의 일부만 사용 or 별도의 속성이 추가되는 경우가 있음
+  // 인터페이스의 모양이 달라질 수 있음
+}
+```
+
+{% endhint %}
