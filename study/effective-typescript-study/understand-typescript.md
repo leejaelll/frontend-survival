@@ -46,7 +46,6 @@ const x: number | null = null;
 {% hint style="warning" %}
 **타입 오류가 있는 코드도 컴파일이 가능하다**
 
-\
 _<mark style="color:red;">**컴파일은 타입 체크와 독립적으로 이뤄지기 때문에 가능하다.**</mark>_ 하지만 문제가 있는 코드를 컴파일하는 건 문제가 있지 않을까? 그래서 오류가 있을 때 컴파일하지 않게 하려면 tsconfig.json에 `noEmitOnError`를 설정하거나 빌드 도구에 동일하게 적으면 된다.
 {% endhint %}
 
