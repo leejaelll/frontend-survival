@@ -6,7 +6,7 @@ description: 여러 state 업데이트를 큐에 담기
 
 | <p>What “batching” is and how React uses it to process multiple state updates<br>(일괄처리(batching)이란 무엇이며 React가 여러 state 업데이트를 처리하는 방법)</p> |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <p>How to apply several updates to the same state variable in a row<br>(동일한 state 변수에서 여러 업데이트를 적용하는 방법</p>)                                   |
+| <p>How to apply several updates to the same state variable in a row<br>(동일한 state 변수에서 여러 업데이트를 적용하는 방법)</p> |
 
 ### React는 state를 업데이트 하기 전에 이벤트 핸들러의 모든 코드가 실행될 때까지 기다린다.
 
