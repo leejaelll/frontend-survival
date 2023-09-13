@@ -52,10 +52,12 @@
 - [CSS LAYOUT MASTER](nomadcoders/css-layout-master-class/README.md)
   - [Flexbox](nomadcoders/css-layout-master-class/flexbox.md)
   - [Grid](nomadcoders/css-layout-master-class/grid.md)
-- [YOUTUBE](nomadcoders/youtube-clone/README.md)
+- [YOUTUBE-CLONE](nomadcoders/youtube-clone/README.md)
   - [Express](nomadcoders/youtube-clone/introduction-express.md)
   - [Routers](nomadcoders/youtube-clone/routers.md)
-  - [MongoDB AND Mongoose](nomadcoders/youtube-clone/mongodb-and-mongoose.md)
+  - [MongoDB and Mongoose](nomadcoders/youtube-clone/mongodb-and-mongoose.md)
+  - [User Authentication](nomadcoders/youtube-clone/user-authentication.md)
+- [ZOOM-CLONE](nomadcoders/zoom-clone/README.md)
 
 ## CODE SNIPPETS
 
