@@ -75,6 +75,7 @@
 - [Effective TypeScript Study](study/effective-typescript-study/README.md)
   - [타입스크립트 알아보기](study/effective-typescript-study/understand-typescript.md)
   - [타입스크립트의 타입시스템](study/effective-typescript-study/typesystem.md)
+  - [타입 추론](study/effective-typescript-study/type-inference.md)
 
 ## ALGORITHM
 
