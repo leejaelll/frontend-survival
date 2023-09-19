@@ -80,5 +80,6 @@
 ## ALGORITHM
 
 - [효율성(투포인터 알고리즘, 슬라이딩윈도우, 해쉬)](algorithm/efficiency/README.md)
-  - [베스트앨범 - Hash Table](algorithm/efficiency/best-album.md)
-  - [학급 회장](algorithm/efficiency/class-president.md)
+  - [베스트앨범 - Hash](algorithm/efficiency/best-album.md)
+  - [학급 회장 - Hash](algorithm/efficiency/class-president.md)
+  - [아나그램 - Hash](algorithm/efficiency/anagram.md)
