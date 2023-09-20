@@ -201,7 +201,7 @@ const elmo: Product = {
     - 반환 값을 별도의 타입으로 정의하면 타입에 대한 주석을 작성할 수 있어서 자세한 설명이 가능하다.
 {% endhint %}
 
-### 요약
+**요약**
 - 타입스크립트가 타입을 추론할 수 있다면 타입 구문을 작성하지 않는게 좋다. 
 - 함수/메서드의 시그니처에는 타입 구문이 있지만, 함수 내의 지역 번수에는 타입구문이 없다. 
 - 추론될 수 있는 경우라도 객체 리터럴과 함수 반환에는 타입 명시를 고려해야 한다. 
@@ -277,6 +277,125 @@ const로 선언하기
 - let 대신 const로 선언하면 더 좁은 타입이 된다. 
 - 위 예제에서 x는 재할당될 수 없으므로 의심의 여지 없이 좁은 타입으로 추론할 수 있다. 
 
-*const가 만능은 아니다.* 
+_const가 만능은 아니다._ 
+객체의 배열의 경우에는 여전히 문제가 있다. 
 
+```typescript
+const mixed = ['x', 1];
+```
+- 위 코드는 튜플을 추론해야 할지, 요소들은 어떤 타입으로 추론해야 할지 알 수 없다.
+
+```typescript
+const v = {
+    x: 1,
+}
+
+v.x = 3;
+v.x = '3';
+v.y = 4;
+v.y = 'Pythagoras';
+```
+- v타입은 구체적인 정도에 따라 다양한 모습으로 추론될 수 있다. 
+- 객체의 경우, 타입스크리브의 넓히기 알고리즘은 각 요소를 let으로 할당된 것처럼 다룬다. 그렇기 때문에 v 타입은 {x: number}가 된다.
 {% endhint %}
+
+<br>
+
+타입 추론의 강도를 직접 제어하려면 타입스크립트의 기본 동작을 재정의해야한다. 
+
+**타입스크립트의 기본 동작을 재정의하는 세 가지 방법**
+1. 명시적 타입 구문 제공
+    ```typescript
+    const v: {x: 1|3|5} = {
+        x: 1 // 타입이 {x: 1|3|5}
+    }
+    ```
+2. 타입 체커에 추가적인 문맥 제공
+    - 예를 들어, 함수의 매개변수로 값을 전달
+3. const 단언문을 사용하는 것
+    ```typescript
+    const v1 = {
+        x: 1,
+        y: 2
+    }; // 타입은 { x: number; y: number; }
+
+    const v2 = {
+        x: 1 as const,
+        y: 2
+    }; // 타입은 { x: 1, y: number; }
+
+    const v3 = {
+        x: 1, 
+        y: 2,
+    } as const; // 타입은 { readonly x: 1; readonly y: 2; }
+    ```
+    - 값 뒤에 as const를 작성하면 타입스크립트는 최대한 좁은 타입으로 추론한다. 
+    - v3이 진짜 상수라면, 주석에 보이는 추론된 타입이 실제로 원하는 형태일 것이다. 
+
+    
+_<mark style="color:red;">**넓히기로 인해 오류가 발생한다고 생각되면, 명시적 타입 구문 또는 const 단언문을 추가하는 것을 고려해야 한다. **</mark>_
+
+**요약**
+- 타입스크립트가 넓히기를 통해 상수의 타입을 추론하는 법을 이해해야 한다. 
+- 동작에 영향을 줄 수 있는 방법인 const, 타입 구문, 문맥, as const에 익숙해져야 한다. 
+
+---
+
+### 타입 좁히기
+
+> 타입 좁히기는 타입스크립트가 넓은 타입으로부터 좁은 타입으로 진행하는 과정을 의미한다. 
+
+**대표적인 예시 👉🏻 null 체크**
+
+```typescript
+const el = document.getElementById('foo'); // 타입이 HTMLElement | null
+if(el) {
+    el // 타입이 HTMLElement
+    el.innerHTML = 'Party Time'.blink()
+} else {
+    el // 타입이 null
+    alert('No element #foo') 
+}
+```
+
+타입을 좁히는 방법
+1. 조건문 분기처리
+    ```typescript
+    const el = document.getElementById('foo');
+    if(!el) throw new Error('Unable to find #foo')
+    el;
+    el.innerHTML = 'Party Time'.blink()
+    ```
+2. instanceof 사용
+    ```typescript
+    function contains(text: string, search: string | RegExp) {
+        if(search instanceof RegExp) {
+            search
+            return !!search.exec(text)
+        } 
+        search
+        return text.includes(search)
+    }
+    ```
+3. 속성체크
+    ```typescript
+    interface A { a: number }
+    interface B { b: number }
+    function pickAB(ab: A | B) {
+        if('a' in ab) {
+            ab // 타입이 A
+        } else {
+            ab // 타입이 B
+        }
+        ab // 타입이 A | B
+    }
+    ```
+4. Array.isArray와 같은 내장 함수 사용
+    ```typescript
+    function contains(text: string, terms: string|string[]) {
+        const termList = Array.isArray(terms) ? terms: [terms];
+        termList // 타입이 string[]
+        // ...
+
+    }
+    ```
