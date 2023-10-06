@@ -57,12 +57,14 @@
   - [Routers](nomadcoders/youtube-clone/routers.md)
   - [MongoDB and Mongoose](nomadcoders/youtube-clone/mongodb-and-mongoose.md)
   - [User Authentication](nomadcoders/youtube-clone/user-authentication.md)
+- [React JS MASTER](nomadcoders/react-js-master-class/README.md)
+  - [State Management](nomadcoders/react-js-master-class/state-management.md)
 - [ZOOM-CLONE](nomadcoders/zoom-clone/README.md)
 
 ## CODE SNIPPETS
 
-- [CSS](code-snippets/undefined/README.md)
-  - [서브페이지 테스트](code-snippets/undefined/undefined.md)
+- [CSS](code-snippets/css/README.md)
+  - [a 태그 영역 설정](code-snippets/css/set-up-link-area.md)
 - [JavaScript](code-snippets/javascript.md)
 - [React](code-snippets/react.md)
 - [TypeScript](code-snippets/typescript.md)
