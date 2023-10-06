@@ -61,7 +61,6 @@
   - [State Management](nomadcoders/react-js-master-class/state-management.md)
 - [ZOOM-CLONE](nomadcoders/zoom-clone/README.md)
 - [NEXT JS BEGINNER](nomadcoders/next-js-beginner-class/README.md)
-  - [Routing](nomadcoders/next-js-beginner-class/routing.md)
 
 ## CODE SNIPPETS
 
@@ -80,6 +79,8 @@
   - [타입스크립트 알아보기](study/effective-typescript-study/understand-typescript.md)
   - [타입스크립트의 타입시스템](study/effective-typescript-study/typesystem.md)
   - [타입 추론](study/effective-typescript-study/type-inference.md)
+- [NextJS Document Study](study/nextjs-study/README.md)
+  - [Routing](study/nextjs-study/routing.md)
 
 ## ALGORITHM
 
