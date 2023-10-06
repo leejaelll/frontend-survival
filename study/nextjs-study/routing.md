@@ -115,7 +115,7 @@ Next.js에서 경로를 탐색하는 두 가지 방법
 
 **✅ `<Link>` Component**
 
-- `<Link>`는 <a> 태그를 확장하여 경로 간에 클라이언트 사이드 네비게이션과 프리페칭을 제공하는 built-in component
+- `<Link>`는 `<a>` 태그를 확장하여 경로 간에 클라이언트 사이드 네비게이션과 프리페칭을 제공하는 built-in component
 - `next/link`에서 가져온 후, href 프로퍼티를 전달하여 사용할 수 있다.
 
 ```typescript
