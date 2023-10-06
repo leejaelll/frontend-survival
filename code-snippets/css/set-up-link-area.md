@@ -19,8 +19,10 @@ a {
 
 ### `tailwindCSS`
 
-```typescript
-<li><Link href="/" className="inline-block px-3 py-1">Example1<Link></li>
+```javascript
+<li>
+  <Link href="/" className="inline-block px-3 py-1">Example1<Link>
+</li>
 ```
 
 ---
