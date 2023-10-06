@@ -60,6 +60,8 @@
 - [React JS MASTER](nomadcoders/react-js-master-class/README.md)
   - [State Management](nomadcoders/react-js-master-class/state-management.md)
 - [ZOOM-CLONE](nomadcoders/zoom-clone/README.md)
+- [NEXT JS BEGINNER](nomadcoders/next-js-beginner-class/README.md)
+  - [Routing](nomadcoders/next-js-beginner-class/routing.md)
 
 ## CODE SNIPPETS
 
