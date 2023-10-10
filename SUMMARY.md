@@ -69,6 +69,8 @@
 - [JavaScript](code-snippets/javascript.md)
 - [React](code-snippets/react.md)
 - [TypeScript](code-snippets/typescript.md)
+- [NextJS](code-snippets/next-js/README.md)
+  - [로컬 폰트 적용하는 방법](code-snippets/next-js/nextfont.md)
 
 ## STUDY
 
