@@ -17,7 +17,7 @@ a {
 }
 ```
 
-### `TailwindCSS`
+### `in TailwindCSS`
 
 ```javascript
 inline-block px-3 py-1
