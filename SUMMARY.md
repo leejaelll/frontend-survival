@@ -86,6 +86,7 @@
   - [타입 추론](study/effective-typescript-study/type-inference.md)
 - [NextJS Document Study](study/nextjs-study/README.md)
   - [Routing](study/nextjs-study/routing.md)
+  - [Data Fetching](study/nextjs-study/data-fetching.md)
 
 ## ALGORITHM
 
