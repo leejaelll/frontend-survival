@@ -464,4 +464,47 @@ React 및 Next.js를 사용한 SSR은 사용자에게 비대화형 페이지를 
 
  <figure><img src="https://nextjs.org/_next/image?url=%2Fdocs%2Flight%2Fserver-rendering-without-streaming.png&w=3840&q=75&dpl=dpl_AGrSzwth6hUFvw45h9RdJK62uM3B" alt=""><figcaption></figcaption></figure>
 
+그러나 페이지가 사용자에게 표시되 건에 서버에서 모든 데이터를 가져와야하므로 여전히 속도가 느릴 수 있다. 스트리밍을 사용하면 페이지의 HTML을 더 작은 청크로 나누고 해당 청크를 서버에서 클라이언트로 점진적으로 전송할 수 있다.
+
+ <figure><img src="https://nextjs.org/_next/image?url=%2Fdocs%2Flight%2Fserver-rendering-with-streaming.png&w=3840&q=75&dpl=dpl_AGrSzwth6hUFvw45h9RdJK62uM3B" alt=""><figcaption></figcaption></figure>
+
+👉🏻 이렇게 하면 UI를 렌더링하기 전에 모든 데이터가 로드될 때까지 기다릴 필요없이 페이지의 일부를 표시할 수 있다.
+
+스트리밍은 각 컴포넌트를 하나의 청크로 간주할 수 있기 때문에 React의 컴포넌트 모델과 잘 어울린다. 우선순위가 높거나 데이터에 의존하지 않는 컴포넌트를 먼저 전송할 수 있으며, **React는 hydration을 일찍 시작할 수 있다.**
 {% endhint %}
+
+<br />
+
+**⚙️ Examples**
+
+`<Suspense>`는 비동기 액션을 수행하는 컴포넌트(데이터 패칭)를 래핑하고, 액션이 진행되는 동안 폴백 UI를 표시한 다음 액션이 완료되면 컴포넌트를 교체하는 방식으로 작동한다.
+
+```tsx
+import { Suspense } from 'react';
+import { PostFeed, Weather } from './Components';
+
+export default function Posts() {
+  return (
+    <section>
+      <Suspense fallback={<p>Loading feed...</p>}>
+        <PostFeed />
+      </Suspense>
+      <Suspense fallback={<p>Loading weather...</p>}>
+        <Weather />
+      </Suspense>
+    </section>
+  );
+}
+```
+
+Suspense를 사용했을 때의 장점
+
+1. Streaming Server Rendering - 서버에서 클라이언트로 HTML을 점진적 렌더링한다.
+2. Selective Hydration - React는 사용자 상호작용에 따라 어떤 컴포넌트를 먼저 인터렉티브하게 만들지 우선순위를 정한다.
+
+<br />
+
+**SEO**
+
+- Next.js는 `generateMetadata` 내부의 데이터 패칭이 될 때까지 기다렸다가 클라이언트로 UI를 스트리밍한다. 👉🏻 스트리밍된 응답의 첫 부분에 `<head>` 태그가 포함되도록 보장한다.
+- 스트리밍은 서버에서 렌더링되므로 SEO에 영향을 미치지 않는다.
