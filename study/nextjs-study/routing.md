@@ -113,6 +113,8 @@ Next.js에서 경로를 탐색하는 두 가지 방법
 1. `<Link>` 컴포넌트
 2. `useRouter` Hook
 
+<br />
+
 **✅ `<Link>` Component**
 
 - `<Link>`는 `<a>` 태그를 확장하여 경로 간에 클라이언트 사이드 네비게이션과 프리페칭을 제공하는 built-in component
@@ -212,6 +214,8 @@ export default function Page() {
    router.push('/dashboard', { scroll: false });
    ```
 
+<br />
+
 **✅ `<useRouter()>` Hook**
 
 - useRouter 훅은 프로그래밍 방식으로 라우터를 변경할 수 있다.
@@ -261,3 +265,175 @@ export default function Page() {
    - 하지만 Next.js에서 앱 라우터는 소프트 내비게이션을 사용한다. 즉, React는 React와 브라우저 상태를 유지하면서 변경된 세그먼트만 렌더링하며 전체 페이지를 다시 로드하지 않는다.
 5. Back and Forward Navigation
    - 기본적으로 Next.js는 뒤로 및 앞으로 탐색을 위한 스크롤 위치를 유지하고 라우터 캐시에서 경로 세그먼트를 재사용한다.
+
+---
+
+### Route Groups
+
+- 중첩된 폴더는 URL 경로에 매핑되지만, 폴더를 Route Group으로 표시하여 폴더가 URL 경로에 포함되지 않도록 할 수 있다.
+- 이를 통해 URL 경로 구조에 영향을 주지 않고, 경로 세그먼트와 프로젝트 파일을 논리적 그룹으로 구성할 수 있다.
+
+<br />
+
+**✅ Convention**
+`(folderName)` 과 같이 괄호로 묶어서 route group을 만들 수 있다.
+
+<br />
+
+**⚙️ Examples**
+
+1. URL 경로에 영향을 주지 않고 route 구성하기
+
+ <figure><img src="https://nextjs.org/_next/image?url=%2Fdocs%2Flight%2Froute-group-organisation.png&w=1920&q=75&dpl=dpl_A5LhRZU7CiHuU4wcVEzVnuYFVuZS" alt=""><figcaption></figcaption></figure>
+
+- `(marketing)`, `(shop)` 내부의 경로가 동일한 URL 계층 구조를 공유하더라도 해당 폴더에 layout.js 파일을 추가하여 각 그룹에 대해 서로 다른 레이아웃을 만들 수 있다.
+
+<figure><img src="https://nextjs.org/_next/image?url=%2Fdocs%2Flight%2Froute-group-multiple-layouts.png&w=1920&q=75&dpl=dpl_A5LhRZU7CiHuU4wcVEzVnuYFVuZS" alt=""><figcaption></figcaption></figure>
+
+2. 특정 세그먼트를 레이아웃에 선택하기
+
+- 특정 경로를 레이아웃으로 선택하려면 새 route group을 생성하고 동일한 레이아웃을 공유하는 route를 그룹으로 이동시킨다. 그룹 외부의 경로는 레이아웃을 공유하지 않는다.
+- 예를 들어, (shop), (account), (cart)는 동일한 레이아웃을 공유하지만 checkout은 공유하지 않는다.
+
+<figure><img src="https://nextjs.org/_next/image?url=%2Fdocs%2Flight%2Froute-group-opt-in-layouts.png&w=1920&q=75&dpl=dpl_A5LhRZU7CiHuU4wcVEzVnuYFVuZS" alt=""><figcaption></figcaption></figure>
+
+3. 여러 루트 레이아웃 만들기
+
+- root layout을 여러 개 만들려면, 최상위 layout.js 파일을 제거하고 각 경로 그룹에 layout.js 파일을 추가한다.
+- 이는 애플리케이션을 완전히 다른 UI 또는 UX를 가진 섹션으로 분할하는데 도움이 된다.
+- 각 root layout에 `<html>`, `<body>` 태그를 추가해야 한다.
+
+<figure><img src="https://nextjs.org/_next/image?url=%2Fdocs%2Flight%2Froute-group-multiple-root-layouts.png&w=1920&q=75&dpl=dpl_A5LhRZU7CiHuU4wcVEzVnuYFVuZS" alt=""><figcaption></figcaption></figure>
+
+---
+
+### Dynamic Routes
+
+- 동적 라우트를 생성하려는 경우, 요청 시 채워지거나, 빌드 시 미리 렌더링되는 동적 세그먼트를 사용할 수 있다.
+  <br />
+
+**✅ Convention**
+`[folderName]`, `[id]`, `[slug]`와 같이 대괄호로 묶어 만들 수 있다.
+
+- 동적 세그먼트는 `layout`, `page`, `route` 및 `generatemetadata` 함수에 매개변수로 전달된다.
+
+<br />
+
+**⚙️ Examples**
+`app/blog/[slug]/page.js`와 같은 라우트를 포함할 때 사용한다.
+
+```tsx
+export default function Page({ params }: { slug: string }) {
+  return <div>My post: {params.slug}</div>;
+}
+```
+
+| Route                   | Example URL | params        |
+| ----------------------- | ----------- | ------------- |
+| app/blog/[slug]/page.js | /blog/a     | { slug: 'a' } |
+| app/blog/[slug]/page.js | /blog/b     | { slug: 'b' } |
+| app/blog/[slug]/page.js | /blog/c     | { slug: 'c' } |
+
+<br />
+
+**✅ Generating Static Params**
+
+- `generateStaticParams` 함수는 동적 경로 세그먼트와 함께 사용하여 요청 시 on-demand가 아닌 **빌드 시점에 경로를 정적으로 생성할 수 있다.**
+
+````tsx
+export async function generateStaticParams() {
+  const posts = await fetch('https://.../posts').then((res) => res.json())
+
+  return posts.map((post) => ({
+    slug: post.slug,
+  }))
+}```
+````
+
+- `generateStaticParams` 함수의 가장 큰 장점: 데이터를 스마트하게 검색할 수 있다는 점
+- fetch 요청을 사용하여 컨텐츠를 가져오면 요청이 자동으로 메모화된다.
+- generateStaticParams, Layouts, Pages에 걸쳐 동일한 인자가 포함된 fetch 요청은 한 번만 수행되므로 빌드시간이 단축된다.
+
+<br />
+
+**✅ Catch-all Segments**
+
+- 동적 세그먼트는 괄호 안에 줄임표`[...folderName]`를 추가하여 안에 모든 후속 세그먼트를 포함하도록 확장할 수 있다.
+- 예를 들어, `app/shop/[...slug]/page.js`는 `/shop/clothes` 뿐만 아니라 `/shop/clothes/tops`, `shop/clothes/tops/t-shirts` 등과도 일치한다.
+
+| Route                      | Example URL | params                    |
+| -------------------------- | ----------- | ------------------------- |
+| app/shop/[...slug]/page.js | /shop/a     | { slug: ['a'] }           |
+| app/shop/[...slug]/page.js | /shop/a/b   | { slug: ['a', 'b'] }      |
+| app/shop/[...slug]/page.js | /shop/a/b/c | { slug: ['a', 'b', 'c'] } |
+
+<br />
+
+**✅ Optional Catch-all Segments**
+
+- Catch-all Segments는 매개변수를 이중 대괄호 안에 포함하여 선택사항으로 만들 수 있다. 👉🏻 `[[...folderName]]`
+- 예를 들어, `app/shop/[[...slut]]/page.js`는 `/shop`, `/shop/clothes`, `/shop/clothes/tops`과 일치한다.
+
+{% hint style="info" %}
+
+### catch-all 과 optional catch-all의 차이점
+
+- optional catch-all을 사용하면 매개변수가 없는 경로도 일치한다는 것이 차이점
+
+| Route                        | Example URL | params                    |
+| ---------------------------- | ----------- | ------------------------- |
+| app/shop/[[...slug]]/page.js | /shop       | {}                        |
+| app/shop/[[...slug]]/page.js | /shop/a     | { slug: ['a'] }           |
+| app/shop/[[...slug]]/page.js | /shop/a/b   | { slug: ['a', 'b'] }      |
+| app/shop/[[...slug]]/page.js | /shop/a/b/c | { slug: ['a', 'b', 'c'] } |
+
+{% endhint %}
+
+<br />
+
+**🔥 TypeScript**
+
+- 타입스크립트를 사용할 때, 구성된 경로 세그먼트에 따라 매개변수에 대한 타입을 추가할 수 있다.
+
+| Route                             | params Type Definition                 |
+| --------------------------------- | -------------------------------------- |
+| app/blog/[slug]/page.js           | { slug: string }                       |
+| app/shop/[...slug]/page.js        | { slug: string[] }                     |
+| app/[categoryId]/[itemId]/page.js | { categoryId: string, itemId: string } |
+
+---
+
+### Loading UI and Streaming
+
+- 특수 파일 `loading.js`를 사용하면 React Suspense로 의미있는 로딩 UI를 만들 수 있다.
+- 이 규칙을 사용하면 경로 세그먼트의 컨텐츠가 로드되는 동안 서버에서 즉각적인 로딩 상태를 표시할 수 있다.
+
+ <figure><img src="https://nextjs.org/_next/image?url=%2Fdocs%2Flight%2Floading-ui.png&w=3840&q=75&dpl=dpl_AGrSzwth6hUFvw45h9RdJK62uM3B" alt=""><figcaption></figcaption></figure>
+
+<br />
+
+**🚧 Instant Loading States**
+
+- instant loading state는 탐색 시 즉시 표시되는 fallback UI이다.
+- 스켈레톤, 스피너와 같은 로딩 표시기를 미리 렌더링하거나, 표지사진, 제목 등과 같이 작지만 의미있는 부분을 향후 화면에 표시할 수 있다.
+- 이를 통해 사용자가 앱이 반응하고 있음을 이해하고 더 나은 UX를 제공할 수 있다.
+
+ <figure><img src="https://nextjs.org/_next/image?url=%2Fdocs%2Flight%2Floading-special-file.png&w=3840&q=75&dpl=dpl_AGrSzwth6hUFvw45h9RdJK62uM3B" alt=""><figcaption></figcaption></figure>
+
+```tsx
+export default function Loading() {
+  // You can add any UI inside Loading, including a Skeleton.
+  return <LoadingSkeleton />;
+}
+```
+
+- 같은 폴더에서 loading.js는 layout.js안에 중첩된다.
+- page.js 파일과 모든 하위 파일은 자동으로 `<Suspense>` 경계로 감싸진다.
+
+<figure><img src="https://nextjs.org/_next/image?url=%2Fdocs%2Flight%2Floading-overview.png&w=3840&q=75&dpl=dpl_AGrSzwth6hUFvw45h9RdJK62uM3B" alt=""><figcaption></figcaption></figure>
+
+<br />
+
+**🚧 Streaming with Suspense**
+
+-
