@@ -276,6 +276,7 @@ export default function Page() {
 <br />
 
 **✅ Convention**
+
 `(folderName)` 과 같이 괄호로 묶어서 route group을 만들 수 있다.
 
 <br />
@@ -313,6 +314,7 @@ export default function Page() {
   <br />
 
 **✅ Convention**
+
 `[folderName]`, `[id]`, `[slug]`와 같이 대괄호로 묶어 만들 수 있다.
 
 - 동적 세그먼트는 `layout`, `page`, `route` 및 `generatemetadata` 함수에 매개변수로 전달된다.
@@ -320,6 +322,7 @@ export default function Page() {
 <br />
 
 **⚙️ Examples**
+
 `app/blog/[slug]/page.js`와 같은 라우트를 포함할 때 사용한다.
 
 ```tsx
@@ -436,4 +439,29 @@ export default function Loading() {
 
 **🚧 Streaming with Suspense**
 
--
+- loading.js 외에도 자체 UI 컴포넌트에 대한 Suspense 바운더리를 수동으로 생성할 수 있다.
+- App Router는 Node.js 및 Edge 런타임 모두에 대해 Suspense를 사용한 스트리밍을 지원한다.
+
+{% hint style="success" %}
+
+### What is Streaming?
+
+React와 Next.js에서 스트리밍이 어떻게 동작하는지 알아보려면 SSR과 그 한계를 이해하는 것이 도움이 된다.
+
+**⛏️ SSR을 사용했을 때, 사용자가 페이지를 보고 상호작용하기 전에 완료해야 하는 일련의 단계**
+
+1. 특정 페이지의 모든 데이터를 서버에서 가져온다.
+2. 서버에서 페이지의 HTML을 렌더링한다.
+3. HTML, CSS, JavaScript가 클라이어트로 전송된다.
+4. 생성된 HTML과 CSS를 사용해 비대화형 사용자 인터페이스가 표시된다.
+5. 마지막으로 React로 대화형 인터페이스로 만든다. (Hydrating)
+
+<figure><img src="https://nextjs.org/_next/image?url=%2Fdocs%2Flight%2Fserver-rendering-without-streaming-chart.png&w=3840&q=75&dpl=dpl_AGrSzwth6hUFvw45h9RdJK62uM3B" alt=""><figcaption></figcaption></figure>
+
+이러한 단계는 순차적이고 차단적이므로 **서버는 모든 데이터를 가져온 후에만** 페이지의 HTML을 렌더링할 수 있다. 그리고 클라이언트에서는 페이지의 모든 컴포넌트에 대한 코드가 다운로드 된 후에만 React가 hydrate할 수 있다.
+
+React 및 Next.js를 사용한 SSR은 사용자에게 비대화형 페이지를 최대한 빨리 보여줌으로써 체감 로딩을 성능을 개선하는데 도움이 된다.
+
+ <figure><img src="https://nextjs.org/_next/image?url=%2Fdocs%2Flight%2Fserver-rendering-without-streaming.png&w=3840&q=75&dpl=dpl_AGrSzwth6hUFvw45h9RdJK62uM3B" alt=""><figcaption></figcaption></figure>
+
+{% endhint %}
