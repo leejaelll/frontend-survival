@@ -50,27 +50,32 @@
 ## NomadCoders
 
 - [CSS LAYOUT MASTER](nomadcoders/css-layout-master-class/README.md)
+
   - [Flexbox](nomadcoders/css-layout-master-class/flexbox.md)
   - [Grid](nomadcoders/css-layout-master-class/grid.md)
+
 - [YOUTUBE-CLONE](nomadcoders/youtube-clone/README.md)
+
   - [Express](nomadcoders/youtube-clone/introduction-express.md)
   - [Routers](nomadcoders/youtube-clone/routers.md)
   - [MongoDB and Mongoose](nomadcoders/youtube-clone/mongodb-and-mongoose.md)
   - [User Authentication](nomadcoders/youtube-clone/user-authentication.md)
+
 - [React JS MASTER](nomadcoders/react-js-master-class/README.md)
+
   - [State Management](nomadcoders/react-js-master-class/state-management.md)
+
 - [ZOOM-CLONE](nomadcoders/zoom-clone/README.md)
 - [NEXT JS BEGINNER](nomadcoders/next-js-beginner-class/README.md)
 
 ## CODE SNIPPETS
 
 - [CSS](code-snippets/css/README.md)
+
   - [a 태그 영역 설정](code-snippets/css/set-up-link-area.md)
   - [문단 좌우 균등정렬](code-snippets/css/text-align-justify.md)
   - [문단 여러 줄 말줄임 처리](code-snippets/css/line-clamp.md)
-- [JavaScript](code-snippets/javascript.md)
-- [React](code-snippets/react.md)
-- [TypeScript](code-snippets/typescript.md)
+
 - [NextJS](code-snippets/next-js/README.md)
   - [로컬 폰트 적용하는 방법](code-snippets/next-js/nextfont.md)
   - [Google Font 적용하는 방법](code-snippets/next-js/googlefont.md)
