@@ -77,9 +77,12 @@
   - [문단 여러 줄 말줄임 처리](code-snippets/css/line-clamp.md)
 
 - [NextJS](code-snippets/next-js/README.md)
+
   - [로컬 폰트 적용하는 방법](code-snippets/next-js/nextfont.md)
   - [Google Font 적용하는 방법](code-snippets/next-js/googlefont.md)
   - [viewport에 따라 이미지 반응형으로 적용하는 방법](code-snippets/next-js/image-responsive.md)
+
+- [GIT](code-snippets/git.md)
 
 ## STUDY
 
