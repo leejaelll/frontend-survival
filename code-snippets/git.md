@@ -2,6 +2,8 @@
 description: Git 명령어 모아놓기
 ---
 
+# Git
+
 ### ✅ branch clone 이후 branch 변경하는 방법
 
 - Gitlab에서 repository를 clone 후, git branch를 했을 때 모든 브랜치가 확인되지 않는 경우가 있다.
