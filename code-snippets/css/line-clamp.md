@@ -37,7 +37,7 @@
 </div>
 ```
 
-<figure><img src="../../.gitbook/assets/231109-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/231109-2.png" alt=""><figcaption></figcaption></figure>
 
 <br />
 
