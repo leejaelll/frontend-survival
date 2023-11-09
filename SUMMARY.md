@@ -66,7 +66,8 @@
 
 - [CSS](code-snippets/css/README.md)
   - [a 태그 영역 설정](code-snippets/css/set-up-link-area.md)
-  - [문단 좌우 균등정렬](code-snippets/css/text-aling-justify.md)
+  - [문단 좌우 균등정렬](code-snippets/css/text-align-justify.md)
+  - [문단 여러 줄 말줄임 처리](code-snippets/css/line-clamp.md)
 - [JavaScript](code-snippets/javascript.md)
 - [React](code-snippets/react.md)
 - [TypeScript](code-snippets/typescript.md)
