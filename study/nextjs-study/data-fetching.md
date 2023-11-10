@@ -22,6 +22,7 @@ description: Fetching, Caching, Forms and Mutation
 {% endhint %}
 
 <br />
+
 **💡 Fetching Data on the Server with fetch**
 
 - Next.js는 `fetch` Web API를 확장하여 fetch 요청에 대한 캐싱 및 재검증 동작을 구성할 수 있도록 한다.
