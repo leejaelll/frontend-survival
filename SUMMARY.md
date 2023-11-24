@@ -75,6 +75,7 @@
   - [a 태그 영역 설정](code-snippets/css/set-up-link-area.md)
   - [문단 좌우 균등정렬](code-snippets/css/text-align-justify.md)
   - [문단 여러 줄 말줄임 처리](code-snippets/css/line-clamp.md)
+  - [absolute 요소 중앙정렬](code-snippets/css/absolute-center.md)
 
 - [NextJS](code-snippets/next-js/README.md)
 
@@ -96,6 +97,9 @@
 - [NextJS Document Study](study/nextjs-study/README.md)
   - [Routing](study/nextjs-study/routing.md)
   - [Data Fetching](study/nextjs-study/data-fetching.md)
+  - [<Image>](study/nextjs-study/<Image>.md)
+  - [useRouter](study/nextjs-study/useRouter.md)
+  - [useSearchParams](study/nextjs-study/useSearchParams.md)
 
 ## ALGORITHM
 
