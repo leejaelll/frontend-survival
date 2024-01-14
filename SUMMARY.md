@@ -1,5 +1,7 @@
 # Table of contents
 
+- [README.md](/README.md)
+
 ## Megaptera Course
 
 - [Dev_Road](megatera/README.md)
@@ -49,6 +51,7 @@
 
 ## NomadCoders
 
+- [NomadCoders_Road](nomadcoders/README.md)
 - [CSS LAYOUT MASTER](nomadcoders/css-layout-master-class/README.md)
 
   - [Flexbox](nomadcoders/css-layout-master-class/flexbox.md)
@@ -61,12 +64,12 @@
   - [MongoDB and Mongoose](nomadcoders/youtube-clone/mongodb-and-mongoose.md)
   - [User Authentication](nomadcoders/youtube-clone/user-authentication.md)
 
-- [React JS MASTER](nomadcoders/react-js-master-class/README.md)
+- [React-Js-Mater](nomadcoders/react-js-master-class/README.md)
 
   - [State Management](nomadcoders/react-js-master-class/state-management.md)
 
-- [ZOOM-CLONE](nomadcoders/zoom-clone/README.md)
-- [NEXT JS BEGINNER](nomadcoders/next-js-beginner-class/README.md)
+- [Zoome-Clone](nomadcoders/zoom-clone/README.md)
+- [CarrotMarket-Clone](nomadcoders/carrotMarket-clone/README.md)
 
 ## CODE SNIPPETS
 
