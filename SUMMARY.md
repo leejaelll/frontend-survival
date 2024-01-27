@@ -89,6 +89,7 @@
   - [클래스 이름을 동적으로 적용하는 방법](code-snippets/next-js/classNames.md)
 
 - [GIT](code-snippets/git.md)
+- [Lottie](code-snippets/lottie.md)
 
 ## STUDY
 
