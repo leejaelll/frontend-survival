@@ -104,11 +104,10 @@
 
 ## NEXT JS
 
-- [로컬 폰트 적용하는 방법](NEXTJS/nextfont.md)
-- [Google Font 적용하는 방법](NEXTJS/googlefont.md)
-- [viewport에 따라 이미지 반응형으로 적용하는 방법](NEXTJS/image-responsive.md)
-- [텍스트 길이에 따른 fontSize 조절하는 방법](NEXTJS/fontSize-responsive.md)
-- [클래스 이름을 동적으로 적용하는 방법](NEXTJS/classNames.md)
+- [Font 적용](NEXTJS/googlefont.md)
+- [viewport에 따라 이미지 반응형 적용](NEXTJS/image-responsive.md)
+- [텍스트 길이에 따른 fontSize 조절](NEXTJS/fontSize-responsive.md)
+- [클래스 이름을 동적으로 적용](NEXTJS/classNames.md)
 
 ## DATABASE
 
