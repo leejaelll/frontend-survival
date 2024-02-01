@@ -1,9 +1,0 @@
-- React Router
-- Typescript
-- Styled Components
-- Framer Motion
-- Recoil
-- Beautiful DnD
-- Apex Charts
-- React Query
-- React Hook Form

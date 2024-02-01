@@ -1,8 +1,0 @@
-- Main Axis / Cross Axis
-- Column and Row
-- flex-grow, flex-shrink
-- flex-basis
-- rows and columns
-- grid-template
-- place-items
-- wrap, nowrap, reverse, align

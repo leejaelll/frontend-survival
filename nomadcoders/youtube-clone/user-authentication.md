@@ -1,3 +1,0 @@
-# User Authentication
-
-### Create Account
