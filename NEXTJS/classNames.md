@@ -37,8 +37,6 @@ export default Button;
 - isDisabled가 true일 때, 버튼의 className은 "btn btn-primary disabled"
 - false일 때는 "btn btn-primary"
 
-<br />
-
 ```jsx
 <div
   className={classNames(
@@ -47,4 +45,17 @@ export default Button;
     isRightAlign && 'flex-row-reverse'
   )}
 >
+```
+
+---
+
+### tw-merge & clsx dependency를 사용하는 방법
+
+```tsx
+import clsx, { type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
 ```
