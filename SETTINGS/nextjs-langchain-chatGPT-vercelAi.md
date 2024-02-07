@@ -65,7 +65,6 @@ module.exports = {
 };
 ```
 
-<br />
 `eslintrc.json` 내용 수정
 
 ```
@@ -73,8 +72,6 @@ module.exports = {
   "extends": ["next/core-web-vitals", "prettier"]
 }
 ```
-
-<br />
 
 Settings > Default Formatter
 
@@ -149,6 +146,7 @@ global.css 수정
 ```
 
 <br />
+
 `tailwind.confing.ts` 수정
 
 ```tsx
