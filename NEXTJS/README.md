@@ -6,3 +6,4 @@
 - [텍스트 길이에 따른 fontSize 조절하는 방법](./fontSize-responsive.md)
 - [클래스 이름을 동적으로 적용하는 방법](./classNames.md)
 - [fetchData를 병렬로 가져오는 방법](./fetch-data-parallel.md)
+- [metadata를 동적으로 적용하는 방법](NEXTJS/dynamic-metadata.md)
