@@ -1,5 +1,13 @@
 # Prisma
 
+### Install
+
+```
+npm i @prisma/client
+```
+
+### Setting
+
 `lib/prisma.ts`
 
 ```tsx
