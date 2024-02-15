@@ -121,6 +121,7 @@
 ## SETTINGS
 
 - [Next.js 14 & Langchain & Vercel SDK & ChatGPT API & TailwindCSS](SETTINGS/nextjs-langchain-chatGPT-vercelAi.md)
+- [Prisma](SETTINGS/prisma.md)
 
 ## OTHER LIBRARIES
 
