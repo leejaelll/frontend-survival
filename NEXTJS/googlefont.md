@@ -2,7 +2,7 @@
 
 ### 🔥 Local Font 적용
 
-pulic 폴더에 다운받은 폰트를 넣어준다.
+public폴더 혹은 resource/font 폴더를 만들어 로컬 폰트를 넣어준다.
 
 <figure><img src="../../.gitbook/assets/231010-1.png" alt=""><figcaption></figcaption></figure>
 
@@ -34,6 +34,75 @@ pulic 폴더에 다운받은 폰트를 넣어준다.
     <button>확인</button>
   </div>
 </div>
+```
+
+<br />
+
+**_⛏️ Other Solution_**
+
+<figure><img src="../../.gitbook/assets/240215-1.png" alt=""><figcaption></figcaption></figure>
+
+`globals.css`
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*S */
+@font-face {
+  font-family: 'sharpSans';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../resources/font/sans/SamsungSharpSans-Regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'sharpSans';
+  font-weight: 500;
+  font-style: normal;
+  src: url('../resources/font/sans/SamsungSharpSans-Medium.woff') format('woff');
+}
+
+/* one */
+@font-face {
+  font-family: 'one';
+  font-weight: 200;
+  font-style: normal;
+  src: url('../resources/font/one/SamsungOne-200_v1.1.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'one';
+  font-weight: 300;
+  font-style: normal;
+  src: url('../resources/font/one/SamsungOne-300_v1.1.ttf') format('truetype');
+}
+
+body {
+  margin: 0;
+  font-family: 'sharpSans', 'sans-serif', 'serif';
+  background-color: #ffffff;
+}
+```
+
+`tailwind.confing.ts`
+tailwindCSS를 사용하는 경우, extend에 fontFamily를 추가
+
+```tsx
+const config: Config = {
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        sharpSans: ['sharpSans'],
+        one: ['one'],
+      },
+    },
+  },
+};
 ```
 
 ---
