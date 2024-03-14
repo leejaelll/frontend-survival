@@ -36,6 +36,7 @@
 - [문단 좌우 균등정렬](CSS/text-align-justify.md)
 - [문단 여러 줄 말줄임 처리](CSS/line-clamp.md)
 - [absolute 요소 중앙정렬](CSS/absolute-center.md)
+- [이미지 비율을 1:1로 적용하는 방법](CSS/image-ratio-square.md)
 
 ## JAVASCRIPT
 
@@ -115,6 +116,8 @@
 
 - [PostgreSQL](DATABASE/PostgreSQL/README.md)
   - [PostgreSQL 설치, 실행](DATABASE/PostgreSQL/init.md)
+- [Prisma](DATABASE/Prisma/README.md)
+  - [Schema의 모든 데이터 가져오기](DATABASE/Prisma/init.md)
 
 ## GIT
 
