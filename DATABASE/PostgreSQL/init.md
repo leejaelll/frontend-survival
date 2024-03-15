@@ -36,7 +36,7 @@ postgres-#: psql -U postgres
 
 <br />
 
-### 새로운 USER, Password 생성
+### 새로운 User, Password 생성
 
 ```
 postgres=# CREATE USER [myuser] WITH PASSWORD ['mypassword'];
@@ -45,7 +45,7 @@ CREATE ROLE
 
 <br />
 
-### USER NAME 변경
+### Username 변경
 
 ```
 postgres=# ALTER USER bienpr RENAME TO postgres;
@@ -81,7 +81,7 @@ DROP ROLE
 
 <br />
 
-### USER 삭제
+### User 삭제
 
 ```
 postgres=# DROP USER [test];
@@ -90,7 +90,7 @@ DROP ROLE
 
 <br />
 
-### 현재 USER 조회
+### 현재 User 조회
 
 ```
 postgres=# select current_user;
@@ -110,6 +110,22 @@ postgres=# select current_database();
 
 ---
 
+### 기존 User에 데이터베이스 추가
+
+기존에 myuser라는 role이 있었다고 가정했을 때, 새로운 데이터베이스를 추가하기 위해선 먼저 `postgres` 데이터베이스를 사용한다.
+
+```
+psql -U myuser -d postgres
+```
+
+로그인 후, 새 데이터베이스를 생성한다.
+
+```
+pstgres=# CREATE DATABASE "businesscard-prj"
+```
+
+---
+
 ### psql 명령어
 
 - `\l` : 현재 서버에 있는 모든 데이터베이스 목록을 조회
@@ -123,3 +139,7 @@ postgres=# select current_database();
 - `\du` : USER 조회
 
   <figure><img src="../../.gitbook/assets/240201-7.png" alt=""><figcaption></figcaption></figure>
+
+```
+
+```
