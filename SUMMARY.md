@@ -115,7 +115,7 @@
 - [클래스 이름을 동적으로 적용하기](NEXTJS/classNames.md)
 - [fetchData를 병렬로 가져오기](NEXTJS/fetch-data-parallel.md)
 - [metadata를 동적으로 적용하기](NEXTJS/dynamic-metadata.md)
-- [NextAuth로 카카오 로그인 구현하기](SETTINGS/next-auth-kakako-login.md)
+- [NextAuth로 카카오 로그인 구현하기](NEXTJS/next-auth-kakako-login.md)
 
 ## DATABASE
 
