@@ -75,4 +75,4 @@ if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
   - Prisma Migrate를 사용해 새로운 마이그레이션을 만든다.
   - `prisma/migrations` 폴더에 새 마이그레이션 파일을 생성한다.
   - `npx prisma migrate dev --name init`
-    👉🏻 `npx prisma studio`를 실행했을 때, schema에 작성했던 테이블이 보인다면 정상적으로 동작하는 것이다.
+    👉🏻 `npx prisma studio`를 실행했을 때, schema에 작성했던 테이블이 보인다면 정상
