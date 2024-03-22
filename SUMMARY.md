@@ -40,6 +40,8 @@
 
 ## JAVASCRIPT
 
+- [크롬 모바일 브라우저에서 100vh 적용하는 방법](JAVASCRIPT/mobile-100vh.md)
+
 ## TYPESCRIPT
 
 ## REACT
@@ -125,6 +127,7 @@
 
 - [Next.js 14 & Langchain & Vercel SDK & ChatGPT API & TailwindCSS](SETTINGS/nextjs-langchain-chatGPT-vercelAi.md)
 - [Prisma](SETTINGS/prisma.md)
+- [NextAuth로 카카오 로그인 구현하기](SETTINGS/next-auth-kakako-login.md)
 
 ## OTHER LIBRARIES
 
