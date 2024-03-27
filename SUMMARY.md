@@ -4,8 +4,8 @@
 
 ## CSS
 
-- [TailwindCSS](css/tailwind-css/README.md)
-  - [TailwindCSS Tricks](css/tailwind-css/tailwind-tricks.md)
+- [TailwindCSS](css/tailwindcss/README.md)
+  - [TailwindCSS Tricks](css/tailwindcss/tailwind-tricks.md)
 - [a 태그 영역 설정](css/set-up-link-area.md)
 - [문단 좌우 균등정렬](css/text-align-justify.md)
 - [문단 여러 줄 말줄임 처리](css/line-clamp.md)
