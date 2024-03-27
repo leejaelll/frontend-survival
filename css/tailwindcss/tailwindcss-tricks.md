@@ -1,8 +1,12 @@
+---
+coverY: 0
+---
+
 # TailwindCSS Tricks
 
 ### Peer and Group
 
-`bg-blue-400`인 div에 hover했을 때, 하위 자식 div도 색상을 변경하는 방법 👉🏻 `group`
+`bg-blue-400`인 div에 hover했을 때, 하위 자식 div도 색상을 변경하는 방법 👉🏻 _<mark style="color:red;">**`group`**</mark>_
 
 ```jsx
 <div className='h-40 w-40 grid place-items-center bg-blue-400 hover:bg-purple-400'>
@@ -10,6 +14,8 @@
   <div className='bg-black h-10 w-10'></div>
 </div>
 ```
+
+<figure><img src="../../.gitbook/assets/240322-1.png" alt=""><figcaption></figcaption></figure>
 
 * 상위 컨테이너 요소에 group 클래스 지정
 * 하위 요소에 `group-hover:` 클래스 지정
@@ -21,7 +27,9 @@
 </div>
 ```
 
-형제 요소의 색상을 변경하는 방법 👉🏻 `peer`
+<figure><img src="../../.gitbook/assets/240322-2.png" alt=""><figcaption></figcaption></figure>
+
+형제 요소의 색상을 변경하는 방법 👉🏻 _<mark style="color:red;">**`peer`**</mark>_
 
 ```jsx
 <div className='peer h-40 w-40 group grid place-items-center bg-blue-400 hover:bg-purple-400'>
@@ -32,11 +40,13 @@
 
 ```
 
+<figure><img src="../../.gitbook/assets/240322-3.png" alt=""><figcaption></figcaption></figure>
+
 
 
 ### Extend Tailwind
 
-`shadow-[0_0_10px_theme('colors.purple. 700')]` 과 같은 그림자의 효과를 여러 곳에서 사용해야 할 때 👉🏻 유틸리티
+`shadow-[0_0_10px_theme('colors.purple. 700')]` 과 같은 그림자의 효과를 여러 곳에서 사용해야 할 때 👉🏻 _**유틸리티**_
 
 ```js
 theme: {
