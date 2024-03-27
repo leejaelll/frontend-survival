@@ -84,7 +84,8 @@
 ## OTHER LIBRARIES
 
 * [React Three Fiber](other-libraries/react-three-fiber/README.md)
-  * [Three.js Basics](other-libraries/react-three-fiber/three.js-basics.md)
+  * [Three.js Basics](other-libraries/react-three-fiber/three.js-basics/README.md)
+    * [Transform objects](other-libraries/react-three-fiber/three.js-basics/transform-objects.md)
 
 ## ALGORITHM
 
