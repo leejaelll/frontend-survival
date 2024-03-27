@@ -139,8 +139,6 @@
       - [Animations](OTHER-LIBRARIES/REACT-THREE-FIBER/THREEJS-BASIC/animations.md)
       - [Cameras](OTHER-LIBRARIES/REACT-THREE-FIBER/THREEJS-BASIC/cameras.md)
 
-- [Framer Motion]
-
 ## ALGORITHM
 
 - [효율성](ALGORITHM/efficiency/README.md)
