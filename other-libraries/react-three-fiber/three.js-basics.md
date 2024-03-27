@@ -8,7 +8,7 @@ description: Three.js  이해하기
 
 <div data-full-width="false">
 
-<figure><img src="../../../.gitbook/assets/240327-1.svg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/240327-1.svg" alt=""><figcaption></figcaption></figure>
 
 </div>
 
