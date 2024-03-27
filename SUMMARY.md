@@ -6,8 +6,8 @@
 
 * [TailwindCSS](css/tailwindcss/README.md)
   * [TailwindCSS Tricks](css/tailwindcss/tailwindcss-tricks.md)
-* [a 태그 영역 설정](css/how-to-increase-clickable-area-of-a-tag.md)
-* [문단 좌우 균등정렬](css/undefined.md)
+* [\<a>\</a> 클릭 영역 설정](css/how-to-increase-clickable-area-of-a-tag.md)
+* [텍스트 균등 분할 정렬 방법](css/text-align-justify.md)
 * [문단 여러 줄 말줄임 처리](css/undefined-1.md)
 * [absolute 요소 중앙정렬](css/absolute.md)
 * [이미지 비율을 1:1로 적용하는 방법](css/1-1.md)
