@@ -132,9 +132,13 @@
 ## OTHER LIBRARIES
 
 - [React Three Fiber](OTHER-LIBRARIES/REACT-THREE-FIBER/README.md)
-  - [Tranform objects](OTHER-LIBRARIES/REACT-THREE-FIBER/transform-objects.md)
-  - [Animations](OTHER-LIBRARIES/REACT-THREE-FIBER/animations.md)
-  - [Cameras](OTHER-LIBRARIES/REACT-THREE-FIBER/cameras.md)
+
+  -[Three.js Basics](OTHER-LIBRARIES/REACT-THREE-FIBER/THREEJS-BASIC/README.md)
+
+      - [Tranform objects](OTHER-LIBRARIES/REACT-THREE-FIBER/THREEJS-BASIC/transform-objects.md)
+      - [Animations](OTHER-LIBRARIES/REACT-THREE-FIBER/THREEJS-BASIC/animations.md)
+      - [Cameras](OTHER-LIBRARIES/REACT-THREE-FIBER/THREEJS-BASIC/cameras.md)
+
 - [Framer Motion]
 
 ## ALGORITHM
