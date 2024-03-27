@@ -6,6 +6,10 @@
 - OrthographicCamera
 - PerspectiveCamera
 
+<br />
+
+### Camera
+
 **🚧 ArrayCamera**
 
 - 여러 개의 카메라를 배열 형태로 사용하여 하나의 장면을 다양한 시점에서 렌더링하는데 사용
@@ -30,4 +34,30 @@
 **🚧 PerspectiveCamera**
 
 - 시야각 (Field of View): 카메라가 볼 수 있는 각도를 결정
-- 종횡비 (Aspect Ratio):
+- 종횡비 (Aspect Ratio): 뷰포트의 가로와 세로 비율
+- Near and Far: 시야 내에서 렌더링할 수 있는 가까운 Plane과 먼 Plane을 설정
+
+---
+
+### OrbitControls
+
+```js
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+// Canvas
+const canvas = document.querySelector('canvas.webgl'); // DOM element
+
+// Controls
+const controls = new OrbitControls(camera, canvas);
+controls.enableDamping = true;
+controls.target.y = 1;
+conrols.update();
+
+const tick = () => {
+  // update controls
+  controls.update(); // controls.enableDamping, controls.autoRotate 둘 중 하나라도 true로 설정될 경우 필수로 호출되어야 한다.
+
+  // Render
+  renderer.render(scene, camera);
+};
+```
