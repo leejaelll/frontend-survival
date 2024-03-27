@@ -1,6 +1,6 @@
 # 문단 여러 줄 말줄임 처리
 
-<figure><img src="../../.gitbook/assets/231109-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/231109-1.png" alt=""><figcaption></figcaption></figure>
 
 각 div 안의 텍스트 요소들은 div의 아래 기준으로 시작하고, 2줄이 넘어갈 경우 말줄임(...) 처리를 하는 방법
 
@@ -13,13 +13,14 @@
 </div>
 ```
 
-<br />
+\
+
 
 ### `-webkit-line-clamp`
 
-- block 요소를 지정된 줄 수로 제한할 수 있는 CSS 속성
-- **display 속성이 `-webkit-box` 또는 `-webkit-inline-box`인 경우**에만 동작한다.
-- overflow:hidden으로 설정하면 지정된 줄 수 뒤에 줄임표를 표시할 수 있다.
+* block 요소를 지정된 줄 수로 제한할 수 있는 CSS 속성
+* **display 속성이 `-webkit-box` 또는 `-webkit-inline-box`인 경우**에만 동작한다.
+* overflow:hidden으로 설정하면 지정된 줄 수 뒤에 줄임표를 표시할 수 있다.
 
 ```tsx
 <div style='display:flex; align-items:end;'>
@@ -37,9 +38,10 @@
 </div>
 ```
 
-<figure><img src="../../.gitbook/assets/231109-2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/231109-2.png" alt=""><figcaption></figcaption></figure>
 
-<br />
+\
+
 
 ### `in TailwindCSS`
 

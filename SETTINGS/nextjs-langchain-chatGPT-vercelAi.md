@@ -1,4 +1,4 @@
-# Next.js 14 & Langchain & Vercel SDK & ChatGPT API & TailwindCSS Setup
+# Next.js 14 & Langchain & Vercel SDK & ChatGPT API & TailwindCSS
 
 ### Next.js 설치
 
@@ -8,19 +8,19 @@ npx create-next-app@latest
 
 ### Dependencies 설치
 
-- openai
-- langchain
-- @langchain/openai : LangChain 프레임워크에서 Open AI의 API를 사용하기 위한 라이브러리
-- ai
-- clsx
-- tailwind-merge
-- ts-node
-- dotenv
-- lucide-react : 아이콘 라이브러리
-- next-themes
-- react-markdown : markdown 형식의 텍스트를 HTML로 렌더링하는 데 사용되는 라이브러리
-- @datastax/astra-db-ts : Atra DB에 엑세스하고 상호작용하기 위한 Node.js 클라이언트 라이브러리
-- @upstash/redis : Upstash Redis 서비스와 통합하기 위한 Node.js 클라이언트 라이브러리
+* openai
+* langchain
+* @langchain/openai : LangChain 프레임워크에서 Open AI의 API를 사용하기 위한 라이브러리
+* ai
+* clsx
+* tailwind-merge
+* ts-node
+* dotenv
+* lucide-react : 아이콘 라이브러리
+* next-themes
+* react-markdown : markdown 형식의 텍스트를 HTML로 렌더링하는 데 사용되는 라이브러리
+* @datastax/astra-db-ts : Atra DB에 엑세스하고 상호작용하기 위한 Node.js 클라이언트 라이브러리
+* @upstash/redis : Upstash Redis 서비스와 통합하기 위한 Node.js 클라이언트 라이브러리
 
 ```tsx
 npm i openai langchain @langchain/openai ai clsx tailwind-merge ts-node dotenv lucide-react next-themes react-markdown @datastax/astra-db-ts @upstash/redis
@@ -28,16 +28,16 @@ npm i openai langchain @langchain/openai ai clsx tailwind-merge ts-node dotenv l
 
 ### DevDependecies 설치
 
-- prettier
-- prettier-plugin-tailwindcss
-- eslint-config-prettier
+* prettier
+* prettier-plugin-tailwindcss
+* eslint-config-prettier
 
 ```tsx
 npm i -D prettier prettier-plugin-tailwindcss eslint-config-prettier
 ```
 
-<br />
-package.json에서 `@langchain/core` 버전 설정하기
+\
+package.json에서 \`@langchain/core\` 버전 설정하기
 
 ```tsx
 "overrides": {
@@ -49,13 +49,14 @@ package.json에서 `@langchain/core` 버전 설정하기
 
 Settings > Files:Associations
 
-<figure><img src="../../.gitbook/assets/240206-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/240206-1.png" alt=""><figcaption></figcaption></figure>
 
 Settings > Quick Suggestion
 
-<figure><img src="../../.gitbook/assets/240206-2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/240206-2.png" alt=""><figcaption></figcaption></figure>
 
-<br />
+\
+
 
 프로젝트 루트에 `prettier.confing.js` 파일 생성
 
@@ -75,7 +76,7 @@ module.exports = {
 
 Settings > Default Formatter
 
-<figure><img src="../../.gitbook/assets/240206-3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/240206-3.png" alt=""><figcaption></figcaption></figure>
 
 ### Tailwind Theming
 
@@ -145,7 +146,8 @@ global.css 수정
 }
 ```
 
-<br />
+\
+
 
 `tailwind.confing.ts` 수정
 

@@ -1,10 +1,10 @@
-# NextJS에서 Local Font와 Google Font 적용하기
+# Next.js에서 font 적용하기
 
 ### 🔥 Local Font 적용
 
 public폴더 혹은 resource/font 폴더를 만들어 로컬 폰트를 넣어준다.
 
-<figure><img src="../../.gitbook/assets/231010-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/231010-1.png" alt=""><figcaption></figcaption></figure>
 
 `global.css`
 
@@ -36,11 +36,12 @@ public폴더 혹은 resource/font 폴더를 만들어 로컬 폰트를 넣어준
 </div>
 ```
 
-<br />
+\
 
-**_⛏️ Other Solution_**
 
-<figure><img src="../../.gitbook/assets/240215-1.png" alt=""><figcaption></figcaption></figure>
+_**⛏️ Other Solution**_
+
+<figure><img src="../.gitbook/assets/240215-1.png" alt=""><figcaption></figcaption></figure>
 
 `globals.css`
 
@@ -84,8 +85,7 @@ body {
 }
 ```
 
-`tailwind.confing.ts`
-tailwindCSS를 사용하는 경우, extend에 fontFamily를 추가
+`tailwind.confing.ts` tailwindCSS를 사용하는 경우, extend에 fontFamily를 추가
 
 ```tsx
 const config: Config = {
@@ -105,7 +105,7 @@ const config: Config = {
 };
 ```
 
----
+***
 
 ### 🔥 Google Font 적용
 
@@ -115,7 +115,7 @@ next/font/google에서 적용하고자 하는 폰트를 import 해온다.
 import { Noto_Serif_KR } from 'next/font/google';
 ```
 
-<figure><img src="../../.gitbook/assets/231011-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/231011-1.png" alt=""><figcaption></figcaption></figure>
 
 사용할 font-weight와 속성들을 지정해준다.
 

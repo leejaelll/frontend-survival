@@ -13,8 +13,8 @@
 
 <figure><img src="../../.gitbook/assets/240322-1.png" alt=""><figcaption></figcaption></figure>
 
-- 상위 컨테이너 요소에 group 클래스 지정
-- 하위 요소에 `group-hover:` 클래스 지정
+* 상위 컨테이너 요소에 group 클래스 지정
+* 하위 요소에 `group-hover:` 클래스 지정
 
 ```jsx
 <div className='h-40 w-40 group grid place-items-center bg-blue-400 hover:bg-purple-400'>
@@ -38,7 +38,8 @@
 
 <figure><img src="../../.gitbook/assets/240322-3.png" alt=""><figcaption></figcaption></figure>
 
-<br />
+\
+
 
 ### Extend Tailwind
 
@@ -62,7 +63,8 @@ theme: {
 </div>
 ```
 
-<br />
+\
+
 
 ### Plugins
 
@@ -97,7 +99,8 @@ plugins에서 만든 유틸리티를 사용해 여러가지 색상의 `neon-${co
 <div className='neon-green' />
 ```
 
-<br />
+\
+
 
 ### Color object
 

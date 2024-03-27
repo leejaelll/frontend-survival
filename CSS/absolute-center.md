@@ -1,9 +1,9 @@
-# absolute 요소 container 중앙에 배치하는 방법
+# absolute 요소 중앙정렬
 
 ### `absolute`
 
-- absolute 요소의 기본적인 containing block은 body이다.
-- 특정 부모 요소를 containg block으로 만들고 싶다면 absolute 요소를 감싸고 있는 block 요소에 `position:relative`를 적용한다.
+* absolute 요소의 기본적인 containing block은 body이다.
+* 특정 부모 요소를 containg block으로 만들고 싶다면 absolute 요소를 감싸고 있는 block 요소에 `position:relative`를 적용한다.
 
 ```html
 <div style="position:relative">
@@ -11,21 +11,23 @@
 </div>
 ```
 
-<br />
+\
+
 
 ### `transform`
 
-- absolute 요소를 움직이기 위해서는 top, left를 사용해야 한다.
-- x축을 기준으로 중앙정렬을 하기 위해선 left: 50%로 이동시킨다.
-- left:50%만큼 이동시키면 absolute의 요소 시작지점을 기준으로 containing block의 50%만큼 이동한다. 👉🏻 _이때 사용하는 것이 `transform`속성_
+* absolute 요소를 움직이기 위해서는 top, left를 사용해야 한다.
+* x축을 기준으로 중앙정렬을 하기 위해선 left: 50%로 이동시킨다.
+* left:50%만큼 이동시키면 absolute의 요소 시작지점을 기준으로 containing block의 50%만큼 이동한다. 👉🏻 _이때 사용하는 것이 `transform`속성_
 
-<figure><img src="../../.gitbook/assets/231124-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/231124-1.png" alt=""><figcaption></figcaption></figure>
 
-<br />
+\
+
 
 ### `translate()`
 
-- 요소의 위치를 수평 또는 수직 방향으로 변경하거나, 수평 및 수직 방향으로 변경할 때 사용하는 함수
+* 요소의 위치를 수평 또는 수직 방향으로 변경하거나, 수평 및 수직 방향으로 변경할 때 사용하는 함수
 
 ```html
 <div
@@ -42,9 +44,9 @@
 </div>
 ```
 
-<figure><img src="../../.gitbook/assets/231124-2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/231124-2.png" alt=""><figcaption></figcaption></figure>
 
-- x축, y축 모두 중앙으로 정렬하고 싶다면, `translate` 함수를 사용한다.
+* x축, y축 모두 중앙으로 정렬하고 싶다면, `translate` 함수를 사용한다.
 
 ```html
 <div style="
@@ -59,7 +61,8 @@
       </div>
 ```
 
-<br />
+\
+
 
 ### `in TailwindCSS`
 

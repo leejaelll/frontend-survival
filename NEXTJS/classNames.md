@@ -1,4 +1,4 @@
-# 클래스 이름을 동적으로 적용하는 방법
+# 클래스 이름을 동적으로 적용하기
 
 다양한 조건에 따라 클래스 이름을 동적으로 적용하고자 할 때 유용한 유틸리티 함수
 
@@ -10,7 +10,8 @@ export function classNames(...classes) {
 
 👉🏻 배열의 각 요소를 Boolean 생성자 함수에 전달하여 falsy 값(false, 0, '', null, undefined, NaN)을 걸러낸 후 하나의 문자열로 결합
 
-<br />
+\
+
 
 ### example
 
@@ -34,8 +35,8 @@ function Button({ isDisabled }) {
 export default Button;
 ```
 
-- isDisabled가 true일 때, 버튼의 className은 "btn btn-primary disabled"
-- false일 때는 "btn btn-primary"
+* isDisabled가 true일 때, 버튼의 className은 "btn btn-primary disabled"
+* false일 때는 "btn btn-primary"
 
 ```jsx
 <div
@@ -47,7 +48,7 @@ export default Button;
 >
 ```
 
----
+***
 
 ### tw-merge & clsx dependency를 사용하는 방법
 

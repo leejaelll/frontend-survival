@@ -1,4 +1,4 @@
-# fetchData를 병렬로 가져오는 방법
+# fetchData를 병렬로 가져오기
 
 하나의 컴포넌트에 두 개의 fetchData를 가져와야할 때, await를 각각 작성하게 되면 데이터를 동기적으로 하나씩 불러온 후 컴포넌트를 렌더링한다. 이런 경우 하나의 데이터를 가져오는데 5초가 걸린다고 가정하면 총 10초의 시간이 걸리는 셈이다.
 
@@ -13,7 +13,8 @@ async function Page() {
 }
 ```
 
-<br />
+\
+
 
 ### Promise.all
 
@@ -27,7 +28,7 @@ const [movies, videos] = Promise.all([getMovies(id), getVideos(id)]);
 
 ### Suspense
 
-Promise.all의 문제를 해결할 수 있는 방법 👉🏻 **_Suspense_**
+Promise.all의 문제를 해결할 수 있는 방법 👉🏻 _**Suspense**_
 
 두 개의 데이터를 개별적인 컴포넌트로 분리한 후, 외부 컴포넌트에서 가져와서 사용한다.
 
