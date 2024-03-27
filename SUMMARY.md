@@ -105,8 +105,6 @@
     - [props와 attrs](REACT/megatera/css-in-js/props-atrrs.md)
     - [Global Style & Theme](REACT/megatera/css-in-js/global-style.md)
 
-## REACT THREE FIBER
-
 ## NEXT JS
 
 - [Next.js에서 font 적용하기](NEXTJS/googlefont.md)
@@ -132,6 +130,12 @@
 - [Prisma](SETTINGS/prisma.md)
 
 ## OTHER LIBRARIES
+
+- [React Three Fiber](OTHER-LIBRARIES/REACT-THREE-FIBER/README.md)
+  - [Tranform objects](OTHER-LIBRARIES/REACT-THREE-FIBER/transform-objects.md)
+  - [Animations](OTHER-LIBRARIES/REACT-THREE-FIBER/animations.md)
+  - [Cameras](OTHER-LIBRARIES/REACT-THREE-FIBER/cameras.md)
+- [Framer Motion]
 
 ## ALGORITHM
 
