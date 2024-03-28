@@ -14,7 +14,7 @@
 
 ## JAVASCRIPT
 
-* [크롬 모바일 브라우저에서 100vh 적용하는 방법](javascript/100vh.md)
+* [크롬 모바일 브라우저에서 100vh 적용하는 방법](javascript/mobile-100vh.md)
 
 ## REACT
 
