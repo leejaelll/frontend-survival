@@ -78,7 +78,7 @@
 
 ## SETTINGS
 
-* [Next.js 14 & Langchain & Vercel SDK & ChatGPT API & TailwindCSS](settings/next.js-14-and-langchain-and-vercel-sdk-and-chatgpt-api-and-tailwindcss.md)
+* [Next.js 14 & Langchain & Vercel SDK & ChatGPT API & TailwindCSS](settings/nextjs-langchain-chatgpt-vercelai.md)
 * [Prisma](settings/prisma.md)
 
 ## OTHER LIBRARIES
