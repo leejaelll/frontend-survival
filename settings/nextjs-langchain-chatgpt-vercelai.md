@@ -1,3 +1,9 @@
+---
+cover: >-
+  https://images.unsplash.com/photo-1710481293133-05ada0ae12ec?crop=entropy&cs=srgb&fm=jpg&ixid=M3wxOTcwMjR8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTE2MDg5MTh8&ixlib=rb-4.0.3&q=85
+coverY: 0
+---
+
 # Next.js 14 & Langchain & Vercel SDK & ChatGPT API & TailwindCSS
 
 ### Install&#x20;
