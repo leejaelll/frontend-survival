@@ -61,12 +61,12 @@
 
 ## NEXT JS
 
-* [Next.js에서 font 적용하기](next-js/next.js-font.md)
-* [viewport에 따라 이미지 반응형 적용하기](next-js/viewport.md)
-* [텍스트 길이에 따른 fontSize 조절하기](next-js/fontsize.md)
-* [클래스 이름을 동적으로 적용하기](next-js/undefined.md)
-* [fetchData를 병렬로 가져오기](next-js/fetchdata.md)
-* [metadata를 동적으로 적용하기](next-js/metadata.md)
+* [폰트 적용하기](next-js/next-font.md)
+* [viewport에 따라 이미지 반응형 적용하기](next-js/image-responsive.md)
+* [텍스트 길이에 따라 fontSize 조절하기](next-js/fontsize-responsive.md)
+* [클래스 이름을 동적으로 적용하기](next-js/dynamic-classnames.md)
+* [fetchData를 병렬로 가져오기](next-js/fetch-data-parallel.md)
+* [metadata를 동적으로 적용하기](next-js/dynamic-metadata.md)
 * [NextAuth로 카카오 로그인 구현하기](next-js/nextauth.md)
 
 ## DATABASE
