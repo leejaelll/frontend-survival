@@ -88,6 +88,7 @@
     * [Transform objects](other-libraries/react-three-fiber/three.js-basics/transform-objects.md)
     * [Animations](other-libraries/react-three-fiber/three.js-basics/animations.md)
     * [Cameras](other-libraries/react-three-fiber/three.js-basics/cameras.md)
+    * [Geometries](other-libraries/react-three-fiber/three.js-basics/geometries.md)
 
 ## ALGORITHM
 
