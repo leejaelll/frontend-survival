@@ -150,3 +150,37 @@ scene.add(extrudeMesh);
 
 
 
+### BufferGeometry
+
+점의 형태로 표현 가능
+
+```javascript
+const numPoints = 1000; // 포인트의 수
+const positions = new Float32Array(numPoints * 3); // 각 포인트의 3D 위치 (x, y, z)
+
+for (let i = 0; i < numPoints; i++) {
+  const x = (Math.random() - 0.5) * 1; // X 좌표를 무작위로 생성
+  const y = (Math.random() - 0.5) * 1; // Y 좌표를 무작위로 생성
+  const z = (Math.random() - 0.5) * 1; // Z 좌표를 무작위로 생성
+
+  positions[i * 3] = x;
+  positions[i * 3 + 1] = y;
+  positions[i * 3 + 2] = z;
+}
+
+const bufferGeometry = new THREE.BufferGeometry();
+bufferGeometry.setAttribute(
+  "position",
+  new THREE.BufferAttribute(positions, 3)
+);
+
+const pointsMaterial = new THREE.PointsMaterial({
+  color: 0xffff00,
+  size: 0.05,
+});
+
+const point = new THREE.Points(bufferGeometry, pointsMaterial);
+point.position.set(0, 0, -5);
+scene.add(point);
+```
+
