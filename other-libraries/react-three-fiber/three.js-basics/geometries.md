@@ -1,11 +1,8 @@
 # Geometries
 
-* [BoxGeometry](https://threejs.org/docs/index.html#api/en/geometries/BoxGeometry)
-* [PlaneGeometry](https://threejs.org/docs/api/en/geometries/PlaneGeometry.html)
-* [CapsuleGeometry](https://threejs.org/docs/api/en/geometries/CapsuleGeometry.html)
-* [CylinderGeometry](https://threejs.org/docs/api/en/geometries/CylinderGeometry.html)
+#### Geometry + Material = Mesh
 
-
+basic material 만들기
 
 ```javascript
 const material = new THREE.MeshStandardMaterial({ color: 0x44aa88 }); // MeshStandardMaterial: 빛을 받는 물체로 만들어줌
@@ -52,7 +49,7 @@ scene.add(floor);
 
 
 
-### CapsuleGeometry
+### CapsuleGeometry
 
 ```javascript
 const capsuleGeometry = new THREE.CapsuleGeometry(1, 2, 20, 30);
