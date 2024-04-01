@@ -72,7 +72,7 @@
 ## DATABASE
 
 * [PostgreSQL](database/postgresql/README.md)
-  * [PostgreSQL 설치, 실행](database/postgresql/postgresql.md)
+  * [PostgreSQL 설치, 실행](database/postgresql/postgresql-install-run.md)
 * [Prisma](database/prisma/README.md)
   * [Schema의 모든 데이터 가져오기](database/prisma/schema.md)
 
