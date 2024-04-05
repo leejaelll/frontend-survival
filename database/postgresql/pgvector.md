@@ -30,14 +30,14 @@ psql -U postgres
 CREATE EXTENSION vector;
 ```
 
+
+
 {% hint style="warning" %}
-permission denied to create extension "vecor"와 같은 에러가 발생한다면, user role에 `Superuser`가 있는지 확인해보자. &#x20;
-
-<img src="../../.gitbook/assets/240401-1.png" alt="" data-size="original">
-
-
-
-없다면 `ALTER USER myuser with superuser; 실행` ➡️ 권한 등록
+_**ERROR: permission denied to create extension "vector"**_\
+\
+👉🏻 vector를 만들 권한이 없는 user일 경우 발생
 {% endhint %}
 
-&#x20;
+<figure><img src="../../.gitbook/assets/240401-1.png" alt=""><figcaption></figcaption></figure>
+
+user role에 `Superuser`가 있는지 확인 후, 없다면 `ALTER USER myuser with superuser;` 실행 ➡️ 권한 등록&#x20;
