@@ -68,6 +68,7 @@
 * [fetchData를 병렬로 가져오기](next-js/fetch-data-parallel.md)
 * [metadata를 동적으로 적용하기](next-js/dynamic-metadata.md)
 * [NextAuth로 카카오 로그인 구현하기](next-js/nextauth.md)
+* [이미지 등록 컴포넌트 구현하기](next-js/undefined.md)
 
 ## DATABASE
 
