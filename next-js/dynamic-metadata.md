@@ -20,3 +20,27 @@ export async function generateMetadata({ params: { id } }: IParams) {
   };
 }
 ```
+
+
+
+***
+
+### Static Site Generation (SSG)에서 generateMetadata 사용
+
+```typescript
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: '여기 타이틀',
+    description: '여기 부가적인 설명',
+    openGraph: {
+      images: ['https://...(image 업로드 주소)/hero.png],
+    },
+    twitter: {
+      images: ['https://...(image 업로드 주소)/hero.png],
+    },
+    icons: {
+      icon: require('../favicon.ico').default.src, // ⛏️ favicon을 적용하는 방법
+    },
+  };
+}
+```
