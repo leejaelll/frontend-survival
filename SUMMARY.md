@@ -8,10 +8,10 @@
   * [TailwindCSS Tricks](css/tailwindcss/tailwindcss-tricks.md)
 * [\<a>\</a> 클릭 영역 설정](css/how-to-increase-clickable-area-of-a-tag.md)
 * [absolute 요소 중앙정렬](css/absolute.md)
+* [SVG를 배경으로 사용하기](css/svg.md)
 * [텍스트 균등 정렬 👉🏻 text-align](css/text-align-justify.md)
 * [말줄임 처리 👉🏻 line-clamp](css/line-clamp.md)
 * [이미지 1:1 👉🏻 aspect-square](css/image-ratio-square.md)
-* [SVG를 배경으로 사용하기](css/svg.md)
 
 ## JAVASCRIPT
 
