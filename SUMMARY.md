@@ -59,6 +59,7 @@
     * [styled-components](react/megatera/css-in-js/styled-components.md)
     * [props와 attrs](react/megatera/css-in-js/props-attrs.md)
     * [Global Style & Theme](react/megatera/css-in-js/global-style-and-theme.md)
+* [device type을 확인하는 함수](react/device-type.md)
 
 ## NEXT JS
 
