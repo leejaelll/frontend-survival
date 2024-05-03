@@ -1,6 +1,6 @@
 # device type을 확인하는 함수
 
-#### `checkOperatingSystem` &#x20;
+### `checkOperatingSystem` &#x20;
 
 👉🏻 navigator.userAgent로 기기를 확인한 후, 값을 리턴한다.&#x20;
 
@@ -36,7 +36,7 @@ export const checkOperatingSystem = () => {
 
 
 
-#### `useDeviceType`&#x20;
+### `useDeviceType`&#x20;
 
 👉🏻 resize가 될 때마다 window.innerWidth를 체크한 후, 'Mobile', 'Tablet', 'Desktop'을 리턴
 
