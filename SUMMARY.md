@@ -64,8 +64,8 @@
 
 ## NEXT JS
 
-* [Not Found Page 만들기](next-js/not-found-page.md)
 * [폰트 적용하기](next-js/next-font.md)
+* [Not Found Page 만들기](next-js/not-found-page.md)
 * [viewport에 따라 이미지 반응형 적용하기](next-js/image-responsive.md)
 * [텍스트 길이에 따라 fontSize 조절하기](next-js/fontsize-responsive.md)
 * [클래스 이름을 동적으로 적용하기](next-js/dynamic-classnames.md)

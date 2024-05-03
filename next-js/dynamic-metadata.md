@@ -23,6 +23,40 @@ export async function generateMetadata({ params: { id } }: IParams) {
 
 
 
+#### title을 동적으로 변경하는 방법
+
+페이지를 이동할 때마다 `{title} | Movie` 와 같은 형식으로 title을 보여주고 싶을 때, 모든 컴포넌트마다 Metadata를 만들지 않고, %s를 사용해서 동적으로 title을 변경시킬 수 있다.&#x20;
+
+```typescript
+interface IParams {
+  params: { id: string };
+}
+
+export async function generateMetadata({ params: { id } }: IParams) {
+  const movie = await getMovie(id);
+  return {
+    title: {
+      absolute: '',
+      default: 'Next.js Tutorial - Movie',
+      template: '%s| Movie',
+    }
+  };
+}
+```
+
+{% code title="app/blog/page.tsx" %}
+```typescript
+export default function Blog(){
+    return {
+       title: 'Blog'
+    }
+}
+```
+{% endcode %}
+
+* app/page.tsx에 접근했을 때 title 👉🏻 Next.js Tutorial - Movie
+* app/blog/page.tsx에 접근했을 때 title 👉🏻 Blog | Movie
+
 ***
 
 ### Static Site Generation (SSG)에서 generateMetadata 사용
