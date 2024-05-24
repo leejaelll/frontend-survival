@@ -24,9 +24,7 @@ Next.js가 14로 업데이트 되면서 api 폴더가 사라진 것을 확인할
 
 ### actions.ts
 
-DB에 데이터를 저장해야 할 때 이전에는 api 폴더에 서버 API를 만들고, 요청을 날리는 방식을 사용했지만
-
-Server actions라는 기능을 이용하면 server/client component 안에서 한 번에 처리할 수 있다.&#x20;
+DB에 데이터를 저장해야 할 때 이전에는 api 폴더에 서버 API를 만들고, 요청을 날리는 방식을 사용했지만, <mark style="color:red;">**Server actions**</mark>라는 기능을 이용하면 server/client component 안에서 한 번에 처리할 수 있다.&#x20;
 
 {% code title="app/write/page.js" %}
 ```typescript
