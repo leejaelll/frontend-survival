@@ -112,7 +112,7 @@
 
 * [HTML 속성 vs DOM 프로퍼티](frontend/html-vs-dom.md)
 
-## Group 1
+## typescript
 
-* [Partial 활용하기](group-1/partial.md)
-* [Readonly 사용하기](group-1/readonly.md)
+* [Partial 활용하기](typescript/partial.md)
+* [Readonly 사용하기](typescript/readonly.md)
