@@ -1,4 +1,4 @@
-# readonly 사용하기
+# Readonly 사용하기
 
 ## `readonly`
 

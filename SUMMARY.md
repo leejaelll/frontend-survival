@@ -115,4 +115,4 @@
 ## Group 1
 
 * [Partial 활용하기](group-1/partial.md)
-* [readonly 사용하기](group-1/readonly.md)
+* [Readonly 사용하기](group-1/readonly.md)
