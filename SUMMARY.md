@@ -61,7 +61,7 @@
     * [styled-components](react/megatera/css-in-js/styled-components.md)
     * [props와 attrs](react/megatera/css-in-js/props-attrs.md)
     * [Global Style & Theme](react/megatera/css-in-js/global-style-and-theme.md)
-* [device type을 확인하는 함수](react/device-type.md)
+* [DeviceType을 확인하는 함수](react/devicetype.md)
 
 ## NEXT JS
 
@@ -89,6 +89,7 @@
 
 * [Next.js 14 & Langchain & Vercel SDK & ChatGPT API & TailwindCSS](settings/next.js-14-and-langchain-and-vercel-sdk-and-chatgpt-api-and-tailwindcss.md)
 * [Prisma](settings/prisma.md)
+* [Migrating from Create React App](settings/migrating-from-create-react-app.md)
 
 ## OTHER LIBRARIES
 
@@ -99,7 +100,6 @@
     * [Cameras](other-libraries/react-three-fiber/three.js-basics/cameras.md)
     * [Geometries](other-libraries/react-three-fiber/three.js-basics/geometries.md)
     * [Textures](other-libraries/react-three-fiber/three.js-basics/textures.md)
-* [Migrating from Create React App](other-libraries/migrating-from-create-react-app.md)
 
 ## ALGORITHM
 
@@ -111,3 +111,7 @@
 ## frontend
 
 * [HTML 속성 vs DOM 프로퍼티](frontend/html-vs-dom.md)
+
+## Group 1
+
+* [Partial 활용하기](group-1/partial.md)
