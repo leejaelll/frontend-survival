@@ -99,6 +99,7 @@
     * [Cameras](other-libraries/react-three-fiber/three.js-basics/cameras.md)
     * [Geometries](other-libraries/react-three-fiber/three.js-basics/geometries.md)
     * [Textures](other-libraries/react-three-fiber/three.js-basics/textures.md)
+* [Migrating from Create React App](other-libraries/migrating-from-create-react-app.md)
 
 ## ALGORITHM
 
