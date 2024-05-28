@@ -94,13 +94,13 @@
 
 ## OTHER LIBRARIES
 
-* [React Three Fiber](other-libraries/react-three-fiber/README.md)
-  * [Three.js Basics](other-libraries/react-three-fiber/three.js-basics.md)
-    * [Transform objects](other-libraries/react-three-fiber/three.js-basics/transform-objects.md)
-    * [Animations](other-libraries/react-three-fiber/three.js-basics/animations.md)
-    * [Cameras](other-libraries/react-three-fiber/three.js-basics/cameras.md)
-    * [Geometries](other-libraries/react-three-fiber/three.js-basics/geometries.md)
-    * [Textures](other-libraries/react-three-fiber/three.js-basics/textures.md)
+* [Three.js Basics](other-libraries/three.js-basics/README.md)
+  * [Transform objects](other-libraries/three.js-basics/transform-objects.md)
+  * [Animations](other-libraries/three.js-basics/animations.md)
+  * [Cameras](other-libraries/three.js-basics/cameras.md)
+  * [Geometries](other-libraries/three.js-basics/geometries.md)
+  * [Textures](other-libraries/three.js-basics/textures.md)
+* [React Three Fiber](other-libraries/react-three-fiber.md)
 
 ## ALGORITHM
 
