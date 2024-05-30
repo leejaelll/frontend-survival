@@ -5,6 +5,8 @@
 ## CSS
 
 * [TailwindCSS](css/tailwindcss/README.md)
+  * [특정 줄수에서 말줄임 처리 👉🏻 line-clamp](css/tailwindcss/line-clamp.md)
+  * [이미지 1:1 👉🏻 aspect-square](css/tailwindcss/image-ratio-square.md)
   * [말줄임 처리 👉🏻 truncate](css/tailwindcss/truncate.md)
   * [Page](css/tailwindcss/page.md)
   * [TailwindCSS Tricks](css/tailwindcss/tailwindcss-tricks.md)
@@ -12,8 +14,6 @@
 * [absolute 요소 중앙정렬](css/absolute.md)
 * [SVG를 배경으로 사용하기](css/svg.md)
 * [텍스트 균등 정렬 👉🏻 text-align](css/text-align-justify.md)
-* [특정 줄수에서 말줄임 처리 👉🏻 line-clamp](css/line-clamp.md)
-* [이미지 1:1 👉🏻 aspect-square](css/image-ratio-square.md)
 
 ## JAVASCRIPT
 

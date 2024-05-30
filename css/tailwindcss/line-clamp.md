@@ -1,6 +1,6 @@
-# 말줄임 처리 - line-clamp
+# 특정 줄수에서 말줄임 처리 👉🏻 line-clamp
 
-<figure><img src="../.gitbook/assets/231109-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/231109-1.png" alt=""><figcaption></figcaption></figure>
 
 텍스트 요소들은 div의 아래 기준으로 시작하고, 2줄이 넘어갈 경우 말줄임(...) 처리를 하는 방법
 
@@ -37,7 +37,7 @@
 </div>
 ```
 
-<figure><img src="../.gitbook/assets/231109-2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/231109-2.png" alt=""><figcaption></figcaption></figure>
 
 
 
