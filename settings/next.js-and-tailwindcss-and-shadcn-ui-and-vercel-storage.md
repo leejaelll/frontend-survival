@@ -629,7 +629,7 @@ scripts 명령어 추가 후 실행
 
 
 
-## Blob Storage 생성하기
+## blob storage 생성하기
 
 postgres storage와 동일하게 생성 후, .env 파일에 환경변수 추가
 
