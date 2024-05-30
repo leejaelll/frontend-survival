@@ -90,6 +90,7 @@
 
 ## SETTINGS
 
+* [Next.js & TailwindCSS & Shadcn UI & Vercel storage](settings/next.js-and-tailwindcss-and-shadcn-ui-and-vercel-storage.md)
 * [Next.js 14 & Langchain & Vercel SDK & ChatGPT API & TailwindCSS](settings/next.js-14-and-langchain-and-vercel-sdk-and-chatgpt-api-and-tailwindcss.md)
 * [Prisma](settings/prisma.md)
 * [Migrating from Create React App](settings/migrating-from-create-react-app.md)
