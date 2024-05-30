@@ -85,6 +85,8 @@
 * [Prisma](database/prisma/README.md)
   * [Schema의 모든 데이터 가져오기](database/prisma/schema.md)
   * [Schema 정의하기](database/prisma/schema-1.md)
+* [Firebase](database/firebase/README.md)
+  * [컬렉션 데이터 가져오기](database/firebase/undefined.md)
 
 ## SETTINGS
 
