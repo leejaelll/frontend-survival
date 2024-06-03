@@ -22,6 +22,7 @@
 * [ffmpeg를 이용해 포맷 변환하기](javascript/ffmpeg.md)
 * [Proxy 객체 활용하기](javascript/proxy.md)
 * [두 배열의 겹치는 값 찾기 👉🏻 Set](javascript/set.md)
+* [URL 쿼리 파라미터 객체로 변환하기 👉🏻 Object.fromEntries()](javascript/url-object.fromentries.md)
 
 ## REACT
 
@@ -93,9 +94,9 @@
 
 ## SETTINGS
 
+* [Prisma](settings/prisma.md)
 * [Next.js & TailwindCSS & Shadcn UI & Vercel storage](settings/next.js-and-tailwindcss-and-shadcn-ui-and-vercel-storage.md)
 * [Next.js 14 & Langchain & Vercel SDK & ChatGPT API & TailwindCSS](settings/next.js-14-and-langchain-and-vercel-sdk-and-chatgpt-api-and-tailwindcss.md)
-* [Prisma](settings/prisma.md)
 * [Migrating Next.js from Create React App](settings/migrating-next.js-from-create-react-app.md)
 
 ## OTHER LIBRARIES
@@ -124,3 +125,8 @@
 * [Partial 활용하기](group-1/partial.md)
 * [Readonly 사용하기](group-1/readonly.md)
 * [Polymorphic 컴포넌트를 사용한 유연한 UI 패턴 만들기](typescript/polymorphic-ui.md)
+
+## error
+
+* [PostgreSQL](error/postgresql/README.md)
+  * [Can't reach database server at \`localhost\`:\`5432\`](error/postgresql/cant-reach-database-server-at-localhost-5432.md)
