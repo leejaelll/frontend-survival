@@ -39,4 +39,22 @@ a.filter(Set.prototype.has, new Set(b)); // [3, 5, 5, 7]
 
 
 
-만약 겹치는 값 중에서도 중복된 값은 제거하려면? 👉🏻 Set의 intersection 메서드를 사용한다. /
+만약 겹치는 값 중에서도 중복된 값은 제거하려면? 👉🏻 Set의 intersection 메서드를 사용한다.
+
+```javascript
+new Set(a).intersection(new Set(b)); // {3, 5, 7}
+
+// make Array
+Array.from(new Set(a).intersection(new Set(b))); // [3, 5, 7]
+```
+
+
+
+***
+
+#### 반대로 겹치지 않는 값만 찾으려면? 👉🏻 Set의 difference 메서드를 사용한다.&#x20;
+
+```
+Array.from(new Set(a).difference
+(new Set(b))); 
+```
