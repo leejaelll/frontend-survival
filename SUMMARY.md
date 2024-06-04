@@ -79,7 +79,8 @@
 * [metadata를 동적으로 적용하기](next-js/dynamic-metadata.md)
 * [NextAuth 카카오 로그인](next-js/nextauth.md)
 * [이미지를 업로드하는 컴포넌트 구현하기](next-js/undefined.md)
-* [Server actions 기능](next-js/server-actions.md)
+* [Server actions 기능 사용하기](next-js/server-actions.md)
+* [Form 컴포넌트 구현하기 (+ shadcn/ui)](next-js/form-+-shadcn-ui.md)
 
 ## DATABASE
 
@@ -130,3 +131,8 @@
 
 * [PostgreSQL](error/postgresql/README.md)
   * [Can't reach database server at \`localhost\`:\`5432\`](error/postgresql/cant-reach-database-server-at-localhost-5432.md)
+
+## certificate
+
+* [정보처리기사](certificate/undefined/README.md)
+  * [Page 1](certificate/undefined/page-1.md)
