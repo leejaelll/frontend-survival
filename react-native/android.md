@@ -53,8 +53,34 @@ _**ERROR**_
 Null extracted folder for artifact: ResolvedArtifact(componentIdentifier=com.facebook.react:hermes-android:0.72.4, variant=com.facebook.react:hermes-android:0.72.4 variant debugVariantDefaultRuntimePublication,
 
 \
-👉🏻 해당 에러가 발생할 경우,  오른쪽 상<img src="../.gitbook/assets/스크린샷 2024-06-05 오후 12.56.01.png" alt="" data-size="original">상단&#x20;
+👉🏻 해당 에러가 발생할 경우, &#x20;
 
+* SDK 버전 확인 (Tools - SDK Manager에서 SDK Platforms, SDK Tools 확인)
 
+&#x20;![](<../.gitbook/assets/스크린샷 2024-06-05 오후 12.58.33.png>)
+
+* 버전이 일치한다면, 오른쪽 상단 'Sync Project with Gradle Files' 클릭
+
+<img src="../.gitbook/assets/스크린샷 2024-06-05 오후 12.56.01.png" alt="" data-size="original">
 {% endhint %}
+
+* 빌드가 정상적으로 완료되었을 경우, 폴더 디렉토리가 다른 형태로 바뀐다.&#x20;
+
+
+
+#### Build -> Generate Signed App Bundle/APK&#x20;
+
+<figure><img src="../.gitbook/assets/스크린샷 2024-06-05 오후 1.01.42.png" alt=""><figcaption></figcaption></figure>
+
+
+
+
+
+
+
+
+
+
+
+
 
