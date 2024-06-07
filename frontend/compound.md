@@ -92,13 +92,62 @@ FlyOut.Toggle = Toggle
 
 
 
+### Menu 컴포넌트 구현
+
+open이 true일 때, 메뉴가 화면에 나와야 한다. 메뉴는 List와 Item 컴포넌트로 구현한다.&#x20;
+
+```jsx
+function List({ children }) {
+  const { open } = React.useContext(FlyOutContext)
+  return open && <ul>{children}</ul>
+}
+
+function Item({ children }) {
+  return <li>{children}</li>
+}
+
+FlyOut.List = List
+FlyOut.Item = Item
+```
 
 
 
+지금까지 구현한 것들 모두 `FlyOut` 컴포넌트만 가지고 사용할 수 있다.&#x20;
 
+```jsx
+import React from 'react'
+import { FlyOut } from './FlyOut'
 
+export default function FlyoutMenu() {
+  return (
+    <FlyOut>
+      <FlyOut.Toggle />
+      <FlyOut.List>
+        <FlyOut.Item>Edit</FlyOut.Item>
+        <FlyOut.Item>Delete</FlyOut.Item>
+      </FlyOut.List>
+    </FlyOut>
+  )
+}
+```
+
+* `FlyOutMenu` 자체에는 아무런 상태를 가지고 있지 않다.
+
+## 장점
+
+* 컴파운드 패턴은 동작 구현에 필요한 상태를 내부적으로 가지고 있는데 이것을 사용하는 쪽에서는 드러나지 않아 걱정 없이 사용할 수 있다.
+* 자식 컴포넌트들을 일일히 import할 필요 없이 기능을 이용할 수 있다.
+
+## 단점
+
+* 내부에서 `React.Children.map`을 사용하고 있기 때문에 쓰는 쪽에서 자식 컴포넌트를 약속된 형태로 넘겨야 하는 제약이 생긴다.
+* 엘리먼트를 복제하는 경우. 복제 대상 컴포넌트가 기존에 갖고 있는 prop과 이름이 충돌될 수 있다.
 
 ***
+
+<details>
+
+<summary>code</summary>
 
 ```typescript
 function Page() {
@@ -191,3 +240,7 @@ FlyOut.Item = Item;
 
 ```
 {% endcode %}
+
+
+
+</details>
