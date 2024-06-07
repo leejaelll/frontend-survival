@@ -122,6 +122,7 @@
 * [HTML 속성 vs DOM 프로퍼티](frontend/html-vs-dom.md)
 * [Provider 패턴](frontend/provider.md)
 * [Compound 패턴](frontend/compound.md)
+* [Command 패턴](frontend/command.md)
 
 ## typescript
 
