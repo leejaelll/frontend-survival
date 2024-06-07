@@ -118,3 +118,7 @@ manager.execute(new CancelOrderCommand("1234"));
 ## 단점 <a href="#undefined" id="undefined"></a>
 
 커멘드 패턴을 쓸만한 상황이 딱히 많지 않고 종종 불필요한 코드가 만들어지곤 한다.
+
+## 참조
+
+[https://patterns-dev-kr.github.io/design-patterns/command-pattern/](https://patterns-dev-kr.github.io/design-patterns/command-pattern/)
