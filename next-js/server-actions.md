@@ -1,4 +1,4 @@
-# Server actions 기능
+# Server actions 기능 사용하기
 
 Next.js가 14로 업데이트 되면서 api 폴더가 사라진 것을 확인할 수 있다.&#x20;
 
@@ -72,5 +72,12 @@ async function handleSubmit(formData) {
 
 action.ts 파일을 분리해서 작성한 후, client component에서 불러온 후 action={} 안에 넣어서 사용한다.&#x20;
 
+```typescript
+'use server'
+import { signOut } from '@/auth'
 
+export async function handleLogout() {
+  await signOut()
+}
+```
 
