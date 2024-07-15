@@ -66,6 +66,7 @@
     * [props와 attrs](react/megatera/css-in-js/props-attrs.md)
     * [Global Style & Theme](react/megatera/css-in-js/global-style-and-theme.md)
 * [DeviceType을 확인하는 함수](react/devicetype.md)
+* [Wath's new in React 19](react/waths-new-in-react-19.md)
 
 ## NEXT JS
 
