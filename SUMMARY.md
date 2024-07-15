@@ -8,7 +8,6 @@
   * [특정 줄수에서 말줄임 처리 👉🏻 line-clamp](css/tailwindcss/line-clamp.md)
   * [이미지 1:1 👉🏻 aspect-square](css/tailwindcss/image-ratio-square.md)
   * [말줄임 처리 👉🏻 truncate](css/tailwindcss/truncate.md)
-  * [Page](css/tailwindcss/page.md)
   * [TailwindCSS Tricks](css/tailwindcss/tailwindcss-tricks.md)
 * [\<a>\</a> 클릭 영역 설정](css/how-to-increase-clickable-area-of-a-tag.md)
 * [absolute 요소 중앙정렬](css/absolute.md)
@@ -108,6 +107,7 @@
   * [Cameras](other-libraries/three.js-basics/cameras.md)
   * [Geometries](other-libraries/three.js-basics/geometries.md)
   * [Textures](other-libraries/three.js-basics/textures.md)
+  * [Lights](other-libraries/three.js-basics/lights.md)
 * [React Three Fiber](other-libraries/react-three-fiber.md)
 
 ## ALGORITHM
@@ -134,11 +134,6 @@
 
 * [PostgreSQL](error/postgresql/README.md)
   * [Can't reach database server at \`localhost\`:\`5432\`](error/postgresql/cant-reach-database-server-at-localhost-5432.md)
-
-## certificate
-
-* [정보처리기사](certificate/undefined/README.md)
-  * [Page 1](certificate/undefined/page-1.md)
 
 ## react native
 
