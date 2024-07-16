@@ -77,6 +77,7 @@
 * [클래스 이름을 동적으로 적용하기](next-js/dynamic-classnames.md)
 * [fetchData를 병렬로 가져오기](next-js/fetch-data-parallel.md)
 * [병렬 라우팅(Parallel Routes)](next-js/parallel-routes.md)
+* [인터셉팅 라우팅(Intercepting Routes)](next-js/intercepting-routes.md)
 * [metadata를 동적으로 적용하기](next-js/dynamic-metadata.md)
 * [NextAuth 카카오 로그인](next-js/nextauth.md)
 * [이미지를 업로드하는 컴포넌트 구현하기](next-js/undefined.md)
