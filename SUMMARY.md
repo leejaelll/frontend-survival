@@ -85,6 +85,7 @@
 * [이미지를 업로드하는 컴포넌트 구현하기](next-js/undefined.md)
 * [Server actions 기능 사용하기](next-js/server-actions.md)
 * [Form 컴포넌트 구현하기 (+ shadcn/ui)](next-js/form-+-shadcn-ui.md)
+* [외부 이미지 적용하기](next-js/undefined-1.md)
 
 ## DATABASE
 
