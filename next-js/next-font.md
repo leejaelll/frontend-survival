@@ -1,6 +1,6 @@
 # 폰트 적용하기
 
-### Local Font 적용
+## Local Font 적용
 
 public폴더 혹은 resource/font 폴더를 만들어 로컬 폰트를 넣어준다.
 
@@ -114,7 +114,7 @@ const config: Config = {
 
 
 
-### Google Font 적용
+## Google Font 적용
 
 next/font/google에서 적용하고자 하는 폰트를 import 해온다.
 
@@ -149,3 +149,40 @@ export default function RootLayout({
   );
 }
 ```
+
+
+
+### 폰트를 여러 개 적용해야 하는 경우
+
+{% code title="layout.tsx" %}
+```typescript
+import { Bungee } from 'next/font/google';
+
+const bungee = Bungee({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--bungee',
+});
+```
+{% endcode %}
+
+{% code title="tailwind.config.ts" %}
+```typescript
+ extend: {
+      fontFamily: {
+        bungee: ['var(--bungee)'],
+        pretendard: ['Pretendard-Regular'],
+      },
+```
+{% endcode %}
+
+
+
+className에 전달하고 사용할 곳에서 `font-bungee` 와 같이 적용한다.&#x20;
+
+```typescriptreact
+<body className={cn(bungee.variable, 'bg-[#030014] overflow-y-scroll overflow-x-hidden h-svh font-pretendard')}>{children}</body>
+```
+
+
+
