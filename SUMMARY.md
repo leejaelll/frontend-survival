@@ -139,6 +139,8 @@
 
 ## error
 
+* [TypeScript](error/typescript/README.md)
+  * [Cannot find name 'require'.](error/typescript/cannot-find-name-require..md)
 * [PostgreSQL](error/postgresql/README.md)
   * [Can't reach database server at \`localhost\`:\`5432\`](error/postgresql/cant-reach-database-server-at-localhost-5432.md)
 
