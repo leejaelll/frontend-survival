@@ -120,7 +120,9 @@
 ## ALGORITHM
 
 * [효율성](algorithm/undefined/README.md)
-  * [두 배열 합치기 - Two Pointers Algorithm](algorithm/undefined/two-pointers-algorithm.md)
+  * [Two Pointers Algorithm](algorithm/undefined/two-pointers-algorithm/README.md)
+    * [두 배열 합치기](algorithm/undefined/two-pointers-algorithm/undefined.md)
+    * [공통원소 구하기](algorithm/undefined/two-pointers-algorithm/undefined-1.md)
   * [베스트앨범 - Hash](algorithm/undefined/hash.md)
   * [학급 회장 - Hash](algorithm/undefined/hash-1.md)
   * [아나그램 - Hash](algorithm/undefined/hash-2.md)
