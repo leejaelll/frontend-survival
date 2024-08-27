@@ -137,7 +137,7 @@
 ## typescript
 
 * [Partial 활용하기](group-1/partial.md)
-* [Readonly 사용하기](group-1/readonly.md)
+* [Readonly](group-1/readonly.md)
 * [Polymorphic 컴포넌트를 사용한 유연한 UI 패턴 만들기](typescript/polymorphic-ui.md)
 
 ## error
