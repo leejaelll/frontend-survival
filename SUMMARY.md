@@ -86,7 +86,16 @@
 * [이미지를 업로드하는 컴포넌트 구현하기](next-js/undefined.md)
 * [Server actions 기능 사용하기](next-js/server-actions.md)
 * [Form 컴포넌트 구현하기 (+ shadcn/ui)](next-js/form-+-shadcn-ui.md)
-* [외부 이미지 적용하기](next-js/undefined-1.md)
+* [offsetWidth와 Height를 감지하는 커스텀훅 만들기 👉🏻 useDimensions](next-js/offsetwidth-height-usedimensions.md)
+
+## error
+
+* [Next.js](error/next.js/README.md)
+  * [외부 이미지 적용하기](error/next.js/undefined.md)
+* [TypeScript](error/typescript/README.md)
+  * [Cannot find name 'require'.](error/typescript/cannot-find-name-require..md)
+* [PostgreSQL](error/postgresql/README.md)
+  * [Can't reach database server at \`localhost\`:\`5432\`](error/postgresql/cant-reach-database-server-at-localhost-5432.md)
 
 ## DATABASE
 
@@ -140,13 +149,6 @@
 * [Partial 활용하기](group-1/partial.md)
 * [Readonly](group-1/readonly.md)
 * [Polymorphic 컴포넌트를 사용한 유연한 UI 패턴 만들기](typescript/polymorphic-ui.md)
-
-## error
-
-* [TypeScript](error/typescript/README.md)
-  * [Cannot find name 'require'.](error/typescript/cannot-find-name-require..md)
-* [PostgreSQL](error/postgresql/README.md)
-  * [Can't reach database server at \`localhost\`:\`5432\`](error/postgresql/cant-reach-database-server-at-localhost-5432.md)
 
 ## react native
 
