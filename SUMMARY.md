@@ -143,6 +143,7 @@
 * [Provider 패턴](frontend/provider.md)
 * [Compound 패턴](frontend/compound.md)
 * [Command 패턴](frontend/command.md)
+* [Singleton 패턴](frontend/singleton.md)
 
 ## typescript
 
