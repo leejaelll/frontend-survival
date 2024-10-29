@@ -120,10 +120,3 @@ exprot defualt Grimpan;
 
 ➡️ getInstance 메서드를 사용해서 객체를 가져올 경우 클래스 내부에 instance 선언이 가능하다. \
 (단, instance도 static 이어야 한다.)
-
-
-
-#### 싱글턴의 단점
-
-* private: 테스트가 어렵다.
-* getInstance: 단일책임원칙을 위반한다.&#x20;
