@@ -125,6 +125,8 @@
   * [Textures](other-libraries/three.js-basics/textures.md)
   * [Lights](other-libraries/three.js-basics/lights.md)
 * [React Three Fiber](other-libraries/react-three-fiber.md)
+* [GSAP](other-libraries/gsap/README.md)
+  * [마우스 이동에 따라 HTML 요소 움직이기 👉🏻 quickTo()](other-libraries/gsap/html-quickto.md)
 * [react-markdown에 iframe tag 적용하기](other-libraries/react-markdown-iframe-tag.md)
 
 ## ALGORITHM
