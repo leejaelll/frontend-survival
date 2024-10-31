@@ -87,6 +87,7 @@
 * [Server actions 기능 사용하기](next-js/server-actions.md)
 * [Form 컴포넌트 구현하기 (+ shadcn/ui)](next-js/form-+-shadcn-ui.md)
 * [offsetWidth와 Height를 감지하는 커스텀훅 만들기 👉🏻 useDimensions](next-js/offsetwidth-height-usedimensions.md)
+* [client side에서 캐시를 효율적으로 관리하는 방법 👉🏻 staleTimes](next-js/client-side-staletimes.md)
 
 ## error
 
@@ -117,6 +118,8 @@
 
 ## OTHER LIBRARIES
 
+* [GSAP](other-libraries/gsap/README.md)
+  * [마우스 이동에 따라 HTML 요소 움직이기 👉🏻 quickTo()](other-libraries/gsap/html-quickto.md)
 * [Three.js Basics](other-libraries/three.js-basics/README.md)
   * [Transform objects](other-libraries/three.js-basics/transform-objects.md)
   * [Animations](other-libraries/three.js-basics/animations.md)
@@ -125,8 +128,6 @@
   * [Textures](other-libraries/three.js-basics/textures.md)
   * [Lights](other-libraries/three.js-basics/lights.md)
 * [React Three Fiber](other-libraries/react-three-fiber.md)
-* [GSAP](other-libraries/gsap/README.md)
-  * [마우스 이동에 따라 HTML 요소 움직이기 👉🏻 quickTo()](other-libraries/gsap/html-quickto.md)
 * [react-markdown에 iframe tag 적용하기](other-libraries/react-markdown-iframe-tag.md)
 
 ## ALGORITHM
