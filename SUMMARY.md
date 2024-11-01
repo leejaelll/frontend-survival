@@ -120,6 +120,7 @@
 
 * [GSAP](other-libraries/gsap/README.md)
   * [마우스 이동에 따라 HTML 요소 움직이기 👉🏻 quickTo()](other-libraries/gsap/html-quickto.md)
+  * [스크롤 애니메이션 효과 구현하기 👉🏻 ScrollTrigger](other-libraries/gsap/scrolltrigger.md)
 * [Three.js Basics](other-libraries/three.js-basics/README.md)
   * [Transform objects](other-libraries/three.js-basics/transform-objects.md)
   * [Animations](other-libraries/three.js-basics/animations.md)
