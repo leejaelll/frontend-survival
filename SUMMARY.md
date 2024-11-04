@@ -23,6 +23,7 @@
 * [Proxy 객체 활용하기](javascript/proxy.md)
 * [두 배열의 겹치는 값 찾기 👉🏻 Set](javascript/set.md)
 * [URL 쿼리 파라미터 객체로 변환하기 👉🏻 Object.fromEntries()](javascript/url-object.fromentries.md)
+* [무한 스크롤 텍스트 구현하기 👉🏻 requestAnimationFrame](javascript/requestanimationframe.md)
 
 ## REACT
 
