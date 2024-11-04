@@ -132,6 +132,8 @@
 * [React Three Fiber](other-libraries/react-three-fiber.md)
 * [react-markdown](other-libraries/react-markdown/README.md)
   * [markdown에 iframe 동영상 적용하기](other-libraries/react-markdown/markdown-iframe.md)
+* [framer-motion](other-libraries/framer-motion/README.md)
+  * [useScroll](other-libraries/framer-motion/usescroll.md)
 
 ## ALGORITHM
 
