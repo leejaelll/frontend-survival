@@ -135,6 +135,7 @@
 * [Framer Motion](other-libraries/framer-motion/README.md)
   * [COMPONENTS](other-libraries/framer-motion/components/README.md)
     * [Toggles](other-libraries/framer-motion/components/toggles.md)
+    * [Vanish Text](other-libraries/framer-motion/components/vanish-text.md)
   * [Background Image Parallax](other-libraries/framer-motion/background-image-parallax.md)
   * [useScroll](other-libraries/framer-motion/usescroll.md)
 
