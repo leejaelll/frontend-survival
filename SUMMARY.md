@@ -130,9 +130,11 @@
   * [Textures](other-libraries/three.js-basics/textures.md)
   * [Lights](other-libraries/three.js-basics/lights.md)
 * [React Three Fiber](other-libraries/react-three-fiber.md)
-* [react-markdown](other-libraries/react-markdown/README.md)
+* [React Markdown](other-libraries/react-markdown/README.md)
   * [markdown에 iframe 동영상 적용하기](other-libraries/react-markdown/markdown-iframe.md)
-* [framer-motion](other-libraries/framer-motion/README.md)
+* [Framer Motion](other-libraries/framer-motion/README.md)
+  * [COMPONENTS](other-libraries/framer-motion/components/README.md)
+    * [Toggles](other-libraries/framer-motion/components/toggles.md)
   * [Background Image Parallax](other-libraries/framer-motion/background-image-parallax.md)
   * [useScroll](other-libraries/framer-motion/usescroll.md)
 
