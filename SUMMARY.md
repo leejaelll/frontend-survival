@@ -8,6 +8,7 @@
   * [특정 줄수에서 말줄임 처리 👉🏻 line-clamp](css/tailwindcss/line-clamp.md)
   * [이미지 1:1 👉🏻 aspect-square](css/tailwindcss/image-ratio-square.md)
   * [말줄임 처리 👉🏻 truncate](css/tailwindcss/truncate.md)
+  * [선택된 텍스트의 스타일 처리 👉🏻 selection](css/tailwindcss/selection.md)
   * [TailwindCSS Tricks](css/tailwindcss/tailwindcss-tricks.md)
 * [\<a>\</a> 클릭 영역 설정](css/how-to-increase-clickable-area-of-a-tag.md)
 * [absolute 요소 중앙정렬](css/absolute.md)
