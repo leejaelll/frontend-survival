@@ -141,6 +141,7 @@
   * [Background Image Parallax](other-libraries/framer-motion/background-image-parallax.md)
   * [useScroll](other-libraries/framer-motion/usescroll.md)
   * [스크롤 방향에 따라 움직이는 텍스트, 스크롤 강도에 따라 기울기 적용하기](other-libraries/undefined.md)
+  * [테두리 애니메이션 효과](other-libraries/framer-motion/undefined-1.md)
 
 ## ALGORITHM
 
