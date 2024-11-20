@@ -2,9 +2,9 @@
 
 스크롤에 따라 텍스트가 움직이는 효과를 주면서 스크롤 강도에 따라 텍스트의 기울기가 변화하는 효과를 구현하고 싶었다.&#x20;
 
-<figure><img src="../../.gitbook/assets/스크린샷 2024-11-19 오후 7.00.38.png" alt=""><figcaption><p> </p></figcaption></figure>
+<figure><img src="../.gitbook/assets/스크린샷 2024-11-19 오후 7.00.38.png" alt=""><figcaption><p> </p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/스크린샷 2024-11-19 오후 6.55.48.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/스크린샷 2024-11-19 오후 6.55.48.png" alt=""><figcaption></figcaption></figure>
 
 
 

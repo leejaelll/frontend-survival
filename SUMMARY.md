@@ -14,6 +14,7 @@
 * [absolute 요소 중앙정렬](css/absolute.md)
 * [SVG를 배경으로 사용하기](css/svg.md)
 * [텍스트 균등 정렬 👉🏻 text-align](css/text-align-justify.md)
+* [그라데이션 그리드 배경 구현하기](css/undefined.md)
 
 ## JAVASCRIPT
 
@@ -139,7 +140,7 @@
     * [Vanish Text](other-libraries/framer-motion/components/vanish-text.md)
   * [Background Image Parallax](other-libraries/framer-motion/background-image-parallax.md)
   * [useScroll](other-libraries/framer-motion/usescroll.md)
-  * [스크롤 방향에 따라 움직이는 텍스트, 스크롤 강도에 따라 기울기 적용하기](other-libraries/framer-motion/undefined.md)
+  * [스크롤 방향에 따라 움직이는 텍스트, 스크롤 강도에 따라 기울기 적용하기](other-libraries/undefined.md)
 
 ## ALGORITHM
 
