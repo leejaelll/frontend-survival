@@ -9,7 +9,7 @@
 JSX는 React를 만들면서 나온 리액트의 부산물과 같다.하지만 JSX를 리액트에서만 사용하는 것은 아니다. Vue.js에서도 JSX를 사용할 수 있다.
 
 {% hint style="info" %}
-#### JSX는 HTML이 아니다
+**JSX는 HTML이 아니다**
 
 HTML과 매우 비슷하게 생겼지만, XML과 비슷한 특징을 가지고 있다.
 
@@ -36,7 +36,7 @@ var dropdown =
 render(dropdown);
 ```
 
-JSX코드를 JavaScript 코드로 변환하는 방법 👉🏻 변환기 중 제일 유명한 [Babel](https://babeljs.io/repl#?browsers=defaults%2C%20not%20ie%2011%2C%20not%20ie\_mob%2011\&build=\&builtIns=false\&corejs=3.21\&spec=false\&loose=false\&code\_lz=Q\&debug=false\&forceAllTransforms=false\&modules=false\&shippedProposals=false\&circleciRepo=\&evaluate=false\&fileSize=false\&timeTravel=false\&sourceType=module\&lineWrap=true\&presets=env%2Creact%2Cstage-2\&prettier=false\&targets=\&version=7.21.3\&externalPlugins=\&assumptions=%7B%7D)로 확인 가능.
+JSX코드를 JavaScript 코드로 변환하는 방법 👉🏻 변환기 중 제일 유명한 [Babel](https://babeljs.io/repl#?browsers=defaults%2C%20not%20ie%2011%2C%20not%20ie_mob%2011\&build=\&builtIns=false\&corejs=3.21\&spec=false\&loose=false\&code_lz=Q\&debug=false\&forceAllTransforms=false\&modules=false\&shippedProposals=false\&circleciRepo=\&evaluate=false\&fileSize=false\&timeTravel=false\&sourceType=module\&lineWrap=true\&presets=env%2Creact%2Cstage-2\&prettier=false\&targets=\&version=7.21.3\&externalPlugins=\&assumptions=%7B%7D)로 확인 가능.
 
 > “Presets”에서 “react”를 체크하거나, “Plugins”에서 “@babel/plugin-transform-react-jsx”를 추가하면 JSX를 실험할 수 있다.
 
@@ -349,7 +349,7 @@ React.createElement자바스크립트로도 작성할 수 있다. 하지만 JSX�
 
 ### Syntactic sugar
 
-[Syntactic\_sugar](https://en.wikipedia.org/wiki/Syntactic\_sugar)
+[Syntactic\_sugar](https://en.wikipedia.org/wiki/Syntactic_sugar)
 
 컴퓨터 과학 용어로, Syntactic sugar는 프로그래밍 언어 내에서 더 쉽게 읽거나 표현할 수 있도록 설계된 구문
 
@@ -368,7 +368,7 @@ React.createElement자바스크립트로도 작성할 수 있다. 하지만 JSX�
 [createElement](https://beta.reactjs.org/reference/react/createElement#reference)
 
 createElement를 사용하면 React element를 생성할 수 있다.\
-_(React.createElement는 JSX코드와 1대1로 매칭된다.)_
+&#xNAN;_(React.createElement는 JSX코드와 1대1로 매칭된다.)_
 
 ```jsx
 React.createElement(type, [props], [...children]);

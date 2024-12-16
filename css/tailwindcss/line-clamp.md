@@ -18,7 +18,7 @@
 ### `-webkit-line-clamp`
 
 * block 요소를 지정된 줄 수로 제한할 수 있는 CSS 속성
-* _<mark style="background-color:red;">**display 속성이**</mark><mark style="background-color:red;">** **</mark><mark style="background-color:red;">**`-webkit-box`**</mark><mark style="background-color:red;">** **</mark><mark style="background-color:red;">**또는**</mark><mark style="background-color:red;">** **</mark><mark style="background-color:red;">**`-webkit-inline-box`**</mark><mark style="background-color:red;">**인 경우에만 동작**</mark>_한다.
+* _<mark style="background-color:red;">**display 속성이**</mark><mark style="background-color:red;">**&#x20;**</mark><mark style="background-color:red;">**`-webkit-box`**</mark><mark style="background-color:red;">**&#x20;**</mark><mark style="background-color:red;">**또는**</mark><mark style="background-color:red;">**&#x20;**</mark><mark style="background-color:red;">**`-webkit-inline-box`**</mark><mark style="background-color:red;">**인 경우에만 동작**</mark>_&#xD55C;다.
 * overflow:hidden으로 설정하면 지정된 줄 수 뒤에 줄임표를 표시할 수 있다.
 
 ```tsx

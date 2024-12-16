@@ -17,7 +17,7 @@
 
 * absolute 요소를 움직이기 위해서는 top, left를 사용해야 한다.
 * x축을 기준으로 중앙정렬을 하기 위해선 left: 50%로 이동시킨다.
-* left:50%만큼 이동시키면 absolute의 요소 시작지점을 기준으로 containing block의 50%만큼 이동한다. 👉🏻 _<mark style="background-color:purple;">**이때 사용하는 것이**</mark><mark style="background-color:purple;">** **</mark><mark style="background-color:purple;">**`transform`**</mark><mark style="background-color:purple;">**속성**</mark>_
+* left:50%만큼 이동시키면 absolute의 요소 시작지점을 기준으로 containing block의 50%만큼 이동한다. 👉🏻 _<mark style="background-color:purple;">**이때 사용하는 것이**</mark><mark style="background-color:purple;">**&#x20;**</mark><mark style="background-color:purple;">**`transform`**</mark><mark style="background-color:purple;">**속성**</mark>_
 
 <figure><img src="../.gitbook/assets/231124-1.png" alt=""><figcaption></figcaption></figure>
 

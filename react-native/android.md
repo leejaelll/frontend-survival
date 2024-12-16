@@ -14,7 +14,7 @@ coverY: 0
 ## **version 높이기**
 
 **가장 먼저 해야할 일은 `app.config.js` 파일에서 version, buildNumber, versionCode를 높이는 것.**\
-_**(동일한 버전으로는 심사를 받을 수 없다.)**_
+&#xNAN;_**(동일한 버전으로는 심사를 받을 수 없다.)**_
 
 ```javascript
 version: "24.23.0",
@@ -37,11 +37,7 @@ versionCode: 58,
 
 **file -> open project**
 
-<div align="left">
-
-<figure><img src="../.gitbook/assets/스크린샷 2024-06-05 오후 12.49.22.png" alt="" width="375"><figcaption></figcaption></figure>
-
-</div>
+<div align="left"><figure><img src="../.gitbook/assets/스크린샷 2024-06-05 오후 12.49.22.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 <figure><img src="../.gitbook/assets/스크린샷 2024-06-05 오후 12.53.11.png" alt=""><figcaption></figcaption></figure>
 
@@ -72,26 +68,14 @@ _**ERROR**_
 
 <figure><img src="../.gitbook/assets/스크린샷 2024-06-05 오후 1.01.42.png" alt=""><figcaption></figcaption></figure>
 
-<div align="left">
-
-<figure><img src="../.gitbook/assets/스크린샷 2024-06-05 오후 12.10.51.png" alt="" width="375"><figcaption></figcaption></figure>
-
-</div>
+<div align="left"><figure><img src="../.gitbook/assets/스크린샷 2024-06-05 오후 12.10.51.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 * **Android App Bundle: Google Play에 실사용 애플리케이션을 올려야할 때 사용**
 * **APK: 테스트용으로 빌드할 때 사용**
 
-<div align="left">
+<div align="left"><figure><img src="../.gitbook/assets/스크린샷 2024-06-05 오후 1.05.38.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
-<figure><img src="../.gitbook/assets/스크린샷 2024-06-05 오후 1.05.38.png" alt="" width="375"><figcaption></figcaption></figure>
-
-</div>
-
-<div align="left">
-
-<figure><img src="../.gitbook/assets/스크린샷 2024-06-05 오전 11.55.26.png" alt="" width="375"><figcaption></figcaption></figure>
-
-</div>
+<div align="left"><figure><img src="../.gitbook/assets/스크린샷 2024-06-05 오전 11.55.26.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 * **release create 👉🏻 성공적으로 빌드가 되었다면 release 폴더가 생성된다. `(app-release.apk)`**
 
