@@ -96,7 +96,7 @@
 ## error
 
 * [Next.js](error/next.js/README.md)
-  * [hostname \[hostname\] is not configured under images in your next.config.js](error/next.js/hostname-hostname-is-not-configured-under-images-in-your-next.config.js.md)
+  * [hostname \[hostname\] is not configured under images in your next.config.js](error/next.js/undefined.md)
 * [TypeScript](error/typescript/README.md)
   * [Cannot find name 'require'.](error/typescript/cannot-find-name-require..md)
 * [PostgreSQL](error/postgresql/README.md)
