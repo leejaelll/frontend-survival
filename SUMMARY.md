@@ -14,6 +14,7 @@
 * [absolute 요소 중앙정렬](css/absolute.md)
 * [SVG를 배경으로 사용하기](css/svg.md)
 * [텍스트 균등 정렬 👉🏻 text-align](css/text-align-justify.md)
+* [absolute 요소가 클릭영역을 방해할때 👉🏻 pointer-events:none](css/absolute-pointer-events-none.md)
 * [그라데이션 그리드 배경 구현하기](css/undefined.md)
 
 ## JAVASCRIPT
