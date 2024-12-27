@@ -1,4 +1,4 @@
-# 외부 이미지 적용하기
+# hostname \[hostname] is not configured under images in your next.config.js
 
 {% hint style="danger" %}
 Error: Invalid src prop (https://disarli-storage.s3.us-east-2.amazonaws.com/user/clzauirgl0000ssslsg69sexf/chatbots/2gc5nvdMhZRoH4kxABcmw.jpeg) on `next/image`, hostname "disarli-storage.s3.us-east-2.amazonaws.com" is not configured under images in your `next.config.js`

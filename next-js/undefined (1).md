@@ -2,19 +2,11 @@
 description: shadcn의 input 컴포넌트로  이미지 등록 버튼을 클릭했을 때, 파일 창이 열리도록 구현
 ---
 
-# 이미지 등록 컴포넌트 구현하기
+# 이미지를 업로드하는 컴포넌트 구현하기
 
-<div align="left">
+<div align="left"><figure><img src="../.gitbook/assets/240411-1.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
-<figure><img src="../.gitbook/assets/240411-1.png" alt="" width="375"><figcaption></figcaption></figure>
-
-</div>
-
-<div align="left">
-
-<figure><img src="../.gitbook/assets/240411-2.png" alt="" width="375"><figcaption></figcaption></figure>
-
-</div>
+<div align="left"><figure><img src="../.gitbook/assets/240411-2.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 👉🏻 이미지 등록 버튼을 클릭하면 파일 창이 열리고, 업로드한 이미지가 보이는 기능을 구현해야 했다.&#x20;
 
