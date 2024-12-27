@@ -76,6 +76,7 @@
 
 * [Documents](next-js/documents/README.md)
   * [Authentication](next-js/documents/authentication.md)
+* [외부 이미지 적용하기](next-js/undefined.md)
 * [폰트 적용하기](next-js/next-font.md)
 * [Not Found Page 만들기](next-js/not-found-page.md)
 * [viewport에 따라 이미지 반응형 적용하기](next-js/image-responsive.md)
@@ -86,7 +87,7 @@
 * [인터셉팅 라우팅(Intercepting Routes)](next-js/intercepting-routes.md)
 * [metadata를 동적으로 적용하기](next-js/dynamic-metadata.md)
 * [NextAuth 카카오 로그인](next-js/nextauth.md)
-* [이미지를 업로드하는 컴포넌트 구현하기](next-js/undefined.md)
+* [이미지를 업로드하는 컴포넌트 구현하기](next-js/undefined-1.md)
 * [Server actions 기능 사용하기](next-js/server-actions.md)
 * [Form 컴포넌트 구현하기 (+ shadcn/ui)](next-js/form-+-shadcn-ui.md)
 * [offsetWidth와 Height를 감지하는 커스텀훅 만들기 👉🏻 useDimensions](next-js/offsetwidth-height-usedimensions.md)
@@ -95,7 +96,7 @@
 ## error
 
 * [Next.js](error/next.js/README.md)
-  * [외부 이미지 적용하기](error/next.js/undefined.md)
+  * [hostname \[hostname\] is not configured under images in your next.cofig.js](error/next.js/hostname-hostname-is-not-configured-under-images-in-your-next.cofig.js.md)
 * [TypeScript](error/typescript/README.md)
   * [Cannot find name 'require'.](error/typescript/cannot-find-name-require..md)
 * [PostgreSQL](error/postgresql/README.md)
